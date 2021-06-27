@@ -1,0 +1,20 @@
+import React from "react";
+
+export default function PasswordChanged() {
+    setTimeout(() => {
+        console.log("End");
+    }, 5000);
+  return (
+    <div className="successfull">
+      <div className="successfull-content">
+        <div className="successfull-text">
+          <h3>Password Changed</h3>
+          <p>Your Password has been changed successfully</p>
+        </div>
+        <div className="successfull-row-2">
+          <img src="images/succesess.png" />
+        </div>
+      </div>
+    </div>
+  );
+}

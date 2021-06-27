@@ -1,0 +1,108 @@
+.admin-logIn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.admin-input {
+  border: 1px solid #dcdcdc6b;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px 0px #00000040 inset;
+  padding: 15px;
+  width: 100%;
+  font-family: Segoe UI;
+  font-size: 24px;
+  letter-spacing: 0.15em; 
+  padding-right: 30px;
+}
+.logIn-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e7e2e2;
+  width: 100%;
+  padding: 7vh 0;
+}
+.container-visitor {
+  width: 52vw;
+}
+.logIn-header h1 {
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 63px;
+  letter-spacing: 0.12em;
+}
+.logIn-content {
+    padding-top: 20vh;
+}
+.email-input,
+.password-input {
+  position: relative;
+}
+.email-user-icon,
+.lock-icon {
+  position: absolute;
+  right: 1vw;
+  top:50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+}
+.email-user-icon {
+  background-image: url("../../images/logIn-user.png");
+}
+.password-input {
+  margin: 4vh 0 2vh 0;
+}
+.lock-icon {
+  background-image: url("../../images/login-lock-icon.png");
+}
+.forget-password {
+  color: #000000;
+  margin-left: 25px;
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.05em;
+}
+.logiIn-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+.admin-logIn-btn { 
+  font-family: Segoe UI;
+  border: none; 
+  border-radius: 5px;
+  background: #434b62;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 1.5vh 4vw;
+  cursor: pointer;
+}
+.remember-input {
+  height: 23px;
+  width: 23px;
+  border-radius: 5px;
+  border: 1px solid #7474746b;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.remember-checkbox {
+  display: flex;
+  margin-top: 5vh;
+}
+.remember-checkbox p {
+  font-family: Segoe UI;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}

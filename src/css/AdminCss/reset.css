@@ -1,0 +1,84 @@
+.reset-password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reset-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e7e2e2;
+  width: 100%;
+  padding: 7vh 0;
+}
+.reset-header h1 {
+  font-size: 50px;
+  font-style: normal;
+  font-family: Segoe UI;
+  font-weight: 400;
+}
+.reset-content {
+  padding-top: 20vh;
+  width: 50vw;
+}
+.reset-btn {
+  font-family: Segoe UI;
+  border: none;
+  border-radius: 5px;
+  background: #434b62;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 1vh 3.5vw;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0.2em;
+}
+.reset-send-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+.reset-content {
+  display: flex;
+  justify-content: center;
+}
+.code-input {
+  margin: 1vw;
+  border: 1px solid #dcdcdc6b;
+  height: 5vh;
+  text-align: center;
+  width: 4vw;
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px 0px #00000040 inset;
+  font-size: 28px;
+}
+.successfull {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.successfull-content {
+  height: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.successfull-text h3,
+.successfull-text p {
+  font-family: Segoe UI;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0.05em;
+  margin: 2vh 0 ;
+}
+.successfull-row-2 {
+  display: flex;
+  justify-content: center;
+}

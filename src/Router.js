@@ -1,20 +1,70 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Main from "./components/Main";
 import HomePageMenu from "./pages/Home/HomePageMenu";
 import StudioTeam from "./pages/Studio/StudioTeam";
 import StudioVideos from "./pages/Studio/StudioVideos";
 import StudioCredits from "./pages/Studio/StudioCredits";
 import SelectedProjects from "./pages/Residential/SelectedProjects";
 import InProgresProjects from "./pages/Residential/InProgresProjects";
+import AdminLogIn from "./pages/Form/AdminLogIn";
+import ResetPassword from "./pages/Form/ResetPassword";
+import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
+import ChangePassword from "./pages/Form/ChangePassword";
+import PasswordChanged from "./pages/Form/PasswordChanged";
 
-<Router>
-  <Switch>
-    <Route exact path="/" component={Main} />
-    <Route exact path="/homepage/menu" component={HomePageMenu} />
-    <Route exact path="/studio/team" component={StudioTeam} />
-    <Route exact path="/studio/videos" component={StudioVideos} />
-    <Route exact path="/studio/credits" component={StudioCredits} />
-    <Route exact path="/residential/selected-projects" component={SelectedProjects} />
-    <Route exact path="/residential/in-progres-projects" component={InProgresProjects} />
-  </Switch>
-</Router>;
+export const routes = [
+    {
+        path:"/log-in",
+        isExact:true,
+        component:AdminLogIn
+    },
+    {
+        path:"/reset-password",
+        isExact:true,
+        component:ResetPassword
+    },
+    {
+        path:"/reset-password-code",
+        isExact:true,
+        component:ResetPasswordCode
+    },
+    {
+        path:"/change-password",
+        isExact:true,
+        component:ChangePassword
+    },
+    {
+        path:"/password-changed",
+        isExact:true,
+        component:PasswordChanged
+    },
+    
+    {
+        path:"/homepage/menu",
+        isExact:true,
+        component:HomePageMenu
+    },
+    {
+        path:"/studio/team",
+        isExact:true,
+        component:StudioTeam
+    },
+    {
+        path:"/studio/videos",
+        isExact:true,
+        component:StudioVideos
+    },
+    {
+        path:"/studio/credits",
+        isExact:true,
+        component:StudioCredits
+    },
+    {
+        path:"/residential/selected-projects",
+        isExact:true,
+        component:SelectedProjects
+    },
+    {
+        path:"/residential/in-progres-projects",
+        isExact:true,
+        component:InProgresProjects
+    },
+]
