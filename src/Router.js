@@ -1,4 +1,4 @@
-import HomePageMenu from "./pages/Home/HomePageMenu";
+import HomePage from "./pages/Home/HomePage";
 import StudioTeam from "./pages/Studio/StudioTeam";
 import StudioVideos from "./pages/Studio/StudioVideos";
 import StudioCredits from "./pages/Studio/StudioCredits";
@@ -40,7 +40,7 @@ export const routes = [
     {
         path:"/homepage/menu",
         isExact:true,
-        component:HomePageMenu
+        component:HomePage
     },
     {
         path:"/studio/team",

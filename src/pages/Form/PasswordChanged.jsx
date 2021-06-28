@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function PasswordChanged() {
+export default function PasswordChanged({history}) {
     setTimeout(() => {
-        console.log("End");
-    }, 5000);
+        history.push("/homepage/menu")
+    }, 2000);
   return (
     <div className="successfull">
       <div className="successfull-content">

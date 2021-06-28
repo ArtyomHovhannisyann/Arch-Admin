@@ -1,0 +1,60 @@
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+.home-left-bar {
+  padding: 2vw 10vw;
+}
+.home-header {
+  margin-bottom: 5vh;
+}
+.home-header h1 {
+  font-family: Source Serif Pro;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 63px;
+  letter-spacing: 0.12em;
+}
+.pages-menu dd {
+  cursor: pointer;
+}
+.pages-menu dd,
+.pages-menu dt {
+  font-family: Segoe UI;
+  padding: 0.5vh 0;
+}
+.pages-menu {
+  padding-right: 5vw;
+}
+.home-pageheader {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #0f1938;
+}
+.pages {
+  border-right: 1px solid #00000078;
+}
+.home-content {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: relative;
+}
+.home-content-img {
+  width: 50vw;
+}
+.admin-welcome {
+  font-family: Segoe UI;
+  position: absolute;
+  top: 35vh;
+  left: -3vw;
+  /* font-size: 50px; */
+  font-weight: 300;
+  line-height: 55px;
+  letter-spacing: 0.07em;
+  color: #000;
+}
