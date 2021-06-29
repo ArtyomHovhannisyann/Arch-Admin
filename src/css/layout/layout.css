@@ -1,0 +1,48 @@
+.layout {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  padding-top: 3vh;
+}
+.layout-left-bar {
+  padding: 0 3vw 0 10vw;
+}
+.layout-content {
+  width: inherit;
+}
+.layout-header {
+  margin-bottom: 5vh;
+}
+.layout-content-info {
+  display: flex;
+  color: #0f1938;
+}
+.layout-content-header {
+  border-bottom: 1px solid #00000078;
+  width: 100%;
+}
+.layout-content-info-name {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+}
+.layout-content-info-header {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+}
+.layout-header-pages {
+  display: flex;
+}
+.layout-header-pages p {
+  font-family: Segoe UI;
+  margin: 0.2vw 1.3vw 0.2vw 0;
+  font-weight: 300;
+  cursor: pointer;
+}
+.active {
+  font-weight: 500 !important;
+}

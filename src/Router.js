@@ -9,6 +9,7 @@ import ResetPassword from "./pages/Form/ResetPassword";
 import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
 import ChangePassword from "./pages/Form/ChangePassword";
 import PasswordChanged from "./pages/Form/PasswordChanged";
+import HomePageMenu from "./pages/Home/HomePageMenu";
 
 export const routes = [
     {
@@ -38,9 +39,14 @@ export const routes = [
     },
     
     {
-        path:"/homepage/menu",
+        path:"/homepage",
         isExact:true,
         component:HomePage
+    },
+    {
+        path:"/homepage/menu",
+        isExact:true,
+        component:HomePageMenu
     },
     {
         path:"/studio/team",
@@ -64,6 +70,16 @@ export const routes = [
     },
     {
         path:"/residential/in-progres-projects",
+        isExact:true,
+        component:InProgresProjects
+    },
+    {
+        path:"/Housing/selected-projects",
+        isExact:true,
+        component:InProgresProjects
+    },
+    {
+        path:"/Housing/in-progres-projects",
         isExact:true,
         component:InProgresProjects
     },

@@ -2,12 +2,6 @@
   display: flex;
   justify-content: space-between;
 }
-.home-left-bar {
-  padding: 2vw 10vw;
-}
-.home-header {
-  margin-bottom: 5vh;
-}
 .home-header h1 {
   font-family: Source Serif Pro;
   font-size: 50px;
@@ -42,6 +36,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
+  height: 100vh;
   position: relative;
 }
 .home-content-img {
@@ -49,12 +44,12 @@
 }
 .admin-welcome {
   font-family: Segoe UI;
-  position: absolute;
-  top: 35vh;
-  left: -3vw;
-  /* font-size: 50px; */
+  font-size: 2.6vw;
   font-weight: 300;
-  line-height: 55px;
-  letter-spacing: 0.07em;
+  width: max-content;
   color: #000;
+  position: absolute;
+  top: 44.5%;
+  transform: translateY(-50%);  
+  left: -9%; 
 }
