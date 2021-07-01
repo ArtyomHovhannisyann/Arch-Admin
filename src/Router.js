@@ -10,6 +10,7 @@ import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
 import ChangePassword from "./pages/Form/ChangePassword";
 import PasswordChanged from "./pages/Form/PasswordChanged";
 import HomePageMenu from "./pages/Home/HomePageMenu";
+import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
 
 export const routes = [
     {
@@ -44,9 +45,14 @@ export const routes = [
         component:HomePage
     },
     {
-        path:"/homepage/menu",
+        path:"/homepage/menu/Pictures",
         isExact:true,
         component:HomePageMenu
+    },
+    {
+        path:"/homepage/menu/Videos",
+        isExact:true,
+        component:HomePageMenuVideos
     },
     {
         path:"/studio/team",

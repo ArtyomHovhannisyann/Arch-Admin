@@ -1,13 +1,24 @@
 .layout {
-  display: grid;
-  grid-template-columns: 0.4fr 1fr;
+  display: flex;
   padding-top: 3vh;
 }
 .layout-left-bar {
   padding: 0 3vw 0 10vw;
+  width: 30vw;
+}
+
+.studio-layout-info,
+.home-layout-info {
+  padding: 0 3vw 0 10vw;
+  width: 35vw;
+}
+.menu-left-bar {
+  padding: 0 3vw 0 10vw;
+  width: 37vw;
 }
 .layout-content {
-  width: inherit;
+  width: -webkit-fill-available;
+  padding-right: 4vw;
 }
 .layout-header {
   margin-bottom: 5vh;
@@ -17,8 +28,9 @@
   color: #0f1938;
 }
 .layout-content-header {
-  border-bottom: 1px solid #00000078;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.47);
   width: 100%;
+  margin-top: 10vh;
 }
 .layout-content-info-name {
   font-family: Segoe UI;
@@ -39,10 +51,26 @@
 }
 .layout-header-pages p {
   font-family: Segoe UI;
-  margin: 0.2vw 1.3vw 0.2vw 0;
+  margin: 0vw 3vw 0.2vw 0;
   font-weight: 300;
   cursor: pointer;
 }
 .active {
   font-weight: 500 !important;
+}
+.layout-info {
+  margin-top: 10vh;
+}
+.file-input {
+  padding: 7vh 1.5vw;
+  cursor: pointer;
+  border: 2px dashed #0f1938;
+}
+.layout-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.layout-content-info {
+  margin-bottom: 1vw;
 }

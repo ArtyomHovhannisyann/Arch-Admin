@@ -5,7 +5,7 @@ export const pages = [
     },
     {
       pageName: "Menu",
-      path: "/homepage/menu",
+      path: "/homepage/menu/Pictures",
     },
     {
       pageHeader: "Studio",
