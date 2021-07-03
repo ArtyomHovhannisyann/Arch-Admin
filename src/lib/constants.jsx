@@ -1,4 +1,5 @@
 export const pages = [
+  //Menu
   {
     pageHeader: "Homepage",
     path: "/homepage",
@@ -7,6 +8,7 @@ export const pages = [
     pageName: "Menu",
     path: "/homepage/menu/Pictures",
   },
+//Studio
   {
     pageHeader: "Studio",
   },
@@ -22,6 +24,7 @@ export const pages = [
     pageName: "Credits",
     path: "/studio/credits",
   },
+  //Residential
   {
     pageHeader: "Residential Projects",
   },
@@ -33,26 +36,32 @@ export const pages = [
     pageName: "In progresss",
     path: "/residential/in-progress-projects",
   },
+  //Housing
   {
     pageHeader: "Housing Projects",
   },
+
   {
     pageName: "Selected Projects",
     path:"/housing/selected-projects",
   },
   {
-    path: "/housing/in-progress-projects",
     pageName: "In progresss",
+    path: "/housing/in-progress-projects",
   },
+//Commercial
   {
     pageHeader: "Commercial Projects",
   },
   {
     pageName: "Selected Projects",
+    path:"/commerical/selected-projects",
   },
   {
     pageName: "In progresss",
+    path: "/commerical/in-progress-projects",
   },
+  //
   {
     pageHeader: "Publications",
   },

@@ -2,18 +2,18 @@ import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 
-export default function InprogressProjects({history}) {
+export default function CommericalSelectedProjects({history}) {
   const pageInfo = {
-    pageHeader: "Housing Projects",
-    pageName: "In progresss",
+    pageHeader: "Commerical Projects",
+    pageName: "Selected Projects",
     className: "studio-layout-info",
   };
   function addProject(e) {
     e.preventDefault();
-    history.push("/housing/add-in-progress-projects");
+    history.push("/commerical/add-selected-projects");
   }
   return (
-    <div className="residential-in-progress-projects">
+    <div className="commerical-selected-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">

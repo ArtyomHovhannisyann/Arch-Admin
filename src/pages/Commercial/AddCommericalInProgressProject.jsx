@@ -1,50 +1,50 @@
 import React, { useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
-import "../../css/Residential/selected-project.css"
+import "../../css/Residential/selected-project.css";
 
-export default function AddResidentialProject() {
+export default function AddCommericalInProgressProject() {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
     {
       id: 2,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
     {
       id: 3,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
     {
       id: 4,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
     {
       id: 5,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
     {
       id: 6,
-      path: "../images/residential-project.png",
+      path: "../images/residential-in-progress.png",
     },
   ]);
-  const inputs = [
-    "*title",
-    "*location",
-    "*total floor area",
-    "*total site area",
-    "*design and built",
-    "*program",
-    "*description",
-  ];
   const pageInfo = {
-    pageHeader: "Residential Projects",
-    pageName: "Selected Projects",
+    pageHeader: "Commerical Projects",
+    pageName: "In Progress",
   };
+  const inputs = [
+    "Title",
+    "Location",
+    "Total floor area",
+    "Total site area",
+    "Design and built",
+    "Program",
+    "Description",
+  ];
   return (
-    <div className="new-residential-selected-project">
+    <div>
       <MainLayout pageInfo={pageInfo} showMenu={false}>
         <div className="layout-content residential-selected-project-layout-content">
           <div className="layout-content-header">
@@ -65,9 +65,18 @@ export default function AddResidentialProject() {
               </div>
               <div className="residential-selected-project-inputs">
                 {inputs.map((el, i) => {
-                  return <input type="text" placeholder={el} key={i} className = {i == inputs.length - 1  ? "description-input" : ""}/>;
+                  return (
+                    <input
+                      type="text"
+                      placeholder={el}
+                      key={i}
+                      className={
+                        i == inputs.length - 1 ? "description-input" : ""
+                      }
+                    />
+                  );
                 })}
-                <button className = "add-selected-project">Confirm</button>
+                <button className="add-selected-project">Confirm</button>
               </div>
             </div>
           </div>

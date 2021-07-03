@@ -1,22 +1,32 @@
 import HomePage from "./pages/Home/HomePage";
+import HomePageMenu from "./pages/Home/HomePageMenu";
+import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
+
 import StudioTeam from "./pages/Studio/StudioTeam";
 import StudioVideos from "./pages/Studio/StudioVideos";
 import StudioCredits from "./pages/Studio/StudioCredits";
+
 import SelectedProjects from "./pages/Residential/SelectedProjects";
-import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
-import InprogressProjects from "./pages/Residential/InprogressProjects";
-import HousingInprogressProjects from "./pages/HousingProjects/InprogressProjects";
+import InProgressProjects from "./pages/Residential/InProgressProjects";
+import HousingInProgressProjects from "./pages/HousingProjects/InProgressProjects";
+
 import AdminLogIn from "./pages/Form/AdminLogIn";
 import ResetPassword from "./pages/Form/ResetPassword";
 import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
 import ChangePassword from "./pages/Form/ChangePassword";
 import PasswordChanged from "./pages/Form/PasswordChanged";
-import HomePageMenu from "./pages/Home/HomePageMenu";
-import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
+
+
 import AddResidentialProject from "./pages/Residential/AddResidentialProject";
-import AddResidentialInprogressProject from "./pages/Residential/AddResidentialInprogressProject";
-import HousingAddResidentialProject from "./pages/HousingProjects/AddResidentialProject";
-import HousingAddResidentialInprogressProject from "./pages/HousingProjects/AddResidentialInprogressProject";
+import AddResidentialInProgressProject from "./pages/Residential/AddResidentialInProgressProject";
+
+import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
+import HousingAddResidentialProject from "./pages/HousingProjects/AddHousingProject";
+import AddHousingInProgressProject from "./pages/HousingProjects/AddHousingInProgressProject";
+import CommericalSelectedProjects from "./pages/Commercial/CommericalSelectedProjects";
+import CommericalInProgressProjects from "./pages/Commercial/CommericalInProgressProjects";
+import AddCommericalSelectedProject from "./pages/Commercial/AddCommericalSelectedProject";
+import AddCommericalInProgressProject from "./pages/Commercial/AddCommericalInProgressProject";
 
 export const routes = [
     {
@@ -88,12 +98,12 @@ export const routes = [
     {
         path:"/residential/in-progress-projects",
         isExact:true,
-        component:InprogressProjects
+        component:InProgressProjects
     },
     {
         path:"/residential/add-in-progress-project",
         isExact:true,
-        component:AddResidentialInprogressProject
+        component:AddResidentialInProgressProject
     },
     {
         path:"/housing/selected-projects",
@@ -103,7 +113,7 @@ export const routes = [
     {
         path:"/housing/in-progress-projects",
         isExact:true,
-        component:HousingInprogressProjects
+        component:HousingInProgressProjects
     },
     {
         path:"/housing/add-selected-project",
@@ -113,6 +123,26 @@ export const routes = [
     {
         path:"/housing/add-in-progress-projects",
         isExact:true,
-        component:HousingAddResidentialInprogressProject
+        component:AddHousingInProgressProject
+    },
+    {
+        path:"/commerical/selected-projects",
+        isExact:true,
+        component:CommericalSelectedProjects
+    },
+    {
+        path:"/commerical/in-progress-projects",
+        isExact:true,
+        component:CommericalInProgressProjects
+    },
+    {
+        path:"/commerical/add-selected-projects",
+        isExact:true,
+        component:AddCommericalSelectedProject
+    },
+    {
+        path:"/commerical/add-in-progress-projects",
+        isExact:true,
+        component:AddCommericalInProgressProject
     },
 ]
