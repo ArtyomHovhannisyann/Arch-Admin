@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/layout/layout.css";
-import LayoutContnetItem from "../Home-Menu/LayoutContnetItem";
+import LayoutContnetItem from "../Home/Home-Menu/LayoutContnetItem";
 import AddButton from "./AddButton";
 
 export default function Content({ pageInfo, history }) {
@@ -32,7 +32,7 @@ export default function Content({ pageInfo, history }) {
         )}
       </div>
       <div className="layout-info">
-        <AddButton />
+        <AddButton text = {"Add a picture"}/>
         <div className="layout-items">
           {contentItems.map((i) => {
             return (

@@ -1,0 +1,6 @@
+.add-btn-image{
+    width: 16px;
+    height: 16px;
+    background-image: url("./images/cross.png");
+    background-size: cover;
+}

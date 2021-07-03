@@ -6,6 +6,7 @@ export default function MainLayout({
   pageInfo,
   history,
   children,
+  showMenu = true,
 }) {
   return (
     <div className="layout">
@@ -19,7 +20,7 @@ export default function MainLayout({
         <div className="layout-header">
           <h1>Anarch </h1>
         </div>
-        <Menu />
+        {showMenu && <Menu />}
       </div>
 
       {pageInfo && pageInfo.pages ? (

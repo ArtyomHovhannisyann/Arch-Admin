@@ -1,18 +1,19 @@
 import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
-import TeamItem from "../../components/Studio/TeamItem";
-import "../../css/Studio/studio.css";
-import "../../css/layout/layout.css";
 
-export default function StudioTeam() {
+export default function SelectedProjects({ history }) {
   const pageInfo = {
-    pageHeader: "Studio",
-    pageName: "Team",
+    pageHeader: "Housing Projects",
+    pageName: "Selected Projects",
     className: "studio-layout-info",
   };
+  function addProject(e) {
+    e.preventDefault();
+    history.push("/housing/add-selected-project");
+  }
   return (
-    <div className="studio-team">
+    <div className="residential-selected-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -23,16 +24,9 @@ export default function StudioTeam() {
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
-          <div className="layout-info">
-            <AddButton text = "Add"/>
-            <div className="items">
-              <TeamItem
-                name={"Shirley Marco"}
-                description={
-                  "AA (Architectural Association) Diploma RIBA Part 2 FOUNDER SINCE 2000"
-                }
-                url={"../../images/persone.png"}
-              />
+          <div className="credits-layout-info">
+            <div className="layout-info-content">
+              <AddButton text={"Add"} click={addProject} />
             </div>
           </div>
         </div>

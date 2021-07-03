@@ -3,7 +3,9 @@ import StudioTeam from "./pages/Studio/StudioTeam";
 import StudioVideos from "./pages/Studio/StudioVideos";
 import StudioCredits from "./pages/Studio/StudioCredits";
 import SelectedProjects from "./pages/Residential/SelectedProjects";
+import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
 import InProgresProjects from "./pages/Residential/InProgresProjects";
+import HousingInProgresProjects from "./pages/HousingProjects/InProgresProjects";
 import AdminLogIn from "./pages/Form/AdminLogIn";
 import ResetPassword from "./pages/Form/ResetPassword";
 import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
@@ -11,6 +13,10 @@ import ChangePassword from "./pages/Form/ChangePassword";
 import PasswordChanged from "./pages/Form/PasswordChanged";
 import HomePageMenu from "./pages/Home/HomePageMenu";
 import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
+import AddResidentialProject from "./pages/Residential/AddResidentialProject";
+import AddResidentialInProgresProject from "./pages/Residential/AddResidentialInProgresProject";
+import HousingAddResidentialProject from "./pages/HousingProjects/AddResidentialProject";
+import HousingAddResidentialInProgresProject from "./pages/HousingProjects/AddResidentialInProgresProject";
 
 export const routes = [
     {
@@ -75,18 +81,38 @@ export const routes = [
         component:SelectedProjects
     },
     {
+        path:"/residential/add-selected-project",
+        isExact:true,
+        component:AddResidentialProject
+    },
+    {
         path:"/residential/in-progres-projects",
         isExact:true,
         component:InProgresProjects
     },
     {
-        path:"/Housing/selected-projects",
+        path:"/residential/add-in-progres-project",
         isExact:true,
-        component:InProgresProjects
+        component:AddResidentialInProgresProject
     },
     {
-        path:"/Housing/in-progres-projects",
+        path:"/housing/selected-projects",
         isExact:true,
-        component:InProgresProjects
+        component:HousingSelectedProjects
+    },
+    {
+        path:"/housing/in-progres-projects",
+        isExact:true,
+        component:HousingInProgresProjects
+    },
+    {
+        path:"/housing/add-selected-project",
+        isExact:true,
+        component:HousingAddResidentialProject
+    },
+    {
+        path:"/housing/add-in-progres-projects",
+        isExact:true,
+        component:HousingAddResidentialInProgresProject
     },
 ]

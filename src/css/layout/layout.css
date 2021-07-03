@@ -10,7 +10,7 @@
 .studio-layout-info,
 .home-layout-info {
   padding: 0 3vw 0 10vw;
-  width: 35vw;
+  width: 36vw;
 }
 .menu-left-bar {
   padding: 0 3vw 0 10vw;
@@ -22,6 +22,13 @@
 }
 .layout-header {
   margin-bottom: 5vh;
+}
+.layout-header h1 {
+  font-family: Source Serif Pro;;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 63px;
+  letter-spacing: 0.12em;
 }
 .layout-content-info {
   display: flex;
@@ -38,6 +45,9 @@
   font-weight: 300;
   line-height: 23px;
   letter-spacing: 0.05em;
+}
+.residential-selected-project-layout-content {
+  margin-left: -10vw;
 }
 .layout-content-info-header {
   font-family: Segoe UI;
@@ -59,12 +69,28 @@
   font-weight: 500 !important;
 }
 .layout-info {
-  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2vh;
 }
+
 .file-input {
   padding: 7vh 1.5vw;
+  min-width: 7vw;
+  max-height: 19vh;
   cursor: pointer;
   border: 2px dashed #0f1938;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.file-input p {
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
 }
 .layout-items {
   display: flex;

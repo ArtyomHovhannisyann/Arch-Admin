@@ -1,6 +1,8 @@
 import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
+import VideosItem from "../../components/Studio/VideosItem";
+import "../../css/Studio/studio.css"
 
 export default function StudioVideos() {
   const pageInfo = {
@@ -21,8 +23,10 @@ export default function StudioVideos() {
             </div>
           </div>
           <div className="layout-info">
-            <AddButton />
-            <div className="items"></div>
+            <AddButton text = "Add"/>
+            <div className="items">
+              <VideosItem link={"https://www.youtube.com/embed/_8C-ATUpAGM"} />
+            </div>
           </div>
         </div>
       </MainLayout>

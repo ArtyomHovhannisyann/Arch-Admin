@@ -1,8 +1,9 @@
 .items {
   margin-top: 10vh;
 }
-.studio-team-item {
-  width: 14vw;
+.studio-team-item,
+.studio-videos-item {
+  width: min-content;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@
   width: 14vw;
   height: 15vh;
 }
-.studio-team-item textarea {
+.studio-team-item textarea ,.studio-videos-item  textarea{
   padding-left: 10px;
   resize: none;
   margin-top: 1vh;
@@ -27,8 +28,8 @@
   letter-spacing: 0.04em;
   overflow: hidden;
 }
-.team-name{
-    height: 2.7vh;
+.team-name {
+  height: 2.7vh;
 }
 .team-description {
   padding-bottom: 2vh;
