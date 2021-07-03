@@ -4,8 +4,8 @@ import StudioVideos from "./pages/Studio/StudioVideos";
 import StudioCredits from "./pages/Studio/StudioCredits";
 import SelectedProjects from "./pages/Residential/SelectedProjects";
 import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
-import InProgresProjects from "./pages/Residential/InProgresProjects";
-import HousingInProgresProjects from "./pages/HousingProjects/InProgresProjects";
+import InprogressProjects from "./pages/Residential/InprogressProjects";
+import HousingInprogressProjects from "./pages/HousingProjects/InprogressProjects";
 import AdminLogIn from "./pages/Form/AdminLogIn";
 import ResetPassword from "./pages/Form/ResetPassword";
 import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
@@ -14,9 +14,9 @@ import PasswordChanged from "./pages/Form/PasswordChanged";
 import HomePageMenu from "./pages/Home/HomePageMenu";
 import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
 import AddResidentialProject from "./pages/Residential/AddResidentialProject";
-import AddResidentialInProgresProject from "./pages/Residential/AddResidentialInProgresProject";
+import AddResidentialInprogressProject from "./pages/Residential/AddResidentialInprogressProject";
 import HousingAddResidentialProject from "./pages/HousingProjects/AddResidentialProject";
-import HousingAddResidentialInProgresProject from "./pages/HousingProjects/AddResidentialInProgresProject";
+import HousingAddResidentialInprogressProject from "./pages/HousingProjects/AddResidentialInprogressProject";
 
 export const routes = [
     {
@@ -86,14 +86,14 @@ export const routes = [
         component:AddResidentialProject
     },
     {
-        path:"/residential/in-progres-projects",
+        path:"/residential/in-progress-projects",
         isExact:true,
-        component:InProgresProjects
+        component:InprogressProjects
     },
     {
-        path:"/residential/add-in-progres-project",
+        path:"/residential/add-in-progress-project",
         isExact:true,
-        component:AddResidentialInProgresProject
+        component:AddResidentialInprogressProject
     },
     {
         path:"/housing/selected-projects",
@@ -101,9 +101,9 @@ export const routes = [
         component:HousingSelectedProjects
     },
     {
-        path:"/housing/in-progres-projects",
+        path:"/housing/in-progress-projects",
         isExact:true,
-        component:HousingInProgresProjects
+        component:HousingInprogressProjects
     },
     {
         path:"/housing/add-selected-project",
@@ -111,8 +111,8 @@ export const routes = [
         component:HousingAddResidentialProject
     },
     {
-        path:"/housing/add-in-progres-projects",
+        path:"/housing/add-in-progress-projects",
         isExact:true,
-        component:HousingAddResidentialInProgresProject
+        component:HousingAddResidentialInprogressProject
     },
 ]

@@ -2,10 +2,10 @@ import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 
-export default function InProgresProjects({history}) {
+export default function InprogressProjects({history}) {
   const pageInfo = {
     pageHeader: "Residential Projects",
-    pageName: "In Progress",
+    pageName: "In progresss",
     className: "studio-layout-info",
   };
   function addProject(e) {
@@ -13,7 +13,7 @@ export default function InProgresProjects({history}) {
     history.push("/residential/add-in-selected-project");
   }
   return (
-    <div className="residential-in-progres-projects">
+    <div className="residential-in-progress-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">

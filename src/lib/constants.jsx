@@ -30,8 +30,8 @@ export const pages = [
     path: "/residential/selected-projects",
   },
   {
-    pageName: "In Progress",
-    path: "/residential/in-progres-projects",
+    pageName: "In progresss",
+    path: "/residential/in-progress-projects",
   },
   {
     pageHeader: "Housing Projects",
@@ -41,8 +41,8 @@ export const pages = [
     path:"/housing/selected-projects",
   },
   {
-    path: "/housing/in-progres-projects",
-    pageName: "In Progress",
+    path: "/housing/in-progress-projects",
+    pageName: "In progresss",
   },
   {
     pageHeader: "Commercial Projects",
@@ -51,7 +51,7 @@ export const pages = [
     pageName: "Selected Projects",
   },
   {
-    pageName: "In Progress",
+    pageName: "In progresss",
   },
   {
     pageHeader: "Publications",
