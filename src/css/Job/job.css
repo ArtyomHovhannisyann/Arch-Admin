@@ -33,3 +33,12 @@
 .job-info-img img{
     width: 12vw;
 }
+.job-items{
+    margin-top: 3vh;
+    position: relative;
+    width: 13vw;
+}
+.job-item-img{
+    width: 11vw;
+    height: 24vh;
+}

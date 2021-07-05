@@ -1,6 +1,7 @@
 import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
+import JobItem from "./JobItem";
 
 export default function Job({history}) {
   const pageInfo = {
@@ -26,6 +27,9 @@ export default function Job({history}) {
           <div className="credits-layout-info">
             <div className="layout-info-content aricle-info-content">
               <AddButton text="Add" click = {addJob}/>
+            </div>
+            <div className="job-items">
+                <JobItem/>
             </div>
           </div>
         </div>
