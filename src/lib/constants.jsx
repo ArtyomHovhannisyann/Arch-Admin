@@ -82,5 +82,6 @@ export const pages = [
   },
   {
     pageHeader: "Jobs",
+    path:"/job"
   },
 ];

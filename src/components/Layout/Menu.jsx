@@ -9,6 +9,13 @@ export default function Menu() {
       <dl className="pages-menu">
         {pages.map((el, i) => {
           if (el.pageHeader) {
+            if (el.path) {
+              return (
+                <Link to={el.path ? el.path : "/"} key={i}>
+                  <dt className="home-pageheader" key={i}>{el.pageHeader}</dt>
+                </Link>
+              );
+            }
             return (
               <dt className="home-pageheader" key={i}>
                 {el.pageHeader}

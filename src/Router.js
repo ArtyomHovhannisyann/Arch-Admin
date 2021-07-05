@@ -30,6 +30,8 @@ import AddCommericalInProgressProject from "./pages/Commercial/AddCommericalInPr
 import PrintCoverArticle from "./pages/Publications/PrintCoverArticle";
 import PrintBook from "./pages/Publications/PrintBook";
 import WebPublications from "./pages/Publications/WebPublications";
+import Job from "./pages/Job/Job";
+import AddJob from "./pages/Job/AddJob";
 
 export const routes = [
     {
@@ -163,5 +165,14 @@ export const routes = [
         isExact:true,
         component:WebPublications
     },
-
+    {
+        path:"/job",
+        isExact:true,
+        component:Job
+    },
+    {
+        path:"/job/add",
+        isExact:true,
+        component:AddJob
+    },
 ]
