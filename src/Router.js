@@ -27,6 +27,9 @@ import CommericalSelectedProjects from "./pages/Commercial/CommericalSelectedPro
 import CommericalInProgressProjects from "./pages/Commercial/CommericalInProgressProjects";
 import AddCommericalSelectedProject from "./pages/Commercial/AddCommericalSelectedProject";
 import AddCommericalInProgressProject from "./pages/Commercial/AddCommericalInProgressProject";
+import PrintCoverArticle from "./pages/Publications/PrintCoverArticle";
+import PrintBook from "./pages/Publications/PrintBook";
+import WebPublications from "./pages/Publications/WebPublications";
 
 export const routes = [
     {
@@ -145,4 +148,20 @@ export const routes = [
         isExact:true,
         component:AddCommericalInProgressProject
     },
+    {
+        path:"/publications/print-cover-article",
+        isExact:true,
+        component:PrintCoverArticle
+    },
+    {
+        path:"/publications/print-books",
+        isExact:true,
+        component:PrintBook
+    },
+    {
+        path:"/publications/web-publications",
+        isExact:true,
+        component:WebPublications
+    },
+
 ]

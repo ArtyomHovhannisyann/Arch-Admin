@@ -61,18 +61,21 @@ export const pages = [
     pageName: "In progresss",
     path: "/commerical/in-progress-projects",
   },
-  //
+  //Publications
   {
     pageHeader: "Publications",
   },
   {
     pageName: "Print-Cover Article",
+    path:"/publications/print-cover-article"
   },
   {
     pageName: "Print-Books",
+    path:"/publications/print-books"
   },
   {
     pageName: "Web Publications",
+    path:"/publications/web-publications"
   },
   {
     pageHeader: "Contact",

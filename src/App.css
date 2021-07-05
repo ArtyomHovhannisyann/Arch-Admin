@@ -1,8 +1,6 @@
 .add-btn-image {
-  width: 16px;
-  height: 16px;
-  background-image: url("./images/cross.png");
-  background-size: cover;
+  width: 32px;
+  height: 32px;
 }
 ::-webkit-scrollbar {
   width: 1em;
