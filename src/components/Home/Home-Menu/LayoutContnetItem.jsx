@@ -4,8 +4,8 @@ export default function LayoutContnetItem({ type, link }) {
   return (
     <div className="layout-contnet-item">
       <div className="item">
-        {type == "image" ? (
-          <img src={link} className={`item-${type}`} />
+        {type === "image" ? (
+          <img src={link} className={`item-${type}`} alt = "arch"/>
         ) : (
           <iframe
             width="359"
@@ -16,7 +16,7 @@ export default function LayoutContnetItem({ type, link }) {
             allowFullScreen
           />
         )}
-        <img src="../../images/trash.png" className="trash-icon" />
+        <img src="../../images/trash.png" className="trash-icon" alt= "trash"/>
       </div>
     </div>
   );

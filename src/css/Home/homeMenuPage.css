@@ -6,6 +6,9 @@
 }
 .item {
   position: relative;
+  margin: 1vw;
+  margin-top: 0;
+  margin-left: 0;
 }
 .item-image {
   width: 15vw;

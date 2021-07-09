@@ -17,7 +17,7 @@ export default function VideosItem({title,link}) {
         className="team-name"
         placeholder="*title"
       />
-      <img src="../../images/trash.png" className="trash-icon" />
+      <img alt= "trash" src="../../images/trash.png" className="trash-icon" />
     </div>
   );
 }

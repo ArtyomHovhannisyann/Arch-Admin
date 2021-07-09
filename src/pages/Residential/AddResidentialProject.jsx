@@ -60,12 +60,12 @@ export default function AddResidentialProject() {
               <AddButton text={"Add"} />
               <div className="added-images">
                 {projectImages.map((el) => (
-                  <img src={el.path} key={el.id} />
+                  <img src={el.path} key={el.id} alt = "project-item"/>
                 ))}
               </div>
               <div className="residential-selected-project-inputs">
                 {inputs.map((el, i) => {
-                  return <input type="text" placeholder={el} key={i} className = {i == inputs.length - 1  ? "description-input" : ""}/>;
+                  return <input type="text" placeholder={el} key={i} className = {i === inputs.length - 1  ? "description-input" : ""}/>;
                 })}
                 <button className = "add-selected-project">Confirm</button>
               </div>

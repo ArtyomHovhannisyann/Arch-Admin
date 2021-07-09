@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/layout/layout.css";
+import { getHomePagePictures, getHomePageVideos } from "../../lib/request";
 import LayoutContnetItem from "../Home/Home-Menu/LayoutContnetItem";
 import AddButton from "./AddButton";
 
 export default function Content({ pageInfo, history }) {
-  const [contentItems, setContentItems] = useState([1]);
+  const [contentItems, setContentItems] = useState([]);
+  useEffect(() => {
+    if (pageInfo.type === "image") {
+      getHomePagePictures(setContentItems);
+    } else {
+      getHomePageVideos(setContentItems);
+    }
+  }, []);
   function changePage(key) {
     history.push(key);
   }
@@ -21,7 +29,7 @@ export default function Content({ pageInfo, history }) {
               return (
                 <p
                   key={i}
-                  className={i == pageInfo.active ? "active" : ""}
+                  className={i === pageInfo.active ? "active" : ""}
                   onClick={() => changePage(`${el}`)}
                 >
                   {el}
@@ -32,15 +40,11 @@ export default function Content({ pageInfo, history }) {
         )}
       </div>
       <div className="layout-info">
-        <AddButton text = {"Add a picture"}/>
+        <AddButton text={pageInfo.type === "image" ? "Add a picture" : "Add a video"} />
         <div className="layout-items">
-          {contentItems.map((i) => {
+          {contentItems && contentItems.map((el, i) => {
             return (
-              <LayoutContnetItem
-                type={pageInfo.type}
-                link={pageInfo.url}
-                key={i}
-              />
+              <LayoutContnetItem type={pageInfo.type} link={el.url} key={i} />
             );
           })}
         </div>

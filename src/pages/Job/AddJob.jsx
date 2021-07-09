@@ -24,8 +24,8 @@ export default function AddJob() {
             <div className="layout-info-content">
               <AddButton text="Add" />
               <div className="added-job-info-img">
-                <img src="../images/job.png" className = "job-info-img"/>
-                <img src="../../images/trash.png" className="trash-icon" />
+                <img src="../images/job.png" className = "job-info-img" alt = "job"/>
+                <img src="../../images/trash.png" className="trash-icon" alt="trash"/>
               </div>
               <div className="job-info">
                 <input type="text" placeholder="Title" />

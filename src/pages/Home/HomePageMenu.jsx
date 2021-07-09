@@ -9,7 +9,6 @@ export default function HomePageMenu({ history }) {
     className: "menu-left-bar",
     type: "image",
     active: 0,
-    url:"https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg"
   };
   return (
     <div className="home-menu-page">

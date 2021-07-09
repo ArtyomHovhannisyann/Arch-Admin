@@ -1,6 +1,6 @@
 import HomePage from "./pages/Home/HomePage";
 import HomePageMenu from "./pages/Home/HomePageMenu";
-import HomePageMenuVideos from "./css/Home/HomePageMenuVideos";
+import HomePageMenuVideos from "./pages/Home/HomePageMenuVideos";
 
 import StudioTeam from "./pages/Studio/StudioTeam";
 import StudioVideos from "./pages/Studio/StudioVideos";
@@ -10,11 +10,11 @@ import SelectedProjects from "./pages/Residential/SelectedProjects";
 import InProgressProjects from "./pages/Residential/InProgressProjects";
 import HousingInProgressProjects from "./pages/HousingProjects/InProgressProjects";
 
-import AdminLogIn from "./pages/Form/AdminLogIn";
-import ResetPassword from "./pages/Form/ResetPassword";
-import ResetPasswordCode from "./pages/Form/ResetPasswordCode";
-import ChangePassword from "./pages/Form/ChangePassword";
-import PasswordChanged from "./pages/Form/PasswordChanged";
+import AdminLogIn from "./pages/LogIn/AdminLogIn";
+import ResetPassword from "./pages/LogIn/ResetPassword";
+import ResetPasswordCode from "./pages/LogIn/ResetPasswordCode";
+import ChangePassword from "./pages/LogIn/ChangePassword";
+import PasswordChanged from "./pages/LogIn/PasswordChanged";
 
 
 import AddResidentialProject from "./pages/Residential/AddResidentialProject";

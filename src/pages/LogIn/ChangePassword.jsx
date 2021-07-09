@@ -30,13 +30,9 @@ export default function ChangePassword({history}) {
               Forget password?
             </a>
             <div className="logiIn-button">
-              <button className="admin-logIn-btn" onClick = {(e)=>changePage(e,"/password-changed")}>Log In</button>
+              <button className="admin-logIn-btn" onClick = {(e)=>changePage(e,"/password-changed")}>send</button>
             </div>
           </form>
-          <div className="remember-checkbox">
-            <input type="checkbox" className="remember-input" />
-            <p>remember</p>
-          </div>
         </div>
       </div>
     </div>

@@ -37,8 +37,8 @@ export default function StudioCredits() {
             <div className="layout-info-content">
               <AddButton text = "Add"/>
               <div className="credits-image">
-                <img src="../images/studio-credits.png" />
-                <img src="../../images/trash.png" className="trash-icon" />
+                <img src="../images/studio-credits.png" alt = "credit-image"/>
+                <img src="../../images/trash.png" className="trash-icon" alt = "trash"/>
               </div>
               <div className="studio-credits-page-info">
                 {credits.map((el, i) => {

@@ -12,7 +12,7 @@ export default function PasswordChanged({history}) {
           <p>Your Password has been changed successfully</p>
         </div>
         <div className="successfull-row-2">
-          <img src="images/succesess.png" />
+          <img src="images/succesess.png" className = "succesess"/>
         </div>
       </div>
     </div>

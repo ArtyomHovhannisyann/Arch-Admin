@@ -60,7 +60,7 @@ export default function AddCommericalSelectedProject() {
               <AddButton text={"Add"} />
               <div className="added-images">
                 {projectImages.map((el) => (
-                  <img src={el.path} key={el.id} />
+                  <img src={el.path} key={el.id} alt = "project-image"/>
                 ))}
               </div>
               <div className="residential-selected-project-inputs">
@@ -71,7 +71,7 @@ export default function AddCommericalSelectedProject() {
                       placeholder={el}
                       key={i}
                       className={
-                        i == inputs.length - 1 ? "description-input" : ""
+                        i === inputs.length - 1 ? "description-input" : ""
                       }
                     />
                   );

@@ -94,7 +94,6 @@
 }
 .layout-items {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 .layout-content-info {
