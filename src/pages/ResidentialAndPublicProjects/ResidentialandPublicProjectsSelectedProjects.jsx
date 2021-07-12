@@ -1,35 +1,32 @@
 import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
-import JobItem from "./JobItem";
 
-export default function Job({history}) {
+export default function ResidentialandPublicProjectsSelectedProjects({history}) {
   const pageInfo = {
-    pageHeader: "Job",
+    pageHeader: "Residential and Public Projects",
+    pageName: "Selected Projects",
     className: "studio-layout-info",
   };
-  function addJob(e) {
-      e.preventDefault()
-      history.push("job/add")
+  function addProject(e) {
+    e.preventDefault();
+    history.push("/residential-and-public/add-selected-projects");
   }
   return (
-    <div className="job">
+    <div className="commerical-selected-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
             <div className="layout-content-info">
               <p className="layout-content-info-header">
-                {pageInfo.pageHeader}
+                {pageInfo.pageHeader}-
               </p>
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
           <div className="credits-layout-info">
-            <div className="layout-info-content aricle-info-content">
-              <AddButton text="Add" click = {addJob}/>
-            </div>
-            <div className="job-items">
-                <JobItem/>
+            <div className="layout-info-content">
+              <AddButton text={"Add"} click={addProject} />
             </div>
           </div>
         </div>

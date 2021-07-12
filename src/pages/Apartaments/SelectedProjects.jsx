@@ -2,18 +2,19 @@ import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 
-export default function CommericalSelectedProjects({history}) {
+export default function SelectedProjects({ history }) {
+
   const pageInfo = {
-    pageHeader: "Commerical Projects",
+    pageHeader: "Appartaments Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info",
   };
   function addProject(e) {
     e.preventDefault();
-    history.push("/commerical/add-selected-projects");
+    history.push("/apartaments/add-selected-project");
   }
   return (
-    <div className="commerical-selected-projects">
+    <div className="residential-selected-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">

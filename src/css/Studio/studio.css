@@ -12,7 +12,8 @@
   width: 14vw;
   height: 15vh;
 }
-.studio-team-item textarea ,.studio-videos-item  textarea{
+.studio-team-item textarea,
+.studio-videos-item textarea {
   padding-left: 10px;
   resize: none;
   margin-top: 1vh;
@@ -33,4 +34,39 @@
 }
 .team-description {
   padding-bottom: 2vh;
+}
+.studio-team-sub-pages {
+  display: flex;
+}
+.studio-team-sub-pages p:not(:first-child) {
+  margin-left: 1vw;
+}
+.studio-team-sub-pages p {
+  font-family: Segoe UI;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #0f1938;
+  margin-bottom: 1vh;
+  cursor: pointer;
+}
+.team-image {
+  position: relative;
+  margin-top: 4vh;
+}
+.team-description-input {
+  padding-top: 15px;
+  padding-left: 15px;
+  border: 1px solid #ededed;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.09);
+  border-radius: 5px;
+  height: 26vh;
+  width:  47vw;
+  resize: none;
+  margin-top: 1vh;
+  font-size: 15px;
+  color: #BCBCBC;
+  font-family: Source Serif Pro;
 }

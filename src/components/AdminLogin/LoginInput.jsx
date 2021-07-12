@@ -6,13 +6,14 @@ export default function LoginInput({
   iconType,
   value,
   onChange,
+  className = ""
 }) {
   return (
     <div className={type === "email" ? "email-input" : "password-input"}>
       <input
         type={type === "email" ? "text" : "password"}
         placeholder={placeholder}
-        className="admin-input"
+        className={`admin-input ${className}`}
         max={1}
         defaultValue={value}
         onChange={onChange}

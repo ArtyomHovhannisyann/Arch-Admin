@@ -30,7 +30,7 @@ export default function Content({ pageInfo, history }) {
                 <p
                   key={i}
                   className={i === pageInfo.active ? "active" : ""}
-                  onClick={() => changePage(`${el}`)}
+                  onClick={() => changePage(`${el.toLowerCase()}`)}
                 >
                   {el}
                 </p>

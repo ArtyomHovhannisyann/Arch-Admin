@@ -3,42 +3,42 @@ import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Residential/selected-project.css";
 
-export default function AddResidentialInProgressProject() {
+export default function AddResidentialandPublicProjectsSelectedProject() {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
     {
       id: 2,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
     {
       id: 3,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
     {
       id: 4,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
     {
       id: 5,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
     {
       id: 6,
-      path: "../images/residential-in-progress.png",
+      path: "../images/residential-project.png",
     },
   ]);
   const pageInfo = {
-    pageHeader: "Residential Projects",
-    pageName: "In Progress",
+    pageHeader: "Residential and Public Projects Projects",
+    pageName: "Selected Projects",
   };
   const inputs = [
     "Title",
     "Location",
+    "Plot size",
     "Total floor area",
-    "Total site area",
     "Design and built",
     "Program",
     "Description",
@@ -60,7 +60,7 @@ export default function AddResidentialInProgressProject() {
               <AddButton text={"Add"} />
               <div className="added-images">
                 {projectImages.map((el) => (
-                  <img src={el.path} key={el.id}  alt = "project-image"/>
+                  <img src={el.path} key={el.id} alt = "project-image"/>
                 ))}
               </div>
               <div className="residential-selected-project-inputs">

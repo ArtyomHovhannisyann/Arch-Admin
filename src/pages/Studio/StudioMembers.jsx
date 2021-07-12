@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio.css";
 import "../../css/layout/layout.css";
+import TeamItem from "../../components/Studio/TeamItem";
+import { getStudioTeam } from "../../lib/request";
 
-export default function StudioTeam({history}) {
+export default function StudioMembers({ history }) {
   const pageInfo = {
     pageHeader: "Studio",
     className: "studio-layout-info",
     subPage: ["Team", "Members"],
-    active: 0,
+    active: 1,
   };
+  const [teamItems, setTeamItems] = useState([]);
+  useEffect(() => {
+    getStudioTeam(setTeamItems);
+  }, []);
   function changePage(key) {
     history.push(key);
   }
-
   return (
-    <div className="studio-team">
+    <div className="studio-members">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -41,19 +46,16 @@ export default function StudioTeam({history}) {
           </div>
           <div className="layout-info">
             <AddButton text="Add" />
-            <div className="team-image">
-              <img src="../images/team.png" alt="team" />
-              <img
-                src="../../images/trash.png"
-                className="trash-icon"
-                alt="trash"
-              />
-            </div>
-            <div className="team-description">
-              <textarea
-                className="team-description-input"
-                placeholder="*description"
-              />
+            <div className="items">
+              {teamItems &&
+                teamItems.map((el, i) => {
+                  <TeamItem
+                    name={el.name}
+                    description={el.description}
+                    url={el.image}
+                    key={i}
+                  />;
+                })}
             </div>
           </div>
         </div>

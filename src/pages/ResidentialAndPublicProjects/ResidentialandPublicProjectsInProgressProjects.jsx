@@ -1,17 +1,19 @@
 import React from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
-import VideosItem from "../../components/Studio/VideosItem";
-import "../../css/Studio/studio.css"
 
-export default function StudioVideos() {
+export default function ResidentialandPublicProjectsInProgressProjects({history}) {
   const pageInfo = {
-    pageHeader: "Studio",
-    pageName: "Videos",
+    pageHeader: "Residential And Public Projects",
+    pageName: "In progress",
     className: "studio-layout-info",
   };
+  function addProject(e) {
+    e.preventDefault();
+    history.push("/residential-and-public/add-in-progress-projects");
+  }
   return (
-    <div className="studio-videos">
+    <div className="commerical-in-progress-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -22,10 +24,9 @@ export default function StudioVideos() {
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
-          <div className="layout-info">
-            <AddButton text = "Add"/>
-            <div className="items">
-              <VideosItem link={"https://www.youtube.com/embed/_8C-ATUpAGM"} />
+          <div className="credits-layout-info">
+            <div className="layout-info-content">
+              <AddButton text={"Add"} click={addProject} />
             </div>
           </div>
         </div>

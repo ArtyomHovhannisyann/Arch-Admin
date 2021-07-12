@@ -3,7 +3,7 @@ import React from "react";
 export default function PasswordChanged({history}) {
     setTimeout(() => {
         history.push("/homepage")
-    }, 1000);
+    }, 2000);
   return (
     <div className="successfull">
       <div className="successfull-content">

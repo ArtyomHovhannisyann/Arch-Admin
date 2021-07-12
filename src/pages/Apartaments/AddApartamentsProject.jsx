@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
-import "../../css/Residential/selected-project.css";
+import "../../css/Residential/selected-project.css"
 
-export default function AddCommericalSelectedProject() {
+export default function AddResidentialProject() {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -30,21 +30,21 @@ export default function AddCommericalSelectedProject() {
       path: "../images/residential-project.png",
     },
   ]);
+  const inputs = [
+    "*title",
+    "*location",
+    "*total floor area",
+    "*total site area",
+    "*design and built",
+    "*program",
+    "*description",
+  ];
   const pageInfo = {
-    pageHeader: "Residential Projects",
+    pageHeader: "Apartaments",
     pageName: "Selected Projects",
   };
-  const inputs = [
-    "Title",
-    "Location",
-    "Plot size",
-    "Total floor area",
-    "Design and built",
-    "Program",
-    "Description",
-  ];
   return (
-    <div>
+    <div className="new-residential-selected-project">
       <MainLayout pageInfo={pageInfo} showMenu={false}>
         <div className="layout-content residential-selected-project-layout-content">
           <div className="layout-content-header">
@@ -60,23 +60,14 @@ export default function AddCommericalSelectedProject() {
               <AddButton text={"Add"} />
               <div className="added-images">
                 {projectImages.map((el) => (
-                  <img src={el.path} key={el.id} alt = "project-image"/>
+                  <img src={el.path} key={el.id} alt = "project-item"/>
                 ))}
               </div>
               <div className="residential-selected-project-inputs">
                 {inputs.map((el, i) => {
-                  return (
-                    <input
-                      type="text"
-                      placeholder={el}
-                      key={i}
-                      className={
-                        i === inputs.length - 1 ? "description-input" : ""
-                      }
-                    />
-                  );
+                  return <input type="text" placeholder={el} key={i} className = {i === inputs.length - 1  ? "description-input" : ""}/>;
                 })}
-                <button className="add-selected-project">Confirm</button>
+                <button className = "add-selected-project">Confirm</button>
               </div>
             </div>
           </div>

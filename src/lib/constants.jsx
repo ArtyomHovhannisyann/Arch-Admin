@@ -8,80 +8,69 @@ export const pages = [
     pageName: "Menu",
     path: "/homepage/menu/Pictures",
   },
-//Studio
+  //Studio
   {
     pageHeader: "Studio",
   },
   {
     pageName: "Team",
-    path: "/studio/team",
+    path: "/studio/Team",
   },
   {
-    pageName: "Videos",
-    path: "/studio/videos",
+    pageName: "Jobs",
+    path: "/studio/jobs",
   },
   {
-    pageName: "Credits",
-    path: "/studio/credits",
+    pageName: "Contact",
+    path: "/studio/contact",
   },
-  //Residential
+  //Apartamets
   {
-    pageHeader: "Residential Projects",
+    pageHeader: "Apartamets",
   },
   {
     pageName: "Selected Projects",
-    path: "/residential/selected-projects",
+    path: "/apartaments/selected-projects",
   },
   {
-    pageName: "In progresss",
-    path: "/residential/in-progress-projects",
+    pageName: "In progress",
+    path: "/apartaments/in-progress-projects",
   },
   //Housing
   {
-    pageHeader: "Housing Projects",
+    pageHeader: "Houses",
   },
 
   {
     pageName: "Selected Projects",
-    path:"/housing/selected-projects",
+    path: "/housing/selected-projects",
   },
   {
-    pageName: "In progresss",
+    pageName: "In progress",
     path: "/housing/in-progress-projects",
   },
-//Commercial
+  //Commercial
   {
-    pageHeader: "Commercial Projects",
+    pageHeader: "Residential and Public Projects",
   },
   {
     pageName: "Selected Projects",
-    path:"/commerical/selected-projects",
+    path: "/residential-and-public/selected-projects",
   },
   {
-    pageName: "In progresss",
-    path: "/commerical/in-progress-projects",
+    pageName: "In progress",
+    path: "/residential-and-public/in-progress-projects",
   },
   //Publications
   {
-    pageHeader: "Publications",
+    pageHeader: "Landscape Architecture",
   },
   {
-    pageName: "Print-Cover Article",
-    path:"/publications/print-cover-article"
+    pageName: "Selected Projects",
+    path: "/publications/print-cover-article",
   },
   {
-    pageName: "Print-Books",
-    path:"/publications/print-books"
-  },
-  {
-    pageName: "Web Publications",
-    path:"/publications/web-publications"
-  },
-  {
-    pageHeader: "Contact",
-  },
-  {
-    pageHeader: "Jobs",
-    path:"/job"
+    pageName: "In progress",
+    path: "/publications/print-books",
   },
 ];

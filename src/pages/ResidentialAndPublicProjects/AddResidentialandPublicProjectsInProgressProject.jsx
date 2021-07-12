@@ -3,7 +3,7 @@ import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Residential/selected-project.css";
 
-export default function AddCommericalInProgressProject() {
+export default function AddResidentialandPublicProjectsInProgressProject() {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -31,7 +31,7 @@ export default function AddCommericalInProgressProject() {
     },
   ]);
   const pageInfo = {
-    pageHeader: "Commerical Projects",
+    pageHeader: "Residential and Public Projects Projects",
     pageName: "In Progress",
   };
   const inputs = [

@@ -1,4 +1,4 @@
-import { GET_PICTURES, GET_VIDEOS, SEND_LOG_IN } from "./requestUrls";
+import { GET_PICTURES, GET_TEAM, GET_VIDEOS, SEND_LOG_IN } from "./requestUrls";
 
 const axios = require("axios");
 
@@ -61,6 +61,15 @@ export async function getHomePageVideos(setVideos) {
     console.error(err);
   }
 }
-export async function getStudioTeam() {
-  
+export async function getStudioTeam(setTeamItems) {
+  const info = {
+    url: GET_TEAM,
+    method: "GET",
+  };
+  try {
+    let teamItems = await request(info);
+    setTeamItems(teamItems.data.data);
+  } catch (err) {
+    console.error(err);
+  }
 }

@@ -12,12 +12,17 @@ export default function Menu() {
             if (el.path) {
               return (
                 <Link to={el.path ? el.path : "/"} key={i}>
-                  <dt className="home-pageheader" key={i}>{el.pageHeader}</dt>
+                  <dt className="home-pageheader" key={i}>
+                    {el.pageHeader}
+                  </dt>
                 </Link>
               );
             }
             return (
-              <dt className="home-pageheader" key={i}>
+              <dt
+                className={"home-pageheader", i == 15 ? "landScape" : "home-pageheader"}
+                key={i}
+              >
                 {el.pageHeader}
               </dt>
             );

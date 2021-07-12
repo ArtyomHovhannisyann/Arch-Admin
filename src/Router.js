@@ -3,11 +3,13 @@ import HomePageMenu from "./pages/Home/HomePageMenu";
 import HomePageMenuVideos from "./pages/Home/HomePageMenuVideos";
 
 import StudioTeam from "./pages/Studio/StudioTeam";
-import StudioVideos from "./pages/Studio/StudioVideos";
-import StudioCredits from "./pages/Studio/StudioCredits";
+import StudioJobs from "./pages/Studio/Job/Job";
+import AddJob from "./pages/Studio/Job/AddJob";
+import StudioContact from "./pages/Studio/StudioContact";
+import StudioMembers from "./pages/Studio/StudioMembers";
 
-import SelectedProjects from "./pages/Residential/SelectedProjects";
-import InProgressProjects from "./pages/Residential/InProgressProjects";
+import SelectedProjects from "./pages/Apartaments/SelectedProjects";
+import InProgressProjects from "./pages/Apartaments/InProgressProjects";
 import HousingInProgressProjects from "./pages/HousingProjects/InProgressProjects";
 
 import AdminLogIn from "./pages/LogIn/AdminLogIn";
@@ -16,22 +18,19 @@ import ResetPasswordCode from "./pages/LogIn/ResetPasswordCode";
 import ChangePassword from "./pages/LogIn/ChangePassword";
 import PasswordChanged from "./pages/LogIn/PasswordChanged";
 
-
-import AddResidentialProject from "./pages/Residential/AddResidentialProject";
-import AddResidentialInProgressProject from "./pages/Residential/AddResidentialInProgressProject";
+import AddApartamentsProject from "./pages/Apartaments/AddApartamentsProject";
+import AddApartamentsInProgressProject from "./pages/Apartaments/AddApartamentsInProgressProject";
 
 import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
 import HousingAddResidentialProject from "./pages/HousingProjects/AddHousingProject";
 import AddHousingInProgressProject from "./pages/HousingProjects/AddHousingInProgressProject";
-import CommericalSelectedProjects from "./pages/Commercial/CommericalSelectedProjects";
-import CommericalInProgressProjects from "./pages/Commercial/CommericalInProgressProjects";
-import AddCommericalSelectedProject from "./pages/Commercial/AddCommericalSelectedProject";
-import AddCommericalInProgressProject from "./pages/Commercial/AddCommericalInProgressProject";
-import PrintCoverArticle from "./pages/Publications/PrintCoverArticle";
-import PrintBook from "./pages/Publications/PrintBook";
-import WebPublications from "./pages/Publications/WebPublications";
-import Job from "./pages/Job/Job";
-import AddJob from "./pages/Job/AddJob";
+
+import ResidentialandPublicProjectsSelectedProjects from "./pages/ResidentialAndPublicProjects/ResidentialandPublicProjectsSelectedProjects";
+import ResidentialandPublicProjectsInProgressProjects from "./pages/ResidentialAndPublicProjects/ResidentialandPublicProjectsInProgressProjects";
+import AddResidentialandPublicProjectsSelectedProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsSelectedProject";
+import AddResidentialAndPublicProjectsInProgressProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsInProgressProject";
+
+
 
 export const routes = [
     {
@@ -66,12 +65,12 @@ export const routes = [
         component:HomePage
     },
     {
-        path:"/homepage/menu/Pictures",
+        path:"/homepage/menu/pictures",
         isExact:true,
         component:HomePageMenu
     },
     {
-        path:"/homepage/menu/Videos",
+        path:"/homepage/menu/videos",
         isExact:true,
         component:HomePageMenuVideos
     },
@@ -81,34 +80,44 @@ export const routes = [
         component:StudioTeam
     },
     {
-        path:"/studio/videos",
+        path:"/studio/members",
         isExact:true,
-        component:StudioVideos
+        component:StudioMembers
     },
     {
-        path:"/studio/credits",
+        path:"/studio/jobs",
         isExact:true,
-        component:StudioCredits
+        component:StudioJobs
     },
     {
-        path:"/residential/selected-projects",
+        path:"/studio/jobs/add",
+        isExact:true,
+        component:AddJob
+    },
+    {
+        path:"/studio/contact",
+        isExact:true,
+        component:StudioContact
+    },
+    {
+        path:"/apartaments/selected-projects",
         isExact:true,
         component:SelectedProjects
     },
     {
-        path:"/residential/add-selected-project",
+        path:"/apartaments/add-selected-project",
         isExact:true,
-        component:AddResidentialProject
+        component:AddApartamentsProject
     },
     {
-        path:"/residential/in-progress-projects",
+        path:"/apartaments/in-progress-projects",
         isExact:true,
         component:InProgressProjects
     },
     {
-        path:"/residential/add-in-progress-project",
+        path:"/apartaments/add-in-progress-project",
         isExact:true,
-        component:AddResidentialInProgressProject
+        component:AddApartamentsInProgressProject
     },
     {
         path:"/housing/selected-projects",
@@ -131,48 +140,23 @@ export const routes = [
         component:AddHousingInProgressProject
     },
     {
-        path:"/commerical/selected-projects",
+        path:"/residential-and-public/selected-projects",
         isExact:true,
-        component:CommericalSelectedProjects
+        component:ResidentialandPublicProjectsSelectedProjects
     },
     {
-        path:"/commerical/in-progress-projects",
+        path:"/residential-and-public/in-progress-projects",
         isExact:true,
-        component:CommericalInProgressProjects
+        component:ResidentialandPublicProjectsInProgressProjects
     },
     {
-        path:"/commerical/add-selected-projects",
+        path:"/residential-and-public/add-selected-projects",
         isExact:true,
-        component:AddCommericalSelectedProject
+        component:AddResidentialandPublicProjectsSelectedProject
     },
     {
-        path:"/commerical/add-in-progress-projects",
+        path:"/residential-and-public/add-in-progress-projects",
         isExact:true,
-        component:AddCommericalInProgressProject
-    },
-    {
-        path:"/publications/print-cover-article",
-        isExact:true,
-        component:PrintCoverArticle
-    },
-    {
-        path:"/publications/print-books",
-        isExact:true,
-        component:PrintBook
-    },
-    {
-        path:"/publications/web-publications",
-        isExact:true,
-        component:WebPublications
-    },
-    {
-        path:"/job",
-        isExact:true,
-        component:Job
-    },
-    {
-        path:"/job/add",
-        isExact:true,
-        component:AddJob
+        component:AddResidentialAndPublicProjectsInProgressProject
     },
 ]
