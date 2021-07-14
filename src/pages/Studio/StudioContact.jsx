@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio-credits.css";
+import { Portal } from "react-portal";
+import Modal from "../../components/Modal/Modal";
 
 export default function StudioContact() {
+  const [openModal, setOpenModal] = useState(false);
   const pageInfo = {
     pageHeader: "Studio",
     pageName: "Contact",
@@ -12,6 +15,11 @@ export default function StudioContact() {
   const contacts = ["Adress:", "Phone Number:", "E-mail address:"];
   return (
     <div className="studio-contact">
+      {openModal && (
+        <Portal node={document.body}>
+          <Modal setOpenModal={setOpenModal} type = {"contact image"}/>
+        </Portal>
+      )}
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -31,6 +39,7 @@ export default function StudioContact() {
                   src="../../images/trash.png"
                   className="trash-icon"
                   alt="trash"
+                  onClick={() => setOpenModal(true)}
                 />
               </div>
               <div className="studio-contact-page-info">
@@ -39,10 +48,7 @@ export default function StudioContact() {
                     <div className="contact-input-div" key={i + "a"}>
                       <p key={i + "b"}>{el}</p>
                       <div className="contact-input">
-                        <input
-                          type="text"
-                          key={i + "c"}
-                        />
+                        <input type="text" key={i + "c"} />
                         <img
                           src="../../images/trash.png"
                           className="trash-icon"

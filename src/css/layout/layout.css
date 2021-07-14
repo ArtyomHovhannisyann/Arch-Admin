@@ -23,7 +23,7 @@
   margin-bottom: 5vh;
 }
 .layout-header h1 {
-  font-family: Source Serif Pro;;
+  font-family: Source Serif Pro;
   font-weight: 600;
   font-size: 50px;
   line-height: 63px;
@@ -59,10 +59,12 @@
   display: flex;
 }
 .layout-header-pages p {
-  font-family: Segoe UI;
-  margin: 0vw 3vw 0.2vw 0;
   font-weight: 300;
+  font-family: Segoe UI;
   cursor: pointer;
+}
+.layout-header-pages p:not(:first-child) {
+  margin: 0vw 0 0.2vw 3vw;
 }
 .active {
   font-weight: 500 !important;
@@ -71,25 +73,27 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 2vh;
+  margin-top: 2.7vh;
 }
 
 .file-input {
-  padding: 7vh 1.5vw;
-  min-width: 7vw;
-  max-height: 19vh;
+  width: 6.8vw;
+  height: 16.4vh;
   cursor: pointer;
   border: 2px dashed #0f1938;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
+  box-sizing: border-box;
 }
 .file-input p {
   font-weight: 200;
   font-size: 15px;
   line-height: 18px;
   letter-spacing: 0.04em;
+  color: #0f1938;
 }
 .layout-items {
   display: flex;

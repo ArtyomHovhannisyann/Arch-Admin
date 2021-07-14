@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio.css";
 import "../../css/layout/layout.css";
+import { Portal } from "react-portal";
+import Modal from "../../components/Modal/Modal";
 
-export default function StudioTeam({history}) {
+export default function StudioTeam({ history }) {
+  const [openModal, setOpenModal] = useState(false);
   const pageInfo = {
     pageHeader: "Studio",
     className: "studio-layout-info",
@@ -17,6 +20,11 @@ export default function StudioTeam({history}) {
 
   return (
     <div className="studio-team">
+      {openModal && (
+        <Portal node={document.body}>
+          <Modal setOpenModal={setOpenModal} type = {"team image"}/>
+        </Portal>
+      )}
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -47,6 +55,7 @@ export default function StudioTeam({history}) {
                 src="../../images/trash.png"
                 className="trash-icon"
                 alt="trash"
+                onClick = {()=>setOpenModal(true)}
               />
             </div>
             <div className="team-description">

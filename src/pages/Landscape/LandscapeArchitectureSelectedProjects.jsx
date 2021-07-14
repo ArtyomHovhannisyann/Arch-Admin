@@ -1,15 +1,19 @@
 import React from "react";
+import AddButton from "../../components/Layout/AddButton";
 import MainLayout from "../../components/Layout/MainLayout";
-import "../../css/Publications/web-publications.css"
 
-export default function WebPublications() {
+export default function LandscapeArchitectureSelectedProjects({history}) {
   const pageInfo = {
-    pageHeader: "Publications",
-    pageName: "Web Publications",
+    pageHeader: "Landscape Architecture",
+    pageName: "Selected Projects",
     className: "studio-layout-info",
   };
+  function addProject(e) {
+    e.preventDefault();
+    history.push("/landscape-architecture/add-selected-projects");
+  }
   return (
-    <div className="web-publications">
+    <div className="landscape-architecture-selected-projects">
       <MainLayout pageInfo={pageInfo}>
         <div className="layout-content">
           <div className="layout-content-header">
@@ -22,12 +26,7 @@ export default function WebPublications() {
           </div>
           <div className="credits-layout-info">
             <div className="layout-info-content">
-                <div className = "add-publication">
-                    <input type="text" placeholder = "Date"/>
-                    <input type="text" placeholder = "Description" className = "web-description"/>
-                    <button>Confirm</button>
-                </div>
-              <div className="print-items"></div>
+              <AddButton text={"Add"} click={addProject} />
             </div>
           </div>
         </div>

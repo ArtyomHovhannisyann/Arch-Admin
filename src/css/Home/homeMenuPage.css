@@ -1,18 +1,16 @@
 .layout-items {
-  margin-top: 10vh;
+  margin-top: 4vh;
 }
 .layout-content-item {
   display: flex;
 }
 .item {
   position: relative;
-  margin: 1vw;
-  margin-top: 0;
-  margin-left: 0;
+  margin-right: 3vw;
 }
 .item-image {
-  width: 15vw;
-  height: 8vw;
+  width: 16.8vw;
+  height: 20vh;
 }
 .trash-icon {
   position: absolute;

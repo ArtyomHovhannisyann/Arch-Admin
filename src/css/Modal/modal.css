@@ -1,0 +1,55 @@
+.delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(27, 27, 27, 0.678);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete-modal-container {
+  background: #fff;
+  width: 25vw;
+  height: 24vh;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-header {
+  align-self: flex-end;
+}
+.modal-header img {
+  margin-right: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.modal-content {
+  text-align: center;
+}
+.modal-content p {
+  font-family: Segoe UI;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-top: 2vh;
+}
+.modal-content button {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: Segoe UI;
+  border-radius: 10px;
+  padding: 5px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-top: 4vh;
+}
+.no-btn {
+  margin-left: 2vw;
+}

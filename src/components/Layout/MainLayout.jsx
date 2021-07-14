@@ -1,10 +1,8 @@
 import React from "react";
 import Menu from "./Menu";
 import "../../css/layout/layout.css";
-import Content from "./Content";
 export default function MainLayout({
   pageInfo,
-  history,
   children,
   showMenu = true,
 }) {
@@ -22,12 +20,7 @@ export default function MainLayout({
         </div>
         {showMenu && <Menu />}
       </div>
-
-      {pageInfo && pageInfo.pages ? (
-        <Content pageInfo={pageInfo} history={history} />
-      ) : (
-        children
-      )}
+      {children}
     </div>
   );
 }

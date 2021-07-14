@@ -29,10 +29,15 @@ import ResidentialandPublicProjectsSelectedProjects from "./pages/ResidentialAnd
 import ResidentialandPublicProjectsInProgressProjects from "./pages/ResidentialAndPublicProjects/ResidentialandPublicProjectsInProgressProjects";
 import AddResidentialandPublicProjectsSelectedProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsSelectedProject";
 import AddResidentialAndPublicProjectsInProgressProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsInProgressProject";
+import LandscapeArchitectureSelectedProjects from "./pages/Landscape/LandscapeArchitectureSelectedProjects";
+import AddLandscapeArchitectureSelectedProjects from "./pages/Landscape/AddLandscapeArchitectureSelectedProjects";
+import LandscapeArchitectureInProgressProjects from "./pages/Landscape/LandscapeArchitectureInProgressProjects";
+import AddLandscapeArchitectureInProgressProject from "./pages/Landscape/AddLandscapeArchitectureInProgressProject";
 
 
 
 export const routes = [
+    //Auth
     {
         path:"/log-in",
         isExact:true,
@@ -58,7 +63,7 @@ export const routes = [
         isExact:true,
         component:PasswordChanged
     },
-    
+    //Home Page
     {
         path:"/homepage",
         isExact:true,
@@ -74,6 +79,7 @@ export const routes = [
         isExact:true,
         component:HomePageMenuVideos
     },
+    //Studio
     {
         path:"/studio/team",
         isExact:true,
@@ -99,6 +105,7 @@ export const routes = [
         isExact:true,
         component:StudioContact
     },
+    //Apartaments
     {
         path:"/apartaments/selected-projects",
         isExact:true,
@@ -119,6 +126,7 @@ export const routes = [
         isExact:true,
         component:AddApartamentsInProgressProject
     },
+    //Housing
     {
         path:"/housing/selected-projects",
         isExact:true,
@@ -139,6 +147,7 @@ export const routes = [
         isExact:true,
         component:AddHousingInProgressProject
     },
+    //Residential
     {
         path:"/residential-and-public/selected-projects",
         isExact:true,
@@ -158,5 +167,26 @@ export const routes = [
         path:"/residential-and-public/add-in-progress-projects",
         isExact:true,
         component:AddResidentialAndPublicProjectsInProgressProject
+    },
+    //Landscape
+    {
+        path:"/landscape-architecture/selected-projects",
+        isExact:true,
+        component:LandscapeArchitectureSelectedProjects
+    },
+    {
+        path:"/landscape-architecture/add-selected-projects",
+        isExact:true,
+        component:AddLandscapeArchitectureSelectedProjects
+    },
+    {
+        path:"/landscape-architecture/in-progress-projects",
+        isExact:true,
+        component:LandscapeArchitectureInProgressProjects
+    },
+    {
+        path:"/landscape-architecture/add-in-progress-projects",
+        isExact:true,
+        component:AddLandscapeArchitectureInProgressProject
     },
 ]

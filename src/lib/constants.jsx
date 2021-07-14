@@ -6,7 +6,7 @@ export const pages = [
   },
   {
     pageName: "Menu",
-    path: "/homepage/menu/Pictures",
+    path: "/homepage/menu/pictures",
   },
   //Studio
   {
@@ -67,10 +67,10 @@ export const pages = [
   },
   {
     pageName: "Selected Projects",
-    path: "/publications/print-cover-article",
+    path: "/landscape-architecture/selected-projects",
   },
   {
     pageName: "In progress",
-    path: "/publications/print-books",
+    path: "/landscape-architecture/in-progress-projects",
   },
 ];
