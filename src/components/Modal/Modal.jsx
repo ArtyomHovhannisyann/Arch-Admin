@@ -3,7 +3,12 @@ import "../../css/Modal/modal.css";
 
 export default function Modal({ type, setOpenModal }) {
   return (
-    <div className="delete-modal">
+    <div
+      className="delete-modal"
+      onClick={(e) => {
+        e.target.className === "delete-modal" && setOpenModal(false);
+      }}
+    >
       <div className="delete-modal-container">
         <div className="modal-header">
           <img
@@ -14,8 +19,10 @@ export default function Modal({ type, setOpenModal }) {
         </div>
         <div className="modal-content">
           <p>Do you want to delete the {type}?</p>
-          <button className = "yes-btn">Yes</button>
-          <button className = "no-btn" onClick = {()=>setOpenModal(false)}>No</button>
+          <button className="yes-btn">Yes</button>
+          <button className="no-btn" onClick={() => setOpenModal(false)}>
+            No
+          </button>
         </div>
       </div>
     </div>
