@@ -10,7 +10,7 @@ export default function StudioContact() {
   const pageInfo = {
     pageHeader: "Studio",
     pageName: "Contact",
-    className: "studio-layout-info",
+    className: "studio-layout-info menu-left-bar",
   };
   const contacts = ["Adress:", "Phone Number:", "E-mail address:"];
   return (
@@ -30,7 +30,7 @@ export default function StudioContact() {
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
-          <div className="contact-layout-info">
+          <div className="contact-layout-info ">
             <div className="layout-info-content">
               <AddButton text="Add" />
               <div className="contact-image">

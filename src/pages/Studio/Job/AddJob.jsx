@@ -6,7 +6,7 @@ import "../../../css/Job/job.css";
 export default function AddJob() {
   const pageInfo = {
     pageHeader: "Job",
-    className: "studio-layout-info",
+    className: "studio-layout-info menu-left-bar",
   };
   return (
     <div className="add-job">
@@ -20,7 +20,7 @@ export default function AddJob() {
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
-          <div className="credits-layout-info">
+          <div className="projects-layout-info">
             <div className="layout-info-content">
               <AddButton text="Add" />
               <div className="added-job-info-img">

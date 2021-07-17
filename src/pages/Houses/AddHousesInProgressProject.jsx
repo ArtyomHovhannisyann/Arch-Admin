@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import MainLayout from "../../components/Layout/MainLayout";
 import AddInProgressProject from "../../components/InProgress/AddInProgressProject";
+import MainLayout from "../../components/Layout/MainLayout";
 
-export default function AddApartamentsInProgressProject() {
+export default function AddHousesInProgressProject() {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -30,7 +30,7 @@ export default function AddApartamentsInProgressProject() {
     },
   ]);
   const pageInfo = {
-    pageHeader: "Apartaments",
+    pageHeader: "Houses",
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
   };
@@ -44,7 +44,7 @@ export default function AddApartamentsInProgressProject() {
     "Description",
   ];
   return (
-    <div>
+    <div className="add-in-progress-project">
       <MainLayout
         pageInfo={pageInfo}
         showMenu={false}

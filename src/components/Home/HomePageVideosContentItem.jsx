@@ -12,7 +12,7 @@ export default function HomePageVideosContentItem({link}) {
         </Portal>
       )}
       <div className="item">
-        <iframe src={link} frameborder="0"></iframe>
+        <iframe src={link} frameBorder="0"></iframe>
         <img
           src="../../images/trash.png"
           className="trash-icon"

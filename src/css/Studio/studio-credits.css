@@ -1,8 +1,8 @@
 .contact-layout-info {
   margin-top: 0;
+  padding: 3.6vh 0 0 2vw;
 }
 .layout-info-content {
-  margin-top: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -20,7 +20,7 @@
   font-family: Segoe UI;
   color: #000000;
 }
-.contact-image{
+.contact-image {
   position: relative;
 }
 .contact-input-div input {
@@ -32,6 +32,6 @@
   padding: 1vh;
   margin-top: 0.5vh;
 }
-.contact-input{
+.contact-input {
   position: relative;
 }

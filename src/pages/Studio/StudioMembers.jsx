@@ -4,19 +4,31 @@ import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio.css";
 import "../../css/layout/layout.css";
 import TeamItem from "../../components/Studio/TeamItem";
-import { getStudioTeam } from "../../lib/request";
+import { getStudioTeam } from "../../lib/requests";
 
 export default function StudioMembers({ history }) {
   const pageInfo = {
     pageHeader: "Studio",
-    className: "studio-layout-info",
+    className: "studio-layout-info menu-left-bar",
     subPage: ["Team", "Members"],
     active: 1,
   };
-  const [teamItems, setTeamItems] = useState([]);
-  useEffect(() => {
-    getStudioTeam(setTeamItems);
-  }, []);
+  const [teamItems, setTeamItems] = useState([
+    {
+      name:"123",
+      url:"../images/home1.png",
+      description:"test"
+    },
+    {
+      name:"123",
+      url:"../images/home2.png",
+      description:"test"
+    },
+  ]);
+  // useEffect(() => {
+  //   getStudioTeam(setTeamItems);
+  // }, []);
+  console.log(teamItems);
   function changePage(key) {
     history.push(key);
   }
@@ -49,10 +61,10 @@ export default function StudioMembers({ history }) {
             <div className="items">
               {teamItems &&
                 teamItems.map((el, i) => {
-                  <TeamItem
+                  return <TeamItem
                     name={el.name}
                     description={el.description}
-                    url={el.image}
+                    url={el.url}
                     key={i}
                   />;
                 })}

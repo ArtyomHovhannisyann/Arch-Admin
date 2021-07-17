@@ -19,8 +19,8 @@
   padding: 0.7vh 0;
 }
 .pages-menu {
-  padding-right: 5vw;
-  padding-bottom: 15vh;
+  padding-right: 2.8vw;
+  padding-bottom: 10vh;
 }
 .home-pageheader {
   font-size: 20px;
@@ -61,5 +61,5 @@
   line-height: 23px;
   letter-spacing: 0.05em;
   color: #0f1938;
-  width: 128%;
+  width: 105%;
 }

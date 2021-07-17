@@ -4,10 +4,11 @@ import "../../css/layout/layout.css";
 export default function MainLayout({
   pageInfo,
   children,
+  className,
   showMenu = true,
 }) {
   return (
-    <div className="layout">
+    <div className={`layout ${className ? className : ""}`}>
       <div
         className={
           pageInfo && pageInfo.className

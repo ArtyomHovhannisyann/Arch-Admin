@@ -70,3 +70,10 @@
   color: #BCBCBC;
   font-family: Source Serif Pro;
 }
+.items{
+  width: 100%;
+  display: flex;
+}
+.studio-team-item:not(:first-child){
+  margin-left: 100px;
+}

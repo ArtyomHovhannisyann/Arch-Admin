@@ -10,7 +10,7 @@ export default function StudioTeam({ history }) {
   const [openModal, setOpenModal] = useState(false);
   const pageInfo = {
     pageHeader: "Studio",
-    className: "studio-layout-info",
+    className: "studio-layout-info menu-left-bar",
     subPage: ["Team", "Members"],
     active: 0,
   };

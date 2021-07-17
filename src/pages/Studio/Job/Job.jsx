@@ -7,7 +7,7 @@ export default function Job({ history }) {
   const pageInfo = {
     pageHeader: "Studio-",
     pageName: "Jobs",
-    className: "studio-layout-info",
+    className: "studio-layout-info menu-left-bar",
   };
   function addJob(e) {
     e.preventDefault();
@@ -25,7 +25,7 @@ export default function Job({ history }) {
               <p className="layout-content-info-name">{pageInfo.pageName}</p>
             </div>
           </div>
-          <div className="credits-layout-info">
+          <div className="layout-info">
             <div className="layout-info-content aricle-info-content">
               <AddButton text="Add" click={addJob} />
             </div>

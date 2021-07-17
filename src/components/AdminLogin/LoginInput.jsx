@@ -15,6 +15,7 @@ export default function LoginInput({
         placeholder={placeholder}
         className={`admin-input ${className}`}
         max={1}
+        name = {type == "email" ? "email" : "password"}
         defaultValue={value}
         onChange={onChange}
       />
