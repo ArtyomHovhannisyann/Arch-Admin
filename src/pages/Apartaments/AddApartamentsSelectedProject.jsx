@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
-import "../../css/Selected/selected-project.css"
+import "../../css/Selected/selected-project.css";
 import AddSelectedProject from "../../components/SelectedProjects/AddSelectedProject";
 
 export default function AddApartamentsProject() {
@@ -42,12 +42,20 @@ export default function AddApartamentsProject() {
   const pageInfo = {
     pageHeader: "Apartaments",
     pageName: "Selected Projects",
-    className:"new-project-layout-left-bar"
+    className: "new-project-layout-left-bar",
   };
   return (
     <div className="new-selected-project">
-      <MainLayout pageInfo={pageInfo} showMenu={false} className = "new-project-content">
-        <AddSelectedProject pageInfo = {pageInfo} projectImages = {projectImages} inputs = {inputs}/>
+      <MainLayout
+        pageInfo={pageInfo}
+        showMenu={false}
+        className="new-project-content"
+      >
+        <AddSelectedProject
+          pageInfo={pageInfo}
+          projectImages={projectImages}
+          inputs={inputs}
+        />
       </MainLayout>
     </div>
   );

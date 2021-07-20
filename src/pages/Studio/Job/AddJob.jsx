@@ -7,6 +7,8 @@ import Modal from "../../../components/Modal/Modal";
 
 export default function AddJob() {
   const [openModal, setOpenModal] = useState(false);
+  const [title,setTitle] = useState("")
+  const [description,setDescription] = useState("")
 
   const pageInfo = {
     pageHeader: "Job",
@@ -37,8 +39,8 @@ export default function AddJob() {
                 <img src="../../images/trash.png" className="trash-icon" alt="trash" onClick = {()=>setOpenModal(true)}/>
               </div>
               <div className="job-info">
-                <input type="text" placeholder="Title" />
-                <input type="text" placeholder="Description" />
+                <input type="text" placeholder="Title" value = {title} onChange = {e=>setTitle(e.target.value)}/>
+                <input type="text" placeholder="Description" value = {description} onChange = {e=>setDescription(e.target.value)}/>
                 <button>Confirm</button>
               </div>
             </div>
