@@ -20,7 +20,7 @@ export default function Menu() {
             }
             return (
               <dt
-                className={"home-pageheader", i == 15 ? "landScape" : "home-pageheader"}
+                className={"home-pageheader", i === 15 ? "landScape" : "home-pageheader"}
                 key={i}
               >
                 {el.pageHeader}
