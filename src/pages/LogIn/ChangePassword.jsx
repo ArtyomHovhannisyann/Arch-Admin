@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginInput from "../../components/AdminLogin/LoginInput";
+import { resetPasswordValidation } from "../../lib/validate";
 
-export default function ChangePassword({history}) {
-  function changePage(e,key) {
+export default function ChangePassword({ history }) {
+  const [repeatPasswordMessage, setRepeatPasswordMessage] = useState("");
+  function changePage(e, key) {
     e.preventDefault();
     history.push(key);
+  }
+  function isPasswordCorrect(e) {
+    e.preventDefault();
+    let formElements = e.target.elements;
+    const formData = {
+      password: formElements.password.value,
+      repeatPassword: formElements["repeat-password"].value,
+    };
+    const { error } = resetPasswordValidation(formData);
+    if (error) {
+      setRepeatPasswordMessage(error.details[0].message);
+    } else if (formData.password == formData.repeatPassword) {
+      console.log(formData.password == formData.repeatPassword);
+      history.push("/password-changed");
+    }else{
+      setRepeatPasswordMessage("Password does not match")
+    }
   }
   return (
     <div className="admin-logIn">
@@ -15,22 +34,31 @@ export default function ChangePassword({history}) {
       </div>
       <div className="logIn-content">
         <div className="container-visitor">
-          <form>
+          <form onSubmit={isPasswordCorrect}>
             <LoginInput
-              type="email"
+              type="password"
               placeholder="*password"
               iconType="email"
+              name="password"
+              className={repeatPasswordMessage.length > 0 ? "danger" : ""}
             />
             <LoginInput
               type="password"
               placeholder="*repeat"
               iconType="lock"
+              name="repeat-password"
+              className={repeatPasswordMessage.length > 0 ? "danger" : ""}
             />
-            <a href="" className="forget-password" onClick={(e)=>changePage(e,"/reset-password")}>
+            <p className="danger-text">{repeatPasswordMessage}</p>
+            <a
+              href=""
+              className="forget-password"
+              onClick={(e) => changePage(e, "/reset-password")}
+            >
               Forget password?
             </a>
             <div className="logiIn-button">
-              <button className="admin-logIn-btn" onClick = {(e)=>changePage(e,"/password-changed")}>send</button>
+              <button className="admin-logIn-btn">send</button>
             </div>
           </form>
         </div>
