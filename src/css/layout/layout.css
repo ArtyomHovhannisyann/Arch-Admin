@@ -2,7 +2,7 @@
   display: flex;
   padding-top: 4vh;
 }
-.addProjectLayout{
+.addProjectLayout {
   flex-direction: column;
 }
 .layout-left-bar {
@@ -34,12 +34,15 @@
 }
 .layout-content-info {
   display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1vw;
   color: #0f1938;
 }
 .layout-content-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.47);
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 80px;
 }
 .layout-content-info-name {
   font-family: Segoe UI;
@@ -86,8 +89,8 @@
 }
 
 .file-input {
-  width: 6.8vw;
-  height: 16.4vh;
+  width: 132px;
+  height: 159px;
   cursor: pointer;
   border: 2px dashed #0f1938;
   display: flex;
@@ -109,5 +112,4 @@
   flex-wrap: wrap;
 }
 .layout-content-info {
-  margin-bottom: 1vw;
 }

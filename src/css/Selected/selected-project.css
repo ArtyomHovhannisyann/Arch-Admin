@@ -57,3 +57,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
+.back-icon{
+  cursor: pointer;
+  width: 28px;
+  height: 15px;
+  position: absolute;
+  left: -40px;
+}

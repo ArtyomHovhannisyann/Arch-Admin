@@ -1,15 +1,18 @@
 import React from "react";
 import AddButton from "../../components/Layout/AddButton";
+import { useHistory } from "react-router-dom";
 
 export default function AddInProgressProject({
   pageInfo,
   projectImages,
   inputs,
 }) {
+  let history = useHistory()
   return (
     <div className="layout-content new-project-layout-content">
       <div className="layout-content-header new-layout-content-header">
         <div className="layout-content-info">
+          <img src="../images/back.png" alt="" className="back-icon" onClick = {()=>history.goBack()}/>
           <p className="layout-content-info-header">{pageInfo.pageHeader}-</p>
           <p className="layout-content-info-name">{pageInfo.pageName}</p>
         </div>
