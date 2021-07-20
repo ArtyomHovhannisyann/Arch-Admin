@@ -6,6 +6,7 @@ export default function LoginInput({
   iconType,
   value,
   onChange,
+  name,
   className = ""
 }) {
   return (
@@ -15,15 +16,15 @@ export default function LoginInput({
         placeholder={placeholder}
         className={`admin-input ${className}`}
         max={1}
-        name = {type == "email" ? "email" : "password"}
+        name = {name}
         defaultValue={value}
         onChange={onChange}
       />
       <img
         src={
           iconType === "email"
-            ? "images/login-user.png"
-            : "images/login-lock-icon.png"
+            ? className == "danger" ? "images/login-user-danger.png":"images/login-user.png"
+            : className == "danger"? "images/login-lock-danger-icon.png":"images/login-lock-icon.png"
         }
         className="login-icons"
         alt = "Lock"
