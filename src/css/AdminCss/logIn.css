@@ -1,41 +1,40 @@
 .admin-logIn {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   height: 100vh;
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-container {
+  width: 904px;
+  height: 627px;
 }
 .admin-input {
   border: 1px solid #dcdcdc6b;
   border-radius: 10px;
   box-shadow: 0px 2px 2px 0px #00000040 inset;
-  padding: 1vw;
+  padding: 14px 33px 15px 23px;
   width: 100%;
   font-family: Segoe UI;
   font-size: 24px;
-  letter-spacing: 0.15em; 
-  padding-right: 30px;
+  letter-spacing: 0.15em;
+}
+.danger {
+  border: 1px solid #ff000080;
+  color: #ff000080;
 }
 .logIn-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-bottom: 1px solid #e7e2e2;
   width: 100%;
-  padding: 7vh 0;
-}
-.container-visitor {
-  width: 52vw;
+  padding: 34px 0 34px 125px;
 }
 .logIn-header h1 {
-  font-size: 100px;
-  font-style: normal;
   font-weight: 600;
+  font-size: 50px;
   line-height: 63px;
   letter-spacing: 0.12em;
 }
 .logIn-content {
-    padding-top: 20vh;
+  padding-top: 106px;
 }
 .email-input,
 .password-input {
@@ -43,13 +42,13 @@
 }
 .login-icons {
   position: absolute;
-  right: 1vw;
-  top:50%;
+  right: 15px;
+  top: 50%;
   transform: translateY(-50%);
   background-size: cover;
 }
 .password-input {
-  margin: 4vh 0 2vh 0;
+  margin-top: 4vh;
 }
 .lock-icon {
   background-image: url("../../images/login-lock-icon.png");
@@ -69,14 +68,15 @@
   justify-content: center;
   margin-top: 2vh;
 }
-.admin-logIn-btn { 
+.admin-logIn-btn {
   font-family: Segoe UI;
-  border: none; 
+  border: none;
   border-radius: 5px;
   background: #434b62;
   color: #ffffff;
-  font-size: 28px;
-  padding: 1.5vh 4vw;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 8.5px 34.5px;
   cursor: pointer;
 }
 .remember-input {
@@ -91,7 +91,7 @@
   display: flex;
   margin-top: 5vh;
 }
-.remember-checkbox p {
+.remember-checkbox label {
   font-family: Segoe UI;
   font-size: 28px;
   font-style: normal;
@@ -99,4 +99,9 @@
   line-height: 16px;
   letter-spacing: 0.05em;
   color: #000000;
+}
+.danger-text {
+  color: red;
+  font-size: 20px;
+  margin: 2vh 0 2vh 1.5vw;
 }
