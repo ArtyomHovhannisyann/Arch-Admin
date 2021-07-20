@@ -61,6 +61,10 @@ export default function StudioTeam({ history }) {
             <div className="team-description">
               <textarea
                 className="team-description-input"
+                placeholder="*info"
+              />
+              <textarea
+                className="team-description-input"
                 placeholder="*description"
               />
             </div>
