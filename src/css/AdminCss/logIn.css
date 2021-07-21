@@ -1,8 +1,10 @@
 .admin-logIn {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 904px;
+  margin: auto;
 }
 .admin-container {
   width: 904px;
@@ -34,7 +36,9 @@
   letter-spacing: 0.12em;
 }
 .logIn-content {
-  padding-top: 106px;
+  padding-top: 40px;
+  width: 653px;
+  margin: 0 auto;
 }
 .email-input,
 .password-input {
