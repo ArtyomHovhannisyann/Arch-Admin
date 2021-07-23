@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function ResetPasswordCode({ history }) {
+  const [code, setCode] = useState("");
   function submitForm(e) {
     e.preventDefault();
     let form = e.target;
@@ -18,6 +19,7 @@ export default function ResetPasswordCode({ history }) {
       if (e.keyCode > 47 && e.keyCode < 58) {
         if (target.value === "") {
           target.value = e.key;
+          setCode(code + target.value);
         }
         if (nextTarget) {
           nextTarget.focus();
@@ -29,10 +31,11 @@ export default function ResetPasswordCode({ history }) {
       if (previousTarget && target.value === "") {
         previousTarget.focus();
       }
+      setCode(code.slice(0, code.length - 1));
       target.value = "";
     }
   }
-  let formRef = React.createRef();
+  console.log(code);
   return (
     <div className="reset-password">
       <div className="reset-header">
@@ -41,19 +44,32 @@ export default function ResetPasswordCode({ history }) {
       <div className="code-container">
         <h1>Code</h1>
         <div className="reset-content">
-          <form onSubmit={submitForm} ref={formRef}>
+          <form onSubmit={submitForm}>
             <div className="code-inputs">
-              {[1, 2, 3, 4].map((i) => {
-                return (
-                  <input
-                    type="text"
-                    maxLength="1"
-                    key={i}
-                    onKeyDown={(e) => inputFocus(e, formRef.current)}
-                    className="code-input"
-                  />
-                );
-              })}
+              <input
+                type="text"
+                maxLength="1"
+                onKeyDown={(e) => inputFocus(e)}
+                className="code-input"
+              />
+              <input
+                type="text"
+                maxLength="1"
+                onKeyDown={(e) => inputFocus(e)}
+                className="code-input"
+              />
+              <input
+                type="text"
+                maxLength="1"
+                onKeyDown={(e) => inputFocus(e)}
+                className="code-input"
+              />
+              <input
+                type="text"
+                maxLength="1"
+                onKeyDown={(e) => inputFocus(e)}
+                className="code-input"
+              />
             </div>
             <div className="reset-send-btn">
               <button className="reset-btn">send</button>
