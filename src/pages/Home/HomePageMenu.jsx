@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomePagePicturesContnetItem from "../../components/Home/HomePagePicturesContnetItem";
 import AddButton from "../../components/Layout/AddButton";
 import MainLayout from "../../components/Layout/MainLayout";
@@ -9,19 +9,31 @@ export default function HomePageMenu({ history }) {
     pageName: "Menu",
     pages: ["Pictures", "Videos"],
     className: "menu-left-bar",
-    type: "image",
     active: 0,
   };
-  const contentItems = [
+  const [contentItems, setContentItems] = useState([
     {
       url: "../../images/home1.png",
     },
     {
       url: "../../images/home2.png",
     },
-  ];
+  ]);
   function changePage(key) {
     history.push(key);
+  }
+  function addImage(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      setContentItems([
+        ...contentItems,
+        {
+          url: e.target.result,
+        },
+      ]);
+      console.log(contentItems);
+    });
   }
   return (
     <div className="home-menu-page">
@@ -51,18 +63,11 @@ export default function HomePageMenu({ history }) {
             )}
           </div>
           <div className="layout-info">
-            <AddButton
-              text={pageInfo.type === "image" ? "Add a picture" : "Add a video"}
-            />
+            <AddButton text="Add a picture" change={addImage} />
             <div className="layout-items">
               {contentItems &&
                 contentItems.map((el, i) => {
-                  return (
-                    <HomePagePicturesContnetItem
-                      link={el.url}
-                      key={i}
-                    />
-                  );
+                  return <HomePagePicturesContnetItem link={el.url} key={i} />;
                 })}
             </div>
           </div>
