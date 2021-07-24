@@ -1,12 +1,12 @@
 .layout {
   display: flex;
-  padding-top: 4vh;
+  padding-top: 33px;
 }
 .addProjectLayout {
   flex-direction: column;
 }
 .layout-left-bar {
-  padding: 0 3vw 0 10vw;
+  padding: 0 3vw 0 97px;
   width: max-content;
 }
 
