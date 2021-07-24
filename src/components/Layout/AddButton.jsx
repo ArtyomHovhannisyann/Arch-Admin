@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function AddButton({ text,type = "image/*", click = null ,url}) {
+export default function AddButton({ text,type = "image/*", click = null ,url,change = null}) {
   return (
-    <label className="file-input" onClick={click}>
+    <label className="file-input" onClick={click} onChange = {change}>
       <img  alt = "cross" src = {url ? url : "../../images/cross.png"} className = {`add-btn-image ${type === "application/pdf,application/vnd.ms-excel" ? "add-pdf" : ""}`} />
       <p>{text}</p>
       <input

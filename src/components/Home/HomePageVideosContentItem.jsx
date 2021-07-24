@@ -4,7 +4,6 @@ import Modal from "../Modal/Modal";
 
 export default function HomePageVideosContentItem({ link }) {
   const [openModal, setOpenModal] = useState(false);
-  console.log(`https://cdn.plrjs.com/player/66fn8nzyit4nk/k8fabriex66b.js?${link}`);
   return (
     <div className="layout-contnet-item">
       {openModal && (

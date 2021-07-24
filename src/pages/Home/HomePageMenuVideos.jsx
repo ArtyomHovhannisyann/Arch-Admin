@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AddButton from "../../components/Layout/AddButton";
 import MainLayout from "../../components/Layout/MainLayout";
 import HomePageVideosContentItem from "../../components/Home/HomePageVideosContentItem";
@@ -9,19 +9,30 @@ export default function HomePageMenuVideos({ history }) {
     pageName: "Menu",
     pages: ["Pictures", "Videos"],
     className: "menu-left-bar",
-    type: "video",
     active: 1,
   };
-  const contentItems = [
+  const [contentItems, setContentItems] = useState([
     {
       url: "https://www.youtube.com/embed/jrqaH8HxexM",
     },
     {
       url: "https://www.youtube.com/embed/jrqaH8HxexM",
     },
-  ];
+  ]);
   function changePage(key) {
     history.push(key);
+  }
+  function addVideo(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      setContentItems([
+        ...contentItems,
+        {
+          url: e.target.result,
+        },
+      ]);
+    });
   }
   return (
     <div className="home-menu-videos">
@@ -51,7 +62,11 @@ export default function HomePageMenuVideos({ history }) {
             )}
           </div>
           <div className="layout-info">
-            <AddButton text={"Add a video"} />
+            <AddButton
+              text={"Add a video"}
+              type="video/mp4,video/x-m4v,video/*"
+              change = {addVideo}
+            />
             <div className="layout-items">
               {contentItems &&
                 contentItems.map((el, i) => {
