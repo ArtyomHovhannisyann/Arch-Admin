@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginInput from "../../components/AdminLogin/LoginInput";
+import { checkIsEmailPasswordCorrect } from "../../lib/requests";
 import { loginValidation } from "../../lib/validate";
 
 export default function AdminLogIn({ history }) {
@@ -7,6 +8,11 @@ export default function AdminLogIn({ history }) {
   const [password, setPassword] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
+
+  useEffect(() => {
+    document.cookie = "token=";
+  }, []);
+
   function changePage(e, key) {
     e.preventDefault();
     history.push(key);
@@ -28,7 +34,7 @@ export default function AdminLogIn({ history }) {
         setPasswordMessage("The password is incorrect");
       }
     } else {
-      history.push("/homepage");
+      checkIsEmailPasswordCorrect(formData, history);
     }
   }
   return (

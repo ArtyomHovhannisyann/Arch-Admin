@@ -8,185 +8,181 @@ import AddJob from "./pages/Studio/Job/AddJob";
 import StudioContact from "./pages/Studio/StudioContact";
 import StudioMembers from "./pages/Studio/StudioMembers";
 
-import SelectedProjects from "./pages/Apartaments/SelectedProjects";
-import InProgressProjects from "./pages/Apartaments/InProgressProjects";
-import HousingInProgressProjects from "./pages/HousingProjects/InProgressProjects";
-
 import AdminLogIn from "./pages/LogIn/AdminLogIn";
 import ResetPassword from "./pages/LogIn/ResetPassword";
 import ResetPasswordCode from "./pages/LogIn/ResetPasswordCode";
 import ChangePassword from "./pages/LogIn/ChangePassword";
 import PasswordChanged from "./pages/LogIn/PasswordChanged";
 
-import AddApartamentsProject from "./pages/Apartaments/AddApartamentsProject";
+import AddApartamentsSelectedProjects from "./pages/Apartaments/AddApartamentsSelectedProject";
 import AddApartamentsInProgressProject from "./pages/Apartaments/AddApartamentsInProgressProject";
-
-import HousingSelectedProjects from "./pages/HousingProjects/SelectedProjects";
-import HousingAddResidentialProject from "./pages/HousingProjects/AddHousingProject";
-import AddHousingInProgressProject from "./pages/HousingProjects/AddHousingInProgressProject";
-
-import ResidentialandPublicProjectsSelectedProjects from "./pages/ResidentialAndPublicProjects/ResidentialandPublicProjectsSelectedProjects";
-import ResidentialandPublicProjectsInProgressProjects from "./pages/ResidentialAndPublicProjects/ResidentialandPublicProjectsInProgressProjects";
-import AddResidentialandPublicProjectsSelectedProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsSelectedProject";
-import AddResidentialAndPublicProjectsInProgressProject from "./pages/ResidentialAndPublicProjects/AddResidentialandPublicProjectsInProgressProject";
-import LandscapeArchitectureSelectedProjects from "./pages/Landscape/LandscapeArchitectureSelectedProjects";
-import AddLandscapeArchitectureSelectedProjects from "./pages/Landscape/AddLandscapeArchitectureSelectedProjects";
-import LandscapeArchitectureInProgressProjects from "./pages/Landscape/LandscapeArchitectureInProgressProjects";
-import AddLandscapeArchitectureInProgressProject from "./pages/Landscape/AddLandscapeArchitectureInProgressProject";
-
-
+import ApartamentsInProgressProjects from "./pages/Apartaments/ApartamentsInProgressProjects";
+import ApartamentsSelectedProjects from "./pages/Apartaments/ApartamentsSelectedProjects";
+import HousesSelectedProjects from "./pages/Houses/HousesSelectedProjects";
+import AddHousesSelectedProjects from "./pages/Houses/AddHousesSelectedProjects";
+import HousesInProgressProjects from "./pages/Houses/HousesInProgressProjects";
+import AddHousesInProgressProject from "./pages/Houses/AddHousesInProgressProject";
+import ResidentialAndPublicSelectedProjects from "./pages/ResidentialAndPublicProjects/ResidentialAndPublicSelectedProjects";
+import AddResidentialAndPublicInProgressProject from "./pages/ResidentialAndPublicProjects/AddResidentialAndPublicInProgressProject";
+import AddResidentialAndPublicSelectedProjects from "./pages/ResidentialAndPublicProjects/AddResidentialAndPublicSelectedProjects";
+import ResidentialAndPublicInProgressProjects from "./pages/ResidentialAndPublicProjects/ResidentialAndPublicInProgressProjects";
+import LandscapeSelectedProjects from "./pages/Landscape/LandscapeSelectedProjects";
+import LandscapeInProgressProjects from "./pages/Landscape/LandscapeInProgressProjects";
+import AddLandscapeSelectedProjects from "./pages/Landscape/AddLandscapeSelectedProject";
+import AddLandscapeInProgressProject from "./pages/Landscape/AddLandscapeInProgressProject";
 
 export const routes = [
-    //Auth
-    {
-        path:"/log-in",
-        isExact:true,
-        component:AdminLogIn
-    },
-    {
-        path:"/reset-password",
-        isExact:true,
-        component:ResetPassword
-    },
-    {
-        path:"/reset-password-code",
-        isExact:true,
-        component:ResetPasswordCode
-    },
-    {
-        path:"/change-password",
-        isExact:true,
-        component:ChangePassword
-    },
-    {
-        path:"/password-changed",
-        isExact:true,
-        component:PasswordChanged
-    },
-    //Home Page
-    {
-        path:"/homepage",
-        isExact:true,
-        component:HomePage
-    },
-    {
-        path:"/homepage/menu/pictures",
-        isExact:true,
-        component:HomePageMenu
-    },
-    {
-        path:"/homepage/menu/videos",
-        isExact:true,
-        component:HomePageMenuVideos
-    },
-    //Studio
-    {
-        path:"/studio/team",
-        isExact:true,
-        component:StudioTeam
-    },
-    {
-        path:"/studio/members",
-        isExact:true,
-        component:StudioMembers
-    },
-    {
-        path:"/studio/jobs",
-        isExact:true,
-        component:StudioJobs
-    },
-    {
-        path:"/studio/jobs/add",
-        isExact:true,
-        component:AddJob
-    },
-    {
-        path:"/studio/contact",
-        isExact:true,
-        component:StudioContact
-    },
-    //Apartaments
-    {
-        path:"/apartaments/selected-projects",
-        isExact:true,
-        component:SelectedProjects
-    },
-    {
-        path:"/apartaments/add-selected-project",
-        isExact:true,
-        component:AddApartamentsProject
-    },
-    {
-        path:"/apartaments/in-progress-projects",
-        isExact:true,
-        component:InProgressProjects
-    },
-    {
-        path:"/apartaments/add-in-progress-project",
-        isExact:true,
-        component:AddApartamentsInProgressProject
-    },
-    //Housing
-    {
-        path:"/housing/selected-projects",
-        isExact:true,
-        component:HousingSelectedProjects
-    },
-    {
-        path:"/housing/in-progress-projects",
-        isExact:true,
-        component:HousingInProgressProjects
-    },
-    {
-        path:"/housing/add-selected-project",
-        isExact:true,
-        component:HousingAddResidentialProject
-    },
-    {
-        path:"/housing/add-in-progress-projects",
-        isExact:true,
-        component:AddHousingInProgressProject
-    },
-    //Residential
-    {
-        path:"/residential-and-public/selected-projects",
-        isExact:true,
-        component:ResidentialandPublicProjectsSelectedProjects
-    },
-    {
-        path:"/residential-and-public/in-progress-projects",
-        isExact:true,
-        component:ResidentialandPublicProjectsInProgressProjects
-    },
-    {
-        path:"/residential-and-public/add-selected-projects",
-        isExact:true,
-        component:AddResidentialandPublicProjectsSelectedProject
-    },
-    {
-        path:"/residential-and-public/add-in-progress-projects",
-        isExact:true,
-        component:AddResidentialAndPublicProjectsInProgressProject
-    },
-    //Landscape
-    {
-        path:"/landscape-architecture/selected-projects",
-        isExact:true,
-        component:LandscapeArchitectureSelectedProjects
-    },
-    {
-        path:"/landscape-architecture/add-selected-projects",
-        isExact:true,
-        component:AddLandscapeArchitectureSelectedProjects
-    },
-    {
-        path:"/landscape-architecture/in-progress-projects",
-        isExact:true,
-        component:LandscapeArchitectureInProgressProjects
-    },
-    {
-        path:"/landscape-architecture/add-in-progress-projects",
-        isExact:true,
-        component:AddLandscapeArchitectureInProgressProject
-    },
-]
+  //Auth
+  {
+    path: "/log-in",
+    isExact: true,
+    component: AdminLogIn,
+  },
+  {
+    path: "/reset-password",
+    isExact: true,
+    component: ResetPassword,
+  },
+  {
+    path: "/reset-password-code",
+    isExact: true,
+    component: ResetPasswordCode,
+  },
+  {
+    path: "/change-password",
+    isExact: true,
+    component: ChangePassword,
+  },
+  {
+    path: "/password-changed",
+    isExact: true,
+    component: PasswordChanged,
+  },
+  //Home Page
+  {
+    path: "/homepage",
+    isExact: true,
+    component: HomePage,
+  },
+  {
+    path: "/homepage/menu/pictures",
+    isExact: true,
+    component: HomePageMenu,
+  },
+  {
+    path: "/homepage/menu/videos",
+    isExact: true,
+    component: HomePageMenuVideos,
+  },
+  //Studio
+  {
+    path: "/studio/team",
+    isExact: true,
+    component: StudioTeam,
+  },
+  {
+    path: "/studio/members",
+    isExact: true,
+    component: StudioMembers,
+  },
+  {
+    path: "/studio/jobs",
+    isExact: true,
+    component: StudioJobs,
+  },
+  {
+    path: "/studio/jobs/add",
+    isExact: true,
+    component: AddJob,
+  },
+  {
+    path: "/studio/contact",
+    isExact: true,
+    component: StudioContact,
+  },
+  //Apartaments
+  {
+    path: "/apartaments/selected-projects",
+    isExact: true,
+    component: ApartamentsSelectedProjects,
+  },
+  {
+    path: "/apartaments/add-selected-project",
+    isExact: true,
+    component: AddApartamentsSelectedProjects,
+  },
+  {
+    path: "/apartaments/in-progress-projects",
+    isExact: true,
+    component: ApartamentsInProgressProjects,
+  },
+  {
+    path: "/apartaments/add-in-progress-project",
+    isExact: true,
+    component: AddApartamentsInProgressProject,
+  },
+  //Houses
+  {
+    path: "/houses/selected-projects",
+    isExact: true,
+    component: HousesSelectedProjects,
+  },
+  {
+    path: "/houses/add-selected-project",
+    isExact: true,
+    component: AddHousesSelectedProjects,
+  },
+  {
+    path: "/houses/in-progress-projects",
+    isExact: true,
+    component: HousesInProgressProjects,
+  },
+  {
+    path: "/houses/add-in-progress-project",
+    isExact: true,
+    component: AddHousesInProgressProject,
+  },
+
+  // //Residential
+  {
+      path:"/residential-and-public/selected-projects",
+      isExact:true,
+      component:ResidentialAndPublicSelectedProjects
+  },
+  {
+      path:"/residential-and-public/in-progress-projects",
+      isExact:true,
+      component:ResidentialAndPublicInProgressProjects
+  },
+  {
+      path:"/residential-and-public/add-selected-project",
+      isExact:true,
+      component:AddResidentialAndPublicSelectedProjects
+  },
+  {
+      path:"/residential-and-public/add-in-progress-project",
+      isExact:true,
+      component:AddResidentialAndPublicInProgressProject
+  },
+  // //Landscape
+  {
+      path:"/landscape-architecture/selected-projects",
+      isExact:true,
+      component:LandscapeSelectedProjects
+  },
+  {
+      path:"/landscape-architecture/add-selected-project",
+      isExact:true,
+      component:AddLandscapeSelectedProjects
+  },
+  {
+      path:"/landscape-architecture/in-progress-projects",
+      isExact:true,
+      component:LandscapeInProgressProjects
+  },
+  {
+      path:"/landscape-architecture/add-in-progress-project",
+      isExact:true,
+      component:AddLandscapeInProgressProject
+  },
+];

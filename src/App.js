@@ -8,13 +8,12 @@ import {
   Redirect,
 } from "react-router-dom";
 import { routes } from "./Router";
-
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Redirect exact from="/" to="log-in"/>
+          <Redirect exact from="/" to="log-in" />
           {routes.map((el, i) => {
             return (
               <Route
