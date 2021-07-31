@@ -8,6 +8,7 @@ import Modal from "../../components/Modal/Modal";
 
 export default function StudioTeam({ history }) {
   const [openModal, setOpenModal] = useState(false);
+  const [teamImg,setTeamImg] = useState("")
   const pageInfo = {
     pageHeader: "Studio",
     className: "studio-layout-info menu-left-bar",

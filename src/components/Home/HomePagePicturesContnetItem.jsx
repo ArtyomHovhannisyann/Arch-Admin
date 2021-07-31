@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import {generalUrl} from "../../lib/constants"
 import { Portal } from "react-portal";
 import Modal from "../Modal/Modal";
-
 export default function HomePagePicturesContnetItem({ data, delImage }) {
   const [openModal, setOpenModal] = useState(false);
   return (
@@ -17,7 +17,7 @@ export default function HomePagePicturesContnetItem({ data, delImage }) {
         </Portal>
       )}
       <div className="item">
-        <img src={data.url} className="item-image" alt="" />
+        <img src={`${generalUrl}/${data.path}`} className="item-image" alt="" />
         <img
           src="../../images/trash.png"
           className="trash-icon"
