@@ -22,16 +22,16 @@
   letter-spacing: 0.04em;
   color: #bcbcbc;
 }
-.new-project-content{
+.new-project-content {
   flex-direction: column;
 }
-.new-project-layout-content{
+.new-project-layout-content {
   padding-left: 12.2vw;
 }
-.new-layout-content-header{
+.new-layout-content-header {
   margin-top: 0;
 }
-.new-project-layout-left-bar{
+.new-project-layout-left-bar {
   padding-left: 5vw;
 }
 .description-input {
@@ -57,10 +57,21 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
-.back-icon{
+.back-icon {
   cursor: pointer;
   width: 28px;
   height: 15px;
   position: absolute;
   left: -40px;
+}
+.add-selected-project {
+  background: #434b62;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 8px 19px;
 }
