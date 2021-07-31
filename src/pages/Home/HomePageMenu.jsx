@@ -26,9 +26,11 @@ export default function HomePageMenu({ history }) {
   function addImage(e) {
     const formData = new FormData();
     formData.append("path", e.target.files[0]);
-    setHomePagePicture(formData).then(() => {
-      getHomePagePictures(setContentItems);
-    });
+    if (e.target.files.length > 0) {
+      setHomePagePicture(formData).then(() => {
+        getHomePagePictures(setContentItems);
+      });
+    }
   }
   function delImage(id) {
     delHomePagePicture(id).then(() => {

@@ -22,7 +22,6 @@
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   font-family: Segoe UI;
-  font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
@@ -62,24 +61,35 @@
   box-sizing: border-box;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
+  width: 585px;
   height: 26vh;
-  width:  35.6vw;
   resize: none;
   margin-top: 1vh;
   font-size: 15px;
-  color: #BCBCBC;
+  color: #bcbcbc;
   font-family: Source Serif Pro;
 }
 .team-description-input:not(:first-child) {
-  margin-left: 66px;
+  margin-left: 3vw;
 }
-.items{
+.items {
   width: 100%;
   display: flex;
 }
-.studio-team-item:not(:first-child){
+.studio-team-item:not(:first-child) {
   margin-left: 100px;
 }
-.team-description{
+.team-description {
   display: flex;
+}
+.confirm-btn {
+  background: #434b62;
+  border-radius: 5px;
+  font-family: Segoe UI;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  padding: 8px 19px;
+  cursor: pointer;
 }
