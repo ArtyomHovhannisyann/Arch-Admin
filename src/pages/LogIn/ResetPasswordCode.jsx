@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { sendPassword } from "../../lib/requests";
 
-export default function ResetPasswordCode({ history }) {
+export default function ResetPasswordCode({ history,location }) {
+  useEffect(() => {
+    if (!location.state) {
+      history.push("/reset-password")
+    }
+    
+  }, [])
   const [code, setCode] = useState("");
   function submitForm(e) {
     e.preventDefault();
@@ -9,8 +16,11 @@ export default function ResetPasswordCode({ history }) {
     for (let i = 0; i < form.length - 1; i++) {
       code += form[i].value;
     }
-    console.log(code);
-    history.push("/change-password");
+    const data = {
+      code:code,
+      "reset-token":location.state
+    }
+    sendPassword(data,history)
   }
   function inputFocus(e) {
     const target = e.target;
@@ -35,7 +45,6 @@ export default function ResetPasswordCode({ history }) {
       target.value = "";
     }
   }
-  console.log(code);
   return (
     <div className="reset-password">
       <div className="reset-header">

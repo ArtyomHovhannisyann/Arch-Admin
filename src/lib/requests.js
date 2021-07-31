@@ -4,6 +4,7 @@ import {
   GET_TEAM,
   GET_VIDEOS,
   RESET_PASSWORD,
+  RESET_PASSWORD_CODE,
   SEND_LOG_IN,
 } from "./constants";
 
@@ -22,7 +23,7 @@ export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
     setEmailMessage("The email or password is incorrect");
   }
 }
-export function resetPassword(data,history) {
+export function resetPassword(data, history) {
   const info = {
     url: RESET_PASSWORD,
     method: "POST",
@@ -30,8 +31,29 @@ export function resetPassword(data,history) {
   };
   try {
     request(info).then((res) => {
+      console.log(res.data.data.reset_token);
+      history.push({
+        pathname: "/reset-password-code",
+        state: res.data.data.reset_token,
+      });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+export function sendPassword(data, history) {
+  const info = {
+    url: RESET_PASSWORD_CODE,
+    method: "POST",
+    data,
+  };
+  try {
+    request(info).then((res) => {
       console.log(res);
-      history.push("/reset-password-code");
+      history.push({
+        pathname: "/change-password",
+        state: data["reset-token"],
+      });
     });
   } catch (err) {
     console.error(err);
