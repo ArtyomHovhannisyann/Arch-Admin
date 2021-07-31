@@ -80,5 +80,7 @@ export const RESET_PASSWORD = `${generalUrl}/api/auth/start-reset-password`;
 export const RESET_PASSWORD_CODE = `${generalUrl}/api/auth/reset-password-send-code`;
 export const RESET_PASSWORD_SEND_PASSWORD = `${generalUrl}/api/auth/reset-password`;
 export const GET_PICTURES = `${generalUrl}/api/data/pictures`;
+export const SET_PICTURE = `${generalUrl}/api/data/form/pictures`;
+export const DEL_PICTURE = `${generalUrl}/api/data/pictures/`;
 export const GET_VIDEOS = `${generalUrl}/api/data/videos`;
 export const GET_TEAM = `${generalUrl}/api/data/team`;

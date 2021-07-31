@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomePagePicturesContnetItem from "../../components/Home/HomePagePicturesContnetItem";
 import AddButton from "../../components/Layout/AddButton";
 import MainLayout from "../../components/Layout/MainLayout";
 import "../../css/Home/homeMenuPage.css";
+import {
+  delHomePagePicture,
+  getHomePagePictures,
+  setHomePagePicture,
+} from "../../lib/requests";
 export default function HomePageMenu({ history }) {
   const pageInfo = {
     pageHeader: "Homepage",
@@ -11,28 +16,23 @@ export default function HomePageMenu({ history }) {
     className: "menu-left-bar",
     active: 0,
   };
-  const [contentItems, setContentItems] = useState([
-    {
-      url: "../../images/home1.png",
-    },
-    {
-      url: "../../images/home2.png",
-    },
-  ]);
+  const [contentItems, setContentItems] = useState([]);
+  useEffect(() => {
+    getHomePagePictures(setContentItems);
+  }, []);
   function changePage(key) {
     history.push(key);
   }
   function addImage(e) {
-    let reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.addEventListener("load", (e) => {
-      setContentItems([
-        ...contentItems,
-        {
-          url: e.target.result,
-        },
-      ]);
-      console.log(contentItems);
+    const formData = new FormData();
+    formData.append("path", e.target.files[0]);
+    setHomePagePicture(formData).then(() => {
+      getHomePagePictures(setContentItems);
+    });
+  }
+  function delImage(id) {
+    delHomePagePicture(id).then(() => {
+      getHomePagePictures(setContentItems);
     });
   }
   return (
@@ -67,7 +67,13 @@ export default function HomePageMenu({ history }) {
             <div className="layout-items">
               {contentItems &&
                 contentItems.map((el, i) => {
-                  return <HomePagePicturesContnetItem link={el.url} key={i} />;
+                  return (
+                    <HomePagePicturesContnetItem
+                      delImage={delImage}
+                      data={el}
+                      key={i}
+                    />
+                  );
                 })}
             </div>
           </div>

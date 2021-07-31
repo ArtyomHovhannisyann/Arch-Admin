@@ -1,7 +1,11 @@
 import React from "react";
 import "../../css/Modal/modal.css";
 
-export default function Modal({ type, setOpenModal }) {
+export default function Modal({ type, setOpenModal, delImage,currentId}) {
+  function deletItem() {
+    delImage(currentId)
+    setOpenModal(false)
+  }
   return (
     <div
       className="delete-modal"
@@ -19,7 +23,9 @@ export default function Modal({ type, setOpenModal }) {
         </div>
         <div className="modal-content">
           <p>Do you want to delete the {type}?</p>
-          <button className="yes-btn">Yes</button>
+          <button className="yes-btn" onClick={deletItem}>
+            Yes
+          </button>
           <button className="no-btn" onClick={() => setOpenModal(false)}>
             No
           </button>
