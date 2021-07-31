@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import LoginInput from "../../components/AdminLogin/LoginInput";
+import { changePassword } from "../../lib/requests";
 import { resetPasswordValidation } from "../../lib/validate";
 
-export default function ChangePassword({ history }) {
+export default function ChangePassword({ history,location }) {
   const [repeatPasswordMessage, setRepeatPasswordMessage] = useState("");
   function changePage(e, key) {
     e.preventDefault();
@@ -19,8 +20,12 @@ export default function ChangePassword({ history }) {
     if (error) {
       setRepeatPasswordMessage(error.details[0].message);
     } else if (formData.password == formData.repeatPassword) {
-      console.log(formData.password == formData.repeatPassword);
-      history.push("/password-changed");
+      console.log(location);
+      const data ={
+        password:formData.password,
+        "reset-token":location.state,
+      }      
+      changePassword(data,history)
     } else {
       setRepeatPasswordMessage("Password does not match");
     }

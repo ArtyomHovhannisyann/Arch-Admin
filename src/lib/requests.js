@@ -5,6 +5,7 @@ import {
   GET_VIDEOS,
   RESET_PASSWORD,
   RESET_PASSWORD_CODE,
+  RESET_PASSWORD_SEND_PASSWORD,
   SEND_LOG_IN,
 } from "./constants";
 
@@ -49,11 +50,26 @@ export function sendPassword(data, history) {
   };
   try {
     request(info).then((res) => {
-      console.log(res);
       history.push({
         pathname: "/change-password",
         state: data["reset-token"],
       });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+export function changePassword(data, history) {
+  console.log(data);
+  const info = {
+    url: RESET_PASSWORD_SEND_PASSWORD,
+    method: "POST",
+    data,
+  };
+  try {
+    request(info).then((res) => {
+      console.log(res);
+      history.push("/password-changed");
     });
   } catch (err) {
     console.error(err);
