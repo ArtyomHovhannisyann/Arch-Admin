@@ -9,7 +9,7 @@ export default function HomePagePicturesContnetItem({ data, delImage }) {
       {openModal && (
         <Portal node={document.body}>
           <Modal
-            delImage={delImage}
+            delItem={delImage}
             currentId = {data.id}
             setOpenModal={setOpenModal}
             type={"home page image"}

@@ -83,4 +83,6 @@ export const GET_PICTURES = `${generalUrl}/api/data/pictures`;
 export const SET_PICTURE = `${generalUrl}/api/data/form/pictures`;
 export const DEL_PICTURE = `${generalUrl}/api/data/pictures/`;
 export const GET_VIDEOS = `${generalUrl}/api/data/videos`;
+export const SET_VIDEOS = `${generalUrl}/api/data/form/videos`;
+export const DEL_VIDEO = `${generalUrl}/api/data/videos/`;
 export const GET_TEAM = `${generalUrl}/api/data/team`;

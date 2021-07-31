@@ -1,6 +1,7 @@
 import { request } from "./a-lib";
 import {
   DEL_PICTURE,
+  DEL_VIDEO,
   GET_PICTURES,
   GET_TEAM,
   GET_VIDEOS,
@@ -9,6 +10,7 @@ import {
   RESET_PASSWORD_SEND_PASSWORD,
   SEND_LOG_IN,
   SET_PICTURE,
+  SET_VIDEOS,
 } from "./constants";
 
 export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
@@ -120,6 +122,29 @@ export async function getHomePageVideos(setVideos) {
   try {
     let videos = await request(info);
     setVideos(videos.data.data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function setHomePageVideo(data) {
+  const info = {
+    url: SET_VIDEOS,
+    method: "POST",
+    data,
+  };
+  try {
+    const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function delHomePageVideo(id) {
+  const info = {
+    url: DEL_VIDEO + id,
+    method: "DELETE",
+  };
+  try {
+    const res = await request(info);
   } catch (err) {
     console.error(err);
   }
