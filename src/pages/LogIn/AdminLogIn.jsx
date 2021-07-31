@@ -34,7 +34,7 @@ export default function AdminLogIn({ history }) {
         setPasswordMessage("The password is incorrect");
       }
     } else {
-      checkIsEmailPasswordCorrect(formData, history);
+      checkIsEmailPasswordCorrect(formData, history,setEmailMessage);
     }
   }
   return (

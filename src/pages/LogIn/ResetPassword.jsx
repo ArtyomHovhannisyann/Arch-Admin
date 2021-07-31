@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LoginInput from "../../components/AdminLogin/LoginInput";
+import { resetPassword } from "../../lib/requests";
 import { resetPasswordEmailValidation } from "../../lib/validate";
 
 export default function ResetPassword({ history }) {
@@ -18,7 +19,7 @@ export default function ResetPassword({ history }) {
     if (error) {
       setEmailMessage(error.details[0].message);
     } else {
-      history.push("/reset-password-code");
+      resetPassword(formData,history)
     }
   }
   return (
