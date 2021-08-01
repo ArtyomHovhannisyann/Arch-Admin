@@ -383,3 +383,18 @@ export async function getLandscapeSelectedProjects(callBack) {
     console.error(err);
   }
 }
+export async function getLandscapeInProgressProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(2, 4),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res);
+  } catch (err) {
+    console.error(err);
+  }
+}
