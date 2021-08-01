@@ -16,6 +16,10 @@ export default function ResidentialAndPublicInProgressProjects({ history }) {
     history.push("/residential-and-public/add-in-progress-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getResidentialInProgressProjects((data) => {
       setProjects(data);
     });

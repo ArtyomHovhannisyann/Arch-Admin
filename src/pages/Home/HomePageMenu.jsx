@@ -18,6 +18,10 @@ export default function HomePageMenu({ history }) {
   };
   const [contentItems, setContentItems] = useState([]);
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getHomePagePictures(setContentItems);
   }, []);
   function changePage(key) {

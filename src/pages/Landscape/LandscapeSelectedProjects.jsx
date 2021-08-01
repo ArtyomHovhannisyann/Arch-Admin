@@ -16,6 +16,10 @@ export default function LandscapeSelectedProjects({ history }) {
     history.push("/landscape-architecture/add-selected-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getLandscapeSelectedProjects((data) => {
       setProjects(data);
     });

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddSelectedProject from "../../components/SelectedProjects/AddSelectedProject";
 
-export default function AddHousesSelectedProjects({history}) {
+export default function AddHousesSelectedProjects({ history }) {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -43,6 +43,12 @@ export default function AddHousesSelectedProjects({history}) {
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
   };
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, []);
   return (
     <div className="new-houses-selected-project">
       <MainLayout

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../../components/Layout/MainLayout";
 import AddButton from "../../../components/Layout/AddButton";
 import "../../../css/Job/job.css";
 import { Portal } from "react-portal";
 import Modal from "../../../components/Modal/Modal";
 
-export default function AddJob() {
+export default function AddJob({history}) {
   const [openModal, setOpenModal] = useState(false);
   const [title,setTitle] = useState("")
   const [description,setDescription] = useState("")
@@ -14,6 +14,12 @@ export default function AddJob() {
     pageHeader: "Job",
     className: "studio-layout-info menu-left-bar",
   };
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, [])
   return (
     <div className="add-job">
       {openModal && (

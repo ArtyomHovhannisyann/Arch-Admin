@@ -16,6 +16,10 @@ export default function StudioMembers({ history }) {
   };
   const [teamItems, setTeamItems] = useState([]);
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getStudioMembers((data) => {
       let dataWithGoodImageUrls = data.map((el) => {
         el.image = generalUrl + "/" + el.image;
@@ -92,7 +96,9 @@ export default function StudioMembers({ history }) {
                       url={el.image}
                       key={i}
                       currentId={el.id}
-                      isExested={el.isExested != undefined ? el.isExested : true}
+                      isExested={
+                        el.isExested != undefined ? el.isExested : true
+                      }
                     />
                   );
                 })}

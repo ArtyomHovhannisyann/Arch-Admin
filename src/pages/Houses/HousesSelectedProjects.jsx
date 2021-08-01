@@ -9,13 +9,17 @@ export default function HousesSelectedProjects({ history }) {
     pageHeader: "Houses Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info menu-left-bar",
-    data:projects,
+    data: projects,
   };
   function addProject(e) {
     e.preventDefault();
     history.push("/houses/add-selected-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getHousesSelectedProjects((data) => {
       setProjects(data);
     });

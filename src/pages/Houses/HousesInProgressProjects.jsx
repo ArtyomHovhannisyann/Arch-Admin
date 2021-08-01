@@ -16,6 +16,10 @@ export default function HousesInProgressProjects({ history }) {
     history.push("/houses/add-in-progress-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getHousesInProgressProjects((data) => {
       setProjects(data);
     });

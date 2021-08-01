@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddSelectedProject from "../../components/SelectedProjects/AddSelectedProject";
 
-export default function AddLandscapeSelectedProjects({history}) {
+export default function AddLandscapeSelectedProjects({ history }) {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -29,15 +29,12 @@ export default function AddLandscapeSelectedProjects({history}) {
       path: "../images/residential-project.png",
     },
   ]);
-  const inputs = [
-    "*title",
-    "*location",
-    "*total floor area",
-    "*total site area",
-    "*design and built",
-    "*program",
-    "*description",
-  ];
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, []);
   const pageInfo = {
     pageHeader: "Landscape Architecture",
     pageName: "Selected Projects",
@@ -53,7 +50,6 @@ export default function AddLandscapeSelectedProjects({history}) {
         <AddSelectedProject
           pageInfo={pageInfo}
           projectImages={projectImages}
-          inputs={inputs}
         />
       </MainLayout>
     </div>

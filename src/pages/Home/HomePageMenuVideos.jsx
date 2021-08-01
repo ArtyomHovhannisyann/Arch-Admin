@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import AddButton from "../../components/Layout/AddButton";
 import MainLayout from "../../components/Layout/MainLayout";
 import HomePageVideosContentItem from "../../components/Home/HomePageVideosContentItem";
-import { delHomePageVideo, getHomePageVideos, setHomePageVideo } from "../../lib/requests";
+import {
+  delHomePageVideo,
+  getHomePageVideos,
+  setHomePageVideo,
+} from "../../lib/requests";
 
 export default function HomePageMenuVideos({ history }) {
   const pageInfo = {
@@ -14,23 +18,27 @@ export default function HomePageMenuVideos({ history }) {
   };
   const [contentItems, setContentItems] = useState([]);
   useEffect(() => {
-    getHomePageVideos(setContentItems)
-  }, [])
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+    getHomePageVideos(setContentItems);
+  }, []);
   function changePage(key) {
     history.push(key);
   }
   function addVideo(e) {
     console.log(e);
     const formData = new FormData();
-    formData.append("path", e.target.files[0]); 
+    formData.append("path", e.target.files[0]);
     setHomePageVideo(formData).then(() => {
       getHomePageVideos(setContentItems);
     });
   }
   function delVideo(id) {
-    delHomePageVideo(id).then(()=>{
-      getHomePageVideos(setContentItems)
-    })
+    delHomePageVideo(id).then(() => {
+      getHomePageVideos(setContentItems);
+    });
   }
   return (
     <div className="home-menu-videos">
@@ -68,7 +76,13 @@ export default function HomePageMenuVideos({ history }) {
             <div className="layout-items">
               {contentItems &&
                 contentItems.map((el, i) => {
-                  return <HomePageVideosContentItem data={el} key={i} delVideo = {delVideo} />;
+                  return (
+                    <HomePageVideosContentItem
+                      data={el}
+                      key={i}
+                      delVideo={delVideo}
+                    />
+                  );
                 })}
             </div>
           </div>

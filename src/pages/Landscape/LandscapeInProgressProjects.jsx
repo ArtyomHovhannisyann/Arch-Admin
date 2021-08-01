@@ -16,6 +16,10 @@ export default function LandscapeInProgressProjects({ history }) {
     history.push("/landscape-architecture/add-in-progress-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getLandscapeInProgressProjects((data) => {
       setProjects(data);
     });

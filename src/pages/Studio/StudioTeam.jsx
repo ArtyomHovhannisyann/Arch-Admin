@@ -26,6 +26,10 @@ export default function StudioTeam({ history }) {
     });
   }, []);
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     if (teamData.length > 0) {
       setInfoValue(teamData[0].info);
       setDescriptionValue(teamData[0].description);

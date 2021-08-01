@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainLayout from "../../../components/Layout/MainLayout";
 import AddButton from "../../../components/Layout/AddButton";
 import JobItem from "./JobItem";
@@ -13,6 +13,12 @@ export default function Job({ history }) {
     e.preventDefault();
     history.push("/studio/jobs/add");
   }
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, []);
   return (
     <div className="job">
       <MainLayout pageInfo={pageInfo}>

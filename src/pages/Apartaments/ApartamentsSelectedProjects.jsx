@@ -4,18 +4,22 @@ import SelectedProjects from "../../components/SelectedProjects/SelectedProjects
 import { getApartamentsSelectedProjects } from "../../lib/requests";
 
 export default function ApartamentsSelectedProjects({ history }) {
-  const [projects,setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
   const pageInfo = {
     pageHeader: "Appartaments Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info menu-left-bar",
-    data:projects,
+    data: projects,
   };
   function addProject(e) {
     e.preventDefault();
     history.push("/apartaments/add-selected-project");
   }
   useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
     getApartamentsSelectedProjects((data) => {
       setProjects(data);
     });

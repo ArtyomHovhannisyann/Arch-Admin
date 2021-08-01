@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio-credits.css";
 import { Portal } from "react-portal";
 import Modal from "../../components/Modal/Modal";
 
-export default function StudioContact() {
+export default function StudioContact({history}) {
   const [openModal, setOpenModal] = useState(false);
   const [address, setAddress] = useState(``);
   const [phoneNumber, setPhoneNumber] = useState(``);
@@ -16,6 +16,12 @@ export default function StudioContact() {
     pageName: "Contact",
     className: "studio-layout-info menu-left-bar",
   };
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, []);
 
   return (
     <div className="studio-contact">

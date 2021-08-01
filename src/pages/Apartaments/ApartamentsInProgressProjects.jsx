@@ -4,20 +4,24 @@ import InProgressProjects from "../../components/InProgress/InProgressProjects";
 import { getApartamentsInProgressProjects } from "../../lib/requests";
 
 export default function ApartamentsInProgressProjects({ history }) {
-  const [projects,setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
   const pageInfo = {
     pageHeader: "Appartaments Projects",
     pageName: "In progress",
     className: "studio-layout-info menu-left-bar",
-    data:projects,
+    data: projects,
   };
   function addProject(e) {
     e.preventDefault();
     history.push("/apartaments/add-in-progress-project");
   }
   useEffect(() => {
-    getApartamentsInProgressProjects((data)=>{
-      setProjects(data)
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+    getApartamentsInProgressProjects((data) => {
+      setProjects(data);
     });
   }, []);
   return (

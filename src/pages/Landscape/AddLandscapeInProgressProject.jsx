@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddInProgressProject from "../../components/InProgress/AddInProgressProject";
 import MainLayout from "../../components/Layout/MainLayout";
 
-export default function AddLandscapeInProgressProject() {
+export default function AddLandscapeInProgressProject({history}) {
   const [projectImages, setProjectImages] = useState([
     {
       id: 1,
@@ -34,15 +34,12 @@ export default function AddLandscapeInProgressProject() {
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
   };
-  const inputs = [
-    "Title",
-    "Location",
-    "Total floor area",
-    "Total site area",
-    "Design and built",
-    "Program",
-    "Description",
-  ];
+  useEffect(() => {
+    const token = document.cookie.split("=");
+    if (!token[1]) {
+      history.push("/log-in");
+    }
+  }, []);
   return (
     <div className="add-in-progress-project">
       <MainLayout
@@ -53,7 +50,6 @@ export default function AddLandscapeInProgressProject() {
         <AddInProgressProject
           pageInfo={pageInfo}
           projectImages={projectImages}
-          inputs={inputs}
         />
       </MainLayout>
     </div>
