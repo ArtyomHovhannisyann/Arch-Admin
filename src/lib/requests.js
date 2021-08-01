@@ -368,3 +368,18 @@ export async function getResidentialInProgressProjects(callBack) {
     console.error(err);
   }
 }
+export async function getLandscapeSelectedProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(1, 4),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res);
+  } catch (err) {
+    console.error(err);
+  }
+}
