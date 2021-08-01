@@ -1,7 +1,11 @@
 import { request } from "./a-lib";
 import {
+  ADD_MEMBER,
+  DEL_MEMBER,
   DEL_PICTURE,
   DEL_VIDEO,
+  EDIT_MEMBER,
+  GET_MEMBERS,
   GET_PICTURES,
   GET_TEAM,
   GET_VIDEOS,
@@ -149,6 +153,7 @@ export async function setHomePageVideo(data) {
     },
   };
   try {
+    console.log(22);
     const res = await request(info);
   } catch (err) {
     console.error(err);
@@ -168,7 +173,7 @@ export async function delHomePageVideo(id) {
     console.error(err);
   }
 }
-export async function getStudioTeam(setTeamItems) {
+export async function getStudioTeam(callBack) {
   const info = {
     url: GET_TEAM,
     method: "GET",
@@ -178,21 +183,90 @@ export async function getStudioTeam(setTeamItems) {
   };
   try {
     let teamItems = await request(info);
-    setTeamItems(teamItems.data.data);
+    callBack(teamItems.data.data);
   } catch (err) {
     console.error(err);
   }
 }
 export async function setStudioTeam(data) {
-  let formData = new FormData()
+  let formData = new FormData();
   let dataEntries = Object.entries(data);
   for (let i = 0; i < dataEntries.length; i++) {
-    formData.append(dataEntries[i][0],dataEntries[i][1])
-  } 
+    formData.append(dataEntries[i][0], dataEntries[i][1]);
+  }
   const info = {
     url: SET_TEAM,
     method: "PUT",
-    data : formData,
+    data: formData,
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function getStudioMembers(callBack) {
+  const info = {
+    url: GET_MEMBERS,
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    let teamItems = await request(info);
+    callBack(teamItems.data.data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function addStudioMember(data) {
+  let formData = new FormData();
+  let dataEntries = Object.entries(data);
+  for (let i = 0; i < dataEntries.length; i++) {
+    formData.append(dataEntries[i][0], dataEntries[i][1]);
+  }
+  const info = {
+    url: ADD_MEMBER,
+    method: "POST",
+    data: formData,
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function delStudioTeamMember(id) {
+  const info = {
+    url: DEL_MEMBER + id,
+    method: "DELETE",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function editStudioMember(data,id) {
+  let formData = new FormData();
+  let dataEntries = Object.entries(data);
+  for (let i = 0; i < dataEntries.length; i++) {
+    formData.append(dataEntries[i][0], dataEntries[i][1]);
+  }
+  const info = {
+    url: EDIT_MEMBER + id,
+    data:formData,
+    method: "PUT",
     headers: {
       token: document.cookie,
     },

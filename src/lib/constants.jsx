@@ -87,3 +87,8 @@ export const SET_VIDEOS = `${generalUrl}/api/data/form/videos`;
 export const DEL_VIDEO = `${generalUrl}/api/data/videos/`;
 export const GET_TEAM = `${generalUrl}/api/data/team`;
 export const SET_TEAM = `${generalUrl}/api/data/form/team/1`;
+export const GET_MEMBERS = `${generalUrl}/api/data/members`;
+export const ADD_MEMBER = `${generalUrl}/api/data/form/members`;
+export const DEL_MEMBER = `${generalUrl}/api/data/members/`;
+export const EDIT_MEMBER = `${generalUrl}/api/data/form/members/`;
+

@@ -7,6 +7,7 @@ import { Portal } from "react-portal";
 import Modal from "../../components/Modal/Modal";
 import { getStudioTeam, setStudioTeam } from "../../lib/requests";
 import { generalUrl } from "../../lib/constants";
+import { dataURLtoFile } from "../../lib/a-lib";
 
 export default function StudioTeam({ history }) {
   const [openModal, setOpenModal] = useState(false);
@@ -15,7 +16,14 @@ export default function StudioTeam({ history }) {
   const [descriptionValue, setDescriptionValue] = useState("");
   const [image, setImage] = useState("");
   useEffect(() => {
-    getStudioTeam(setTeamData);
+    getStudioTeam((data) => {
+      let dataWithGoodImageUrls = data.map((el) => {
+        el.image = generalUrl + "/" + el.image;
+        return el;
+      });
+      console.log(data);
+      setTeamData(dataWithGoodImageUrls);
+    });
   }, []);
   useEffect(() => {
     if (teamData.length > 0) {
@@ -35,19 +43,53 @@ export default function StudioTeam({ history }) {
   }
   function sendData() {
     const data = {
+      image: dataURLtoFile(image, "image.jpg"),
+      info: infoValue,
+      description: descriptionValue,
+    };
+    setStudioTeam(data).then(() => {
+      getStudioTeam((data) => {
+        let dataWithGoodImageUrls = data.map((el) => {
+          el.image = generalUrl + "/" + el.image;
+          return el;
+        });
+        setTeamData(dataWithGoodImageUrls);
+      });
+    });
+  }
+  function changeImage(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      setImage(e.target.result);
+    });
+  }
+  function delImage(id) {
+    setImage("");
+    const data = {
       image: image,
       info: infoValue,
       description: descriptionValue,
     };
-    setStudioTeam(data).then(()=>{
-      getStudioTeam(setTeamData)
+    setStudioTeam(data).then(() => {
+      getStudioTeam((data) => {
+        let dataWithGoodImageUrls = data.map((el) => {
+          el.image = generalUrl + "/" + el.image;
+          return el;
+        });
+        setTeamData(dataWithGoodImageUrls);
+      });
     });
   }
   return (
     <div className="studio-team">
       {openModal && (
         <Portal node={document.body}>
-          <Modal setOpenModal={setOpenModal} type={"team image"} />
+          <Modal
+            setOpenModal={setOpenModal}
+            type={"team image"}
+            delItem={delImage}
+          />
         </Portal>
       )}
       <MainLayout pageInfo={pageInfo}>
@@ -73,9 +115,9 @@ export default function StudioTeam({ history }) {
             </div>
           </div>
           <div className="layout-info">
-            <AddButton text="Add" change={(e) => setImage(e.target.files[0])} />
+            <AddButton text="Add" change={changeImage} />
             <div className="team-image">
-              <img src={`${generalUrl}/${image}`} alt="team" />
+              <img src={image} alt="team" />
               <img
                 src="../../images/trash.png"
                 className="trash-icon"
