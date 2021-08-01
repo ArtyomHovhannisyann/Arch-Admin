@@ -353,3 +353,18 @@ export async function getResidentialSelectedProjects(callBack) {
     console.error(err);
   }
 }
+export async function getResidentialInProgressProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(2, 3),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res);
+  } catch (err) {
+    console.error(err);
+  }
+}
