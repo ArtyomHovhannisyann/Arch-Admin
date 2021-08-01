@@ -293,3 +293,18 @@ export async function getApartamentsSelectedProjects(callBack) {
     console.error(err);
   }
 }
+export async function getApartamentsInProgressProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(2,1),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res)
+  } catch (err) {
+    console.error(err);
+  }
+}
