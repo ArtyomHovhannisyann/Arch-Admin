@@ -1,7 +1,5 @@
-.layout-items {
+.layout-contnet-item {
   margin-top: 4vh;
-}
-.layout-content-item {
   display: flex;
 }
 .item {

@@ -58,6 +58,9 @@
   line-height: 23px;
   letter-spacing: 0.05em;
 }
+.layout-content-item {
+  margin-top: 4vh;
+}
 .layout-header-pages {
   display: flex;
 }

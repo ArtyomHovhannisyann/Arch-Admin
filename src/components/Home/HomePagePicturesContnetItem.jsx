@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {generalUrl} from "../../lib/constants"
 import { Portal } from "react-portal";
 import Modal from "../Modal/Modal";
+import "../../css/Home/homeMenuPage.css"
 export default function HomePagePicturesContnetItem({ data, delImage }) {
   const [openModal, setOpenModal] = useState(false);
   return (
