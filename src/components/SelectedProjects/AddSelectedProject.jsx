@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 export default function AddSelectedProject({
   pageInfo,
   projectImages,
-  inputs,
 }) {
   let history = useHistory();
   const [title, setTitle] = useState("");

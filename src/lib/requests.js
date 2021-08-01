@@ -16,6 +16,7 @@ import {
   SET_PICTURE,
   SET_TEAM,
   SET_VIDEOS,
+  GET_PROJECTS,
 } from "./constants";
 
 export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
@@ -257,7 +258,7 @@ export async function delStudioTeamMember(id) {
     console.error(err);
   }
 }
-export async function editStudioMember(data,id) {
+export async function editStudioMember(data, id) {
   let formData = new FormData();
   let dataEntries = Object.entries(data);
   for (let i = 0; i < dataEntries.length; i++) {
@@ -265,7 +266,7 @@ export async function editStudioMember(data,id) {
   }
   const info = {
     url: EDIT_MEMBER + id,
-    data:formData,
+    data: formData,
     method: "PUT",
     headers: {
       token: document.cookie,
@@ -273,6 +274,21 @@ export async function editStudioMember(data,id) {
   };
   try {
     const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function getApartamentsSelectedProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(1,1),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res)
   } catch (err) {
     console.error(err);
   }
