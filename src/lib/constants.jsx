@@ -91,4 +91,7 @@ export const GET_MEMBERS = `${generalUrl}/api/data/members`;
 export const ADD_MEMBER = `${generalUrl}/api/data/form/members`;
 export const DEL_MEMBER = `${generalUrl}/api/data/members/`;
 export const EDIT_MEMBER = `${generalUrl}/api/data/form/members/`;
+export const GET_JOBS = `${generalUrl}/api/data/jobs`;
+export const SET_JOBS = `${generalUrl}/api/data/form/jobs/`;
+export const GET_CONTACT = `${generalUrl}/api/data/contacts`;
 export const GET_PROJECTS = (type,category)=>`${generalUrl}/api/data/projects?type=${type}&category=${category}`

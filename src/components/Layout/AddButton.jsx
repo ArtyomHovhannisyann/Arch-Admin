@@ -5,6 +5,7 @@ export default function AddButton({
   type = "image/*",
   click = null,
   url,
+  disabled = false,
   change = null,
 }) {
   return (
@@ -18,6 +19,7 @@ export default function AddButton({
       />
       <p>{text}</p>
       <input
+        disabled={disabled}
         type="file"
         id="file"
         style={{ display: "none" }}

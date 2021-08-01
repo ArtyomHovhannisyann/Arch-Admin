@@ -17,6 +17,9 @@ import {
   SET_TEAM,
   SET_VIDEOS,
   GET_PROJECTS,
+  GET_JOBS,
+  GET_CONTACT,
+  SET_JOBS,
 } from "./constants";
 
 export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
@@ -274,6 +277,56 @@ export async function editStudioMember(data, id) {
   };
   try {
     const res = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function getJobs(callBack) {
+  const info = {
+    url: GET_JOBS,
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    let teamItems = await request(info);
+    callBack(teamItems.data.data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function setJob(data) {
+  let formData = new FormData();
+  let dataEntries = Object.entries(data);
+  for (let i = 0; i < dataEntries.length; i++) {
+    formData.append(dataEntries[i][0], dataEntries[i][1]);
+  }
+  const info = {
+    url: SET_JOBS + 2,
+    method: "PUT",
+    data: formData,
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    let teamItems = await request(info);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function getContacts(callBack) {
+  const info = {
+    url: GET_CONTACT,
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    let teamItems = await request(info);
+    callBack(teamItems.data.data);
   } catch (err) {
     console.error(err);
   }

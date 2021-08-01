@@ -15,6 +15,10 @@
 }
 .added-job-info-img{
     position: relative;
+    width: 280px;
+}
+.added-job-info-img img:not(:last-child){
+  width: 100%;
 }
 .job-info button {
   margin-top: 4vh;

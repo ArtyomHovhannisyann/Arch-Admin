@@ -3,8 +3,7 @@ import HomePageMenu from "./pages/Home/HomePageMenu";
 import HomePageMenuVideos from "./pages/Home/HomePageMenuVideos";
 
 import StudioTeam from "./pages/Studio/StudioTeam";
-import StudioJobs from "./pages/Studio/Job/Job";
-import AddJob from "./pages/Studio/Job/AddJob";
+import Job from "./pages/Studio/Job";
 import StudioContact from "./pages/Studio/StudioContact";
 import StudioMembers from "./pages/Studio/StudioMembers";
 
@@ -88,12 +87,7 @@ export const routes = [
   {
     path: "/studio/jobs",
     isExact: true,
-    component: StudioJobs,
-  },
-  {
-    path: "/studio/jobs/add",
-    isExact: true,
-    component: AddJob,
+    component: Job,
   },
   {
     path: "/studio/contact",
