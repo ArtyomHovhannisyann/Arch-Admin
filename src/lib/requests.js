@@ -323,3 +323,18 @@ export async function getHousesSelectedProjects(callBack) {
     console.error(err);
   }
 }
+export async function getHousesInProgressProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(2, 2),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res);
+  } catch (err) {
+    console.error(err);
+  }
+}
