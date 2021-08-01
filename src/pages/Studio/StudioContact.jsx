@@ -4,9 +4,14 @@ import AddButton from "../../components/Layout/AddButton";
 import "../../css/Studio/studio-credits.css";
 import { Portal } from "react-portal";
 import Modal from "../../components/Modal/Modal";
+import { getContacts, setContact } from "../../lib/requests";
+import { generalUrl } from "../../lib/constants";
+import { dataURLtoFile } from "../../lib/a-lib";
 
 export default function StudioContact({history}) {
   const [openModal, setOpenModal] = useState(false);
+  const [contacts,setContacts] = useState([])
+  const [image,setImage] = useState('')
   const [address, setAddress] = useState(``);
   const [phoneNumber, setPhoneNumber] = useState(``);
   const [emailAddress, setEmailAddress] = useState(``);
@@ -21,8 +26,33 @@ export default function StudioContact({history}) {
     if (!token[1]) {
       history.push("/log-in");
     }
+    getContacts((data)=>{
+      setContacts(data)
+    })
   }, []);
-
+  useEffect(() => {
+    contacts.length > 0 && setAddress(contacts[0].address)
+    contacts.length > 0 && setPhoneNumber(contacts[0]["phone-number"])
+    contacts.length > 0 && setEmailAddress(contacts[0].email)
+    contacts.length > 0 && setImage(`${generalUrl}/${contacts[0].image}`)
+  
+  }, [contacts])
+  function sendContact() {
+    const data = {
+      address: address,
+      "phone-number": phoneNumber,
+      email:emailAddress,
+      image: dataURLtoFile(image),
+    };
+    setContact(data);
+  }
+  function addImage(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      setImage(e.target.result);
+    });
+  }
   return (
     <div className="studio-contact">
       {openModal && (
@@ -42,9 +72,9 @@ export default function StudioContact({history}) {
           </div>
           <div className="contact-layout-info ">
             <div className="layout-info-content">
-              <AddButton text="Add" />
+              <AddButton text="Add" change = {addImage}/>
               <div className="contact-image">
-                <img src="../images/studio-contact.png" alt="credit-image" />
+                <img src={image} alt="credit-image" />
                 <img
                   src="../../images/trash.png"
                   className="trash-icon"
@@ -101,6 +131,7 @@ export default function StudioContact({history}) {
                     />
                   </div>
                 </div>
+                <button onClick = {sendContact} className  = "confirm-btn" style = {{marginTop:"20px",}}> Confirm</button>
               </div>
             </div>
           </div>

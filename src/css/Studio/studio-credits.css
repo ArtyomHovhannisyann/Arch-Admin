@@ -22,6 +22,10 @@
 }
 .contact-image {
   position: relative;
+  width: 280px;
+}
+.contact-image img:not(:last-child){
+  width: 100%;
 }
 .contact-input-div input {
   border: 1px solid #f4f4f4;

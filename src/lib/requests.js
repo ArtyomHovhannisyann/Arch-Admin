@@ -20,6 +20,7 @@ import {
   GET_JOBS,
   GET_CONTACT,
   SET_JOBS,
+  SET_CONTACT,
 } from "./constants";
 
 export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
@@ -327,6 +328,26 @@ export async function getContacts(callBack) {
   try {
     let teamItems = await request(info);
     callBack(teamItems.data.data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function setContact(data) {
+  let formData = new FormData();
+  let dataEntries = Object.entries(data);
+  for (let i = 0; i < dataEntries.length; i++) {
+    formData.append(dataEntries[i][0], dataEntries[i][1]);
+  }
+  const info = {
+    url: SET_CONTACT + 4,
+    method: "PUT",
+    data: formData,
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    let teamItems = await request(info);
   } catch (err) {
     console.error(err);
   }
