@@ -280,7 +280,7 @@ export async function editStudioMember(data, id) {
 }
 export async function getApartamentsSelectedProjects(callBack) {
   const info = {
-    url: GET_PROJECTS(1,1),
+    url: GET_PROJECTS(1, 1),
     method: "GET",
     headers: {
       token: document.cookie,
@@ -288,14 +288,14 @@ export async function getApartamentsSelectedProjects(callBack) {
   };
   try {
     const res = await request(info);
-    callBack(res)
+    callBack(res);
   } catch (err) {
     console.error(err);
   }
 }
 export async function getApartamentsInProgressProjects(callBack) {
   const info = {
-    url: GET_PROJECTS(2,1),
+    url: GET_PROJECTS(2, 1),
     method: "GET",
     headers: {
       token: document.cookie,
@@ -303,7 +303,22 @@ export async function getApartamentsInProgressProjects(callBack) {
   };
   try {
     const res = await request(info);
-    callBack(res)
+    callBack(res);
+  } catch (err) {
+    console.error(err);
+  }
+}
+export async function getHousesSelectedProjects(callBack) {
+  const info = {
+    url: GET_PROJECTS(1, 2),
+    method: "GET",
+    headers: {
+      token: document.cookie,
+    },
+  };
+  try {
+    const res = await request(info);
+    callBack(res);
   } catch (err) {
     console.error(err);
   }
