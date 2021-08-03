@@ -33,6 +33,8 @@ export default function AddResidentialAndPublicInProgressProject({history}) {
     pageHeader: "Residential and Public",
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
+    type:2,
+    category:3,
   };
   useEffect(() => {
     const token = document.cookie.split("=");

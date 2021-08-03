@@ -75,3 +75,29 @@
   outline: none;
   padding: 8px 19px;
 }
+.projects .layout-info-content {
+  display: unset !important;
+  width: 100%;
+}
+.selected-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.selected-project-item {
+  margin-top: 30px;
+  margin-right: 75px;
+  position: relative;
+}
+.selected-project-item .trash-icon{
+  right: -15% !important;
+}
+.added-images img {
+  width: 250px;
+  height: 150px;
+}
+.selected-project-item img:not(:last-child) {
+  width: 200px;
+  height: 150px;
+  object-fit: contain
+}

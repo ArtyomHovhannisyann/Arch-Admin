@@ -33,6 +33,8 @@ export default function AddLandscapeInProgressProject({history}) {
     pageHeader: "Landscape Architecture",
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
+    type:2,
+    category:4,
   };
   useEffect(() => {
     const token = document.cookie.split("=");

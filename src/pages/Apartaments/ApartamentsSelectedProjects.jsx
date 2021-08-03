@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
 import SelectedProjects from "../../components/SelectedProjects/SelectedProjects";
-import { getApartamentsSelectedProjects } from "../../lib/requests";
+import { getProjects } from "../../lib/requests";
 
 export default function ApartamentsSelectedProjects({ history }) {
   const [projects, setProjects] = useState([]);
@@ -9,6 +9,8 @@ export default function ApartamentsSelectedProjects({ history }) {
     pageHeader: "Appartaments Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info menu-left-bar",
+    type:1,
+    category:1,
     data: projects,
   };
   function addProject(e) {
@@ -20,17 +22,18 @@ export default function ApartamentsSelectedProjects({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
-    getApartamentsSelectedProjects((data) => {
+    getProjects((data) => {
       setProjects(data);
-    });
+    },1,1);
   }, []);
   return (
-    <div className="apartaments-selected-projects">
+    <div className="apartaments-selected-projects projects">
       <MainLayout pageInfo={pageInfo}>
         <SelectedProjects
           pageInfo={pageInfo}
           history={history}
           addProject={addProject}
+          setProjects = {setProjects}
         />
       </MainLayout>
     </div>

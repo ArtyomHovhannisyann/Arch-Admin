@@ -42,6 +42,8 @@ export default function AddHousesSelectedProjects({ history }) {
     pageHeader: "Houses",
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
+    type:1,
+    category:2,
   };
   useEffect(() => {
     const token = document.cookie.split("=");

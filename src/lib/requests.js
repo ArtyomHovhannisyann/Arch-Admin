@@ -21,6 +21,9 @@ import {
   GET_CONTACT,
   SET_JOBS,
   SET_CONTACT,
+  ADD_PROJECT,
+  ADD_PROJECT_PHOTO,
+  DEL_PROJECT,
 } from "./constants";
 
 export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
@@ -352,9 +355,9 @@ export async function setContact(data) {
     console.error(err);
   }
 }
-export async function getApartamentsSelectedProjects(callBack) {
+export async function getProjects(callBack,type,category) {
   const info = {
-    url: GET_PROJECTS(1, 1),
+    url: GET_PROJECTS(type, category),
     method: "GET",
     headers: {
       token: document.cookie,
@@ -362,112 +365,54 @@ export async function getApartamentsSelectedProjects(callBack) {
   };
   try {
     const res = await request(info);
-    callBack(res);
+    callBack(res.data.data);
   } catch (err) {
     console.error(err);
   }
 }
-export async function getApartamentsInProgressProjects(callBack) {
+export async function addProject(data,type,category) {
   const info = {
-    url: GET_PROJECTS(2, 1),
-    method: "GET",
+    url: ADD_PROJECT(type,category),
+    method: "POST",
+    data: data,
     headers: {
       token: document.cookie,
     },
   };
   try {
-    const res = await request(info);
-    callBack(res);
+    let res = await request(info);
+    return res.data.data
   } catch (err) {
     console.error(err);
   }
 }
-export async function getHousesSelectedProjects(callBack) {
+export async function delProject(id) {
   const info = {
-    url: GET_PROJECTS(1, 2),
-    method: "GET",
+    url: DEL_PROJECT(id),
+    method: "DELETE",
     headers: {
       token: document.cookie,
     },
   };
   try {
     const res = await request(info);
-    callBack(res);
   } catch (err) {
     console.error(err);
   }
 }
-export async function getHousesInProgressProjects(callBack) {
+export async function addProjectPhoto(data,category) {
+  const formData = new FormData()
+  formData.append("photo",data)
   const info = {
-    url: GET_PROJECTS(2, 2),
-    method: "GET",
+    url: ADD_PROJECT_PHOTO(category),
+    method: "POST",
+    data: formData,
     headers: {
       token: document.cookie,
     },
   };
   try {
-    const res = await request(info);
-    callBack(res);
-  } catch (err) {
-    console.error(err);
-  }
-}
-export async function getResidentialSelectedProjects(callBack) {
-  const info = {
-    url: GET_PROJECTS(1, 3),
-    method: "GET",
-    headers: {
-      token: document.cookie,
-    },
-  };
-  try {
-    const res = await request(info);
-    callBack(res);
-  } catch (err) {
-    console.error(err);
-  }
-}
-export async function getResidentialInProgressProjects(callBack) {
-  const info = {
-    url: GET_PROJECTS(2, 3),
-    method: "GET",
-    headers: {
-      token: document.cookie,
-    },
-  };
-  try {
-    const res = await request(info);
-    callBack(res);
-  } catch (err) {
-    console.error(err);
-  }
-}
-export async function getLandscapeSelectedProjects(callBack) {
-  const info = {
-    url: GET_PROJECTS(1, 4),
-    method: "GET",
-    headers: {
-      token: document.cookie,
-    },
-  };
-  try {
-    const res = await request(info);
-    callBack(res);
-  } catch (err) {
-    console.error(err);
-  }
-}
-export async function getLandscapeInProgressProjects(callBack) {
-  const info = {
-    url: GET_PROJECTS(2, 4),
-    method: "GET",
-    headers: {
-      token: document.cookie,
-    },
-  };
-  try {
-    const res = await request(info);
-    callBack(res);
+    let res = await request(info);
   } catch (err) {
     console.error(err);
   }

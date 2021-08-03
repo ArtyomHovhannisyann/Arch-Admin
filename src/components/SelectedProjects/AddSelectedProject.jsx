@@ -1,19 +1,41 @@
 import React, { useState } from "react";
 import AddButton from "../Layout/AddButton";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"; 
+import { dataURLtoFile } from "../../lib/a-lib.js"
+import { addProject, addProjectPhoto } from "../../lib/requests";
 
-export default function AddSelectedProject({
-  pageInfo,
-  projectImages,
-}) {
+export default function AddSelectedProject({ pageInfo }) {
   let history = useHistory();
   const [title, setTitle] = useState("");
+  const [projectImages, setProjectImages] = useState([]);
   const [location, setLocation] = useState("");
   const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalSiteArea, setTotalSiteArea] = useState("");
   const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [program, setProgram] = useState("");
   const [description, setDescription] = useState("");
+  function addImage(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      setProjectImages([...projectImages, e.target.result]);
+    });
+  }
+  function sendData() {
+    const data = {
+      title: title,
+      location: location,
+      "total-floor-area": totalFloorArea,
+      "total-site-area": totalSiteArea,
+      "design-and-built": designAndBuilt,
+      description: description,
+      program: program,
+    };
+    addProject(data,pageInfo.type,pageInfo.category).then((data) => {
+      addProjectPhoto(dataURLtoFile(projectImages[0]),data.insertId);
+      history.goBack();
+    });
+  }
   return (
     <div className="layout-content new-project-layout-content">
       <div className="layout-content-header new-layout-content-header">
@@ -30,10 +52,10 @@ export default function AddSelectedProject({
       </div>
       <div className="projects-layout-info">
         <div className="new-project-layout-info-content">
-          <AddButton text={"Add"} />
+          <AddButton text={"Add"} change={addImage} />
           <div className="added-images">
-            {projectImages.map((el) => (
-              <img src={el.path} key={el.id} alt="project-item" />
+            {projectImages.map((el, i) => (
+              <img src={el} key={i} alt="project-item" />
             ))}
           </div>
           <div className="new-project-inputs">
@@ -80,7 +102,9 @@ export default function AddSelectedProject({
               className="description-input"
               onChange={(e) => setDescription(e.target.value)}
             />
-            <button className="add-project">Confirm</button>
+            <button className="add-project" onClick={sendData}>
+              Confirm
+            </button>
           </div>
         </div>
       </div>

@@ -39,6 +39,8 @@ export default function AddLandscapeSelectedProjects({ history }) {
     pageHeader: "Landscape Architecture",
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
+    type:1,
+    category:4,
   };
   return (
     <div className="new-houses-selected-project">

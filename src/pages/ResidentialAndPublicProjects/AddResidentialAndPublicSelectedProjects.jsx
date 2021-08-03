@@ -33,6 +33,8 @@ export default function AddResidentialAndPublicSelectedProjects({history}) {
     pageHeader: "Residential and Public",
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
+    type:1,
+    category:3,
   };
   useEffect(() => {
     const token = document.cookie.split("=");

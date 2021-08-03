@@ -9,6 +9,8 @@ export default function AddApartamentsProject({history}) {
     pageHeader: "Apartaments",
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
+    type:1,
+    category:1,
   };
   useEffect(() => {
     const token = document.cookie.split("=");

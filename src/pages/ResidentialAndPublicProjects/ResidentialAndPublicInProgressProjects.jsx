@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InProgressProjects from "../../components/InProgress/InProgressProjects";
 import MainLayout from "../../components/Layout/MainLayout";
-import { getResidentialInProgressProjects } from "../../lib/requests";
+import { getProjects, getResidentialInProgressProjects } from "../../lib/requests";
 
 export default function ResidentialAndPublicInProgressProjects({ history }) {
   const [projects, setProjects] = useState([]);
@@ -9,6 +9,8 @@ export default function ResidentialAndPublicInProgressProjects({ history }) {
     pageHeader: "Residential and Public Projects",
     pageName: "In Progress Projects",
     className: "studio-layout-info menu-left-bar",
+    type:2,
+    category:3,
     data: projects,
   };
   function addProject(e) {
@@ -20,14 +22,14 @@ export default function ResidentialAndPublicInProgressProjects({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
-    getResidentialInProgressProjects((data) => {
+    getProjects((data) => {
       setProjects(data);
-    });
+    },2,3);
   }, []);
   return (
-    <div className="houses-in-progress-projects">
+    <div className="houses-in-progress-projects projects">
       <MainLayout pageInfo={pageInfo}>
-        <InProgressProjects pageInfo={pageInfo} addProject={addProject} />
+        <InProgressProjects pageInfo={pageInfo} addProject={addProject} setProjects = {setProjects}/>
       </MainLayout>
     </div>
   );

@@ -95,4 +95,10 @@ export const GET_JOBS = `${generalUrl}/api/data/jobs`;
 export const SET_JOBS = `${generalUrl}/api/data/form/jobs/`;
 export const GET_CONTACT = `${generalUrl}/api/data/contacts`;
 export const SET_CONTACT = `${generalUrl}/api/data/form/contacts/`;
-export const GET_PROJECTS = (type,category)=>`${generalUrl}/api/data/projects?type=${type}&category=${category}`
+export const GET_PROJECTS = (type, category) =>
+  `${generalUrl}/api/data/projects?type=${type}&category=${category}`;
+export const ADD_PROJECT = (type, category) =>
+  `${generalUrl}/api/data/projects?type=${type}&category=${category}`;
+export const ADD_PROJECT_PHOTO = (category) =>
+  `${generalUrl}/api/data/projects/add-photos/${category}`;
+export const DEL_PROJECT = (id) => `${generalUrl}/api/data/projects/${id}`;
