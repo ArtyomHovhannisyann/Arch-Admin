@@ -30,15 +30,23 @@ export default function AddJob({ history }) {
       setJobs(data);
     });
   }, []);
+
   useEffect(() => {
-    jobs.length > 0 && setTitle(jobs[0].title);
-    jobs.length > 0 && setDescription(jobs[0].description);
-    jobs.length > 0 && setImage(`${generalUrl}/${jobs[0].image}`);
+    if ( jobs.length > 0 ) {
+      setTitle(jobs[0].title);
+      setTitleAM(jobs[0].title_hy);
+      setDescription(jobs[0].description);
+      setDescriptionAM(jobs[0].description_hy);
+      setImage(`${generalUrl}/${jobs[0].image}`);
+    }
   }, [jobs]);
+
   function sendJob() {
     const data = {
       title: title,
+      title_hy: titleAM,
       description: description,
+      description_hy: descriptionAM,
       image: dataURLtoFile(image),
     };
     setJob(data);
@@ -50,11 +58,14 @@ export default function AddJob({ history }) {
       setImage(e.target.result);
     });
   }
+  function delImage() {
+    setImage("")
+  }
   return (
     <div className="add-job">
       {openModal && (
         <Portal node={document.body}>
-          <Modal setOpenModal={setOpenModal} type={"job image"} />
+          <Modal setOpenModal={setOpenModal} type={"job image"} delItem = {delImage}/>
         </Portal>
       )}
       <MainLayout pageInfo={pageInfo}>

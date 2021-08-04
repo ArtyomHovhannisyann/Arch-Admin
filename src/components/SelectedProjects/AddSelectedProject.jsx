@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddButton from "../Layout/AddButton";
-import { useHistory } from "react-router-dom"; 
-import { dataURLtoFile } from "../../lib/a-lib.js"
+import { useHistory } from "react-router-dom";
+import { dataURLtoFile } from "../../lib/a-lib.js";
 import { addProject, addProjectPhoto } from "../../lib/requests";
 
 export default function AddSelectedProject({ pageInfo }) {
@@ -10,10 +10,13 @@ export default function AddSelectedProject({ pageInfo }) {
   const [projectImages, setProjectImages] = useState([]);
   const [location, setLocation] = useState("");
   const [totalFloorArea, setTotalFloorArea] = useState("");
-  const [totalSiteArea, setTotalSiteArea] = useState("");
   const [designAndBuilt, setDesignAndBuilt] = useState("");
-  const [program, setProgram] = useState("");
   const [description, setDescription] = useState("");
+  const [titleAM, setTitleAM] = useState("");
+  const [locationAM, setLocationAM] = useState("");
+  const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
+  const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
+  const [descriptionAM, setDescriptionAM] = useState("");
   function addImage(e) {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -21,18 +24,17 @@ export default function AddSelectedProject({ pageInfo }) {
       setProjectImages([...projectImages, e.target.result]);
     });
   }
+  
   function sendData() {
     const data = {
       title: title,
       location: location,
       "total-floor-area": totalFloorArea,
-      "total-site-area": totalSiteArea,
       "design-and-built": designAndBuilt,
       description: description,
-      program: program,
     };
-    addProject(data,pageInfo.type,pageInfo.category).then((data) => {
-      addProjectPhoto(dataURLtoFile(projectImages[0]),data.insertId);
+    addProject(data, pageInfo.type, pageInfo.category).then((data) => {
+      addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
       history.goBack();
     });
   }
@@ -59,11 +61,17 @@ export default function AddSelectedProject({ pageInfo }) {
             ))}
           </div>
           <div className="new-project-inputs">
-            <input
+          <input
               type="text"
               placeholder="*title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*վերնագիր"
+              value={titleAM}
+              onChange={(e) => setTitleAM(e.target.value)}
             />
             <input
               type="text"
@@ -73,15 +81,21 @@ export default function AddSelectedProject({ pageInfo }) {
             />
             <input
               type="text"
+              placeholder="*վայր"
+              value={locationAM}
+              onChange={(e) => setLocationAM(e.target.value)}
+            />
+            <input
+              type="text"
               placeholder="*total floor area"
               value={totalFloorArea}
               onChange={(e) => setTotalFloorArea(e.target.value)}
             />
             <input
               type="text"
-              placeholder="*total site area"
-              value={totalSiteArea}
-              onChange={(e) => setTotalSiteArea(e.target.value)}
+              placeholder="*բնակելի մակերես"
+              value={totalFloorAreaAM}
+              onChange={(e) => setTotalFloorAreaAM(e.target.value)}
             />
             <input
               type="text"
@@ -91,9 +105,9 @@ export default function AddSelectedProject({ pageInfo }) {
             />
             <input
               type="text"
-              placeholder="*program"
-              value={program}
-              onChange={(e) => setProgram(e.target.value)}
+              placeholder="*նախագծում և իրականացում"
+              value={designAndBuiltAM}
+              onChange={(e) => setDesignAndBuiltAM(e.target.value)}
             />
             <input
               type="text"
@@ -101,6 +115,13 @@ export default function AddSelectedProject({ pageInfo }) {
               value={description}
               className="description-input"
               onChange={(e) => setDescription(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*նկարագրություն"
+              value={descriptionAM}
+              className="description-input"
+              onChange={(e) => setDescriptionAM(e.target.value)}
             />
             <button className="add-project" onClick={sendData}>
               Confirm
