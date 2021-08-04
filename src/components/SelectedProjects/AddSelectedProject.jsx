@@ -11,18 +11,22 @@ export default function AddSelectedProject({ pageInfo }) {
   const [titleAM, setTitleAM] = useState("");
 
   const [projectImages, setProjectImages] = useState([]);
-
-  const [location, setLocation] = useState("");
-  const [locationAM, setLocationAM] = useState("");
-
+  
   const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
-
+  
+  
+  const [locationAM, setLocationAM] = useState("");
+  const [location, setLocation] = useState("");
+  
   const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
-
+  
   const [description, setDescription] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
+
+  const [designTeam, setDesignTeam] = useState("");
+  const [designTeamAM, setDesignTeamAM] = useState("");
 
   function addImage(e) {
     let reader = new FileReader();
@@ -42,8 +46,9 @@ export default function AddSelectedProject({ pageInfo }) {
       "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
       "design-and-built_hy": designAndBuiltAM,
+      "design-team":designTeamAM,
       description,
-      description_hy: descriptionAM,
+      description_hy: descriptionAM
     };
     addProject(data, pageInfo.type, pageInfo.category).then((data) => {
       addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
@@ -120,6 +125,18 @@ export default function AddSelectedProject({ pageInfo }) {
               placeholder="*նախագծում և իրականացում"
               value={designAndBuiltAM}
               onChange={(e) => setDesignAndBuiltAM(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*design team"
+              value={designTeam}
+              onChange={(e) => setDesignTeam(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*թիմ"
+              value={designTeamAM}
+              onChange={(e) => setDesignTeamAM(e.target.value)}
             />
             <input
               type="text"

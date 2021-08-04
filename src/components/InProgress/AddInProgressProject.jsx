@@ -6,17 +6,25 @@ import { dataURLtoFile } from "../../lib/a-lib";
 
 export default function AddInProgressProject({ pageInfo }) {
   const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
-  const [projectImages, setProjectImages] = useState([]);
-  const [totalFloorArea, setTotalFloorArea] = useState("");
-  const [designAndBuilt, setDesignAndBuilt] = useState("");
-
   const [titleAM, setTitleAM] = useState("");
-  const [description, setDescription] = useState("");
-  const [locationAM, setLocationAM] = useState("");
+
+  const [projectImages, setProjectImages] = useState([]);
+  
+  const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
+  
+  
+  const [locationAM, setLocationAM] = useState("");
+  const [location, setLocation] = useState("");
+  
+  const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
+  
+  const [description, setDescription] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
+
+  const [designTeam, setDesignTeam] = useState("");
+  const [designTeamAM, setDesignTeamAM] = useState("");
 
   let history = useHistory();
   function addImage(e) {
@@ -36,10 +44,11 @@ export default function AddInProgressProject({ pageInfo }) {
       "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
       "design-and-built_hy": designAndBuiltAM,
+      "design-team":designTeamAM,
       description,
       description_hy: descriptionAM
     };
-    
+
     addProject(data, pageInfo.type, pageInfo.category).then((data) => {
       addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
       history.goBack();
@@ -115,6 +124,18 @@ export default function AddInProgressProject({ pageInfo }) {
               placeholder="*նախագծում և իրականացում"
               value={designAndBuiltAM}
               onChange={(e) => setDesignAndBuiltAM(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*design team"
+              value={designTeam}
+              onChange={(e) => setDesignTeam(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="*թիմ"
+              value={designTeamAM}
+              onChange={(e) => setDesignTeamAM(e.target.value)}
             />
             <input
               type="text"
