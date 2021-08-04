@@ -20,7 +20,6 @@ export default function ChangePassword({ history,location }) {
     if (error) {
       setRepeatPasswordMessage(error.details[0].message);
     } else if (formData.password == formData.repeatPassword) {
-      console.log(location);
       const data ={
         password:formData.password,
         "reset-token":location.state,

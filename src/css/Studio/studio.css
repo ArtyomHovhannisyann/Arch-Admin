@@ -30,6 +30,8 @@
 }
 .team-description {
   padding-bottom: 2vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 .studio-team-sub-pages {
   display: flex;
@@ -63,15 +65,13 @@
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   width: 585px;
-  height: 26vh;
+  height: 15vh;
   resize: none;
   margin-top: 1vh;
   font-size: 15px;
   color: #bcbcbc;
   font-family: Source Serif Pro;
-}
-.team-description-input:not(:first-child) {
-  margin-left: 3vw;
+  margin-right: 3vw;
 }
 .items {
   width: 100%;
@@ -79,9 +79,6 @@
   grid-template-columns: auto auto auto auto;
   grid-row-gap: 40px;
   margin-top: 10vh;
-}
-.team-description {
-  display: flex;
 }
 .confirm-btn {
   border: none;

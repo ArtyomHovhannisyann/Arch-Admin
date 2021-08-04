@@ -13,7 +13,9 @@ export default function StudioTeam({ history }) {
   const [openModal, setOpenModal] = useState(false);
   const [teamData, setTeamData] = useState([]);
   const [infoValue, setInfoValue] = useState("");
+  const [infoAMValue, setInfoAMValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
+  const [descriptionAMValue, setDescriptionAMValue] = useState("");
   const [image, setImage] = useState("");
   useEffect(() => {
     getStudioTeam((data) => {
@@ -141,6 +143,18 @@ export default function StudioTeam({ history }) {
                 placeholder="*description"
                 value={descriptionValue}
                 onChange={(e) => setDescriptionValue(e.target.value)}
+              />
+              <textarea
+                className="team-description-input"
+                placeholder="*ինֆորմացիա"
+                value={infoAMValue}
+                onChange={(e) => setInfoAMValue(e.target.value)}
+              />
+              <textarea
+                className="team-description-input"
+                placeholder="*նկարագրություն"
+                value={descriptionAMValue}
+                onChange={(e) => setDescriptionAMValue(e.target.value)}
               />
             </div>
             <div className="confirm-btn" onClick={sendData}>
