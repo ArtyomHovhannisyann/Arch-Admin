@@ -70,7 +70,7 @@ export default function AddJob({ history }) {
               <AddButton text="Add" change = {addImage}/>
               <div className="added-job-info-img">
                 <img
-                  src={jobs.length > 0 && image}
+                  src={jobs.length > 0 ? image : ''}
                   className="job-info-img"
                   alt="job"
                 />

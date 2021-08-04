@@ -26,8 +26,8 @@ export default function HousesSelectedProjects({ history }) {
       (data) => {
         setProjects(data);
       },
-      1,
-      2
+      2,
+      1
     );
   }, []);
   return (
