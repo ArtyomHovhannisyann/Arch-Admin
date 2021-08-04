@@ -17,16 +17,18 @@ export default function StudioTeam({ history }) {
   const [descriptionValue, setDescriptionValue] = useState("");
   const [descriptionAMValue, setDescriptionAMValue] = useState("");
   const [image, setImage] = useState("");
+
+
   useEffect(() => {
     getStudioTeam((data) => {
       let dataWithGoodImageUrls = data.map((el) => {
         el.image = generalUrl + "/" + el.image;
         return el;
       });
-      console.log(data);
       setTeamData(dataWithGoodImageUrls);
     });
   }, []);
+
   useEffect(() => {
     const token = document.cookie.split("=");
     if (!token[1]) {
@@ -34,24 +36,31 @@ export default function StudioTeam({ history }) {
     }
     if (teamData.length > 0) {
       setInfoValue(teamData[0].info);
+      setInfoAMValue(teamData[0].info_hy);
       setDescriptionValue(teamData[0].description);
+      setDescriptionAMValue(teamData[0].description_hy);
       setImage(teamData[0].image);
     }
   }, [teamData]);
+
   const pageInfo = {
     pageHeader: "Studio",
     className: "studio-layout-info menu-left-bar",
     subPage: ["Team", "Members"],
     active: 0,
   };
+  
   function changePage(key) {
     history.push(key);
   }
+
   function sendData() {
     const data = {
       image: dataURLtoFile(image, "image.jpg"),
       info: infoValue,
+      info_hy: infoAMValue,
       description: descriptionValue,
+      description_hy: descriptionAMValue,
     };
     setStudioTeam(data).then(() => {
       getStudioTeam((data) => {
@@ -63,6 +72,7 @@ export default function StudioTeam({ history }) {
       });
     });
   }
+
   function changeImage(e) {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -70,7 +80,8 @@ export default function StudioTeam({ history }) {
       setImage(e.target.result);
     });
   }
-  function delImage(id) {
+
+  function delImage() {
     setImage("");
     const data = {
       image: image,
@@ -87,6 +98,7 @@ export default function StudioTeam({ history }) {
       });
     });
   }
+
   return (
     <div className="studio-team">
       {openModal && (
