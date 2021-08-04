@@ -14,7 +14,9 @@ export default function TeamItem({
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [description, setDescription] = useState(descriptionValue);
+  const [descriptionAM, setDescriptionAM] = useState();
   const [name, setName] = useState(nameValue);
+  const [nameAM, setNameAM] = useState();
   function addMember() {
     const data = {
       name: name,
@@ -52,6 +54,18 @@ export default function TeamItem({
         onChange={(e) => setDescription(e.target.value)}
         className="team-description"
         placeholder="*description"
+      />
+      <textarea
+        value={nameAM}
+        className="team-name"
+        placeholder="*անուն "
+        onChange={(e) => setNameAM(e.target.value)}
+      />
+      <textarea
+        value={descriptionAM}
+        onChange={(e) => setDescriptionAM(e.target.value)}
+        className="team-description"
+        placeholder="*նկարագրություն"
       />
       <button
         className="confirm-btn"

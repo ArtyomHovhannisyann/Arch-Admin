@@ -1,5 +1,7 @@
 .layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 385px auto;
+  grid-column-gap: 30px;
   padding-top: 33px;
 }
 .addProjectLayout {
@@ -21,6 +23,8 @@
 .layout-content {
   width: -webkit-fill-available;
   padding-right: 4vw;
+  height: 100vh;
+  overflow: auto;
 }
 .layout-header {
   margin-bottom: 5vh;
