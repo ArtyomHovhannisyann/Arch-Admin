@@ -8,12 +8,6 @@ import { delStudioTeamMember, getStudioMembers } from "../../lib/requests";
 import { generalUrl } from "../../lib/constants";
 
 export default function StudioMembers({ history }) {
-  const pageInfo = {
-    pageHeader: "Studio",
-    className: "studio-layout-info menu-left-bar",
-    subPage: ["Team", "Members"],
-    active: 1,
-  };
   const [teamItems, setTeamItems] = useState([]);
   useEffect(() => {
     const token = document.cookie.split("=");
@@ -28,6 +22,15 @@ export default function StudioMembers({ history }) {
       setTeamItems(dataWithGoodImageUrls);
     });
   }, []);
+
+  const pageInfo = {
+    pageHeader: "Studio",
+    className: "studio-layout-info menu-left-bar",
+    subPage: ["Team", "Members"],
+    active: 1,
+  };
+
+
 
   function changePage(key) {
     history.push(key);
@@ -48,6 +51,7 @@ export default function StudioMembers({ history }) {
       ]);
     });
   }
+
   function delMember(id) {
     delStudioTeamMember(id).then(() => {
       getStudioMembers((data) => {
@@ -59,6 +63,7 @@ export default function StudioMembers({ history }) {
       });
     });
   }
+
   return (
     <div className="studio-members">
       <MainLayout pageInfo={pageInfo}>
@@ -91,7 +96,9 @@ export default function StudioMembers({ history }) {
                   return (
                     <TeamItem
                       nameValue={el.name}
+                      name_hy={el.name_hy}
                       delMember={delMember}
+                      description_hy={el.description_hy}
                       descriptionValue={el.description}
                       url={el.image}
                       key={i}

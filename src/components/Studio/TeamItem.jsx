@@ -7,20 +7,24 @@ import Modal from "../Modal/Modal";
 export default function TeamItem({
   url,
   nameValue,
+  name_hy,
   descriptionValue,
+  description_hy,
   isExested,
   delMember,
   currentId,
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [description, setDescription] = useState(descriptionValue);
-  const [descriptionAM, setDescriptionAM] = useState();
+  const [descriptionAM, setDescriptionAM] = useState( description_hy );
   const [name, setName] = useState(nameValue);
-  const [nameAM, setNameAM] = useState();
+  const [nameAM, setNameAM] = useState(name_hy);
   function addMember() {
     const data = {
       name: name,
+      name_hy: nameAM,
       description: description,
+      description_hy: descriptionAM,
       image: dataURLtoFile(url, `image.png`),
     };
     if (!isExested) {
