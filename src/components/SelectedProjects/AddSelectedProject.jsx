@@ -46,7 +46,8 @@ export default function AddSelectedProject({ pageInfo }) {
       "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
       "design-and-built_hy": designAndBuiltAM,
-      "design-team":designTeamAM,
+      "design-team":designTeam,
+      "design-team_hy":designTeamAM,
       description,
       description_hy: descriptionAM
     };
