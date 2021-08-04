@@ -17,6 +17,7 @@ export default function AddInProgressProject({ pageInfo }) {
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
+
   let history = useHistory();
   function addImage(e) {
     let reader = new FileReader();
@@ -27,12 +28,18 @@ export default function AddInProgressProject({ pageInfo }) {
   }
   function sendData() {
     const data = {
-      title: title,
-      location: location,
+      title,
+      title_hy: titleAM,
+      location,
+      location_hy: locationAM,
       "total-floor-area": totalFloorArea,
+      "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
-      description: description,
+      "design-and-built_hy": designAndBuiltAM,
+      description,
+      description_hy: descriptionAM
     };
+    
     addProject(data, pageInfo.type, pageInfo.category).then((data) => {
       addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
       history.goBack();

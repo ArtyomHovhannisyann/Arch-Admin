@@ -6,17 +6,24 @@ import { addProject, addProjectPhoto } from "../../lib/requests";
 
 export default function AddSelectedProject({ pageInfo }) {
   let history = useHistory();
+
   const [title, setTitle] = useState("");
-  const [projectImages, setProjectImages] = useState([]);
-  const [location, setLocation] = useState("");
-  const [totalFloorArea, setTotalFloorArea] = useState("");
-  const [designAndBuilt, setDesignAndBuilt] = useState("");
-  const [description, setDescription] = useState("");
   const [titleAM, setTitleAM] = useState("");
+
+  const [projectImages, setProjectImages] = useState([]);
+
+  const [location, setLocation] = useState("");
   const [locationAM, setLocationAM] = useState("");
+
+  const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
+
+  const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
+
+  const [description, setDescription] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
+
   function addImage(e) {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -27,11 +34,16 @@ export default function AddSelectedProject({ pageInfo }) {
   
   function sendData() {
     const data = {
-      title: title,
-      location: location,
+      title,
+      title_hy: titleAM,
+      location,
+      location_hy: locationAM,
       "total-floor-area": totalFloorArea,
+      "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
-      description: description,
+      "design-and-built_hy": designAndBuiltAM,
+      description,
+      description_hy: descriptionAM,
     };
     addProject(data, pageInfo.type, pageInfo.category).then((data) => {
       addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
