@@ -1,3 +1,7 @@
+.App{
+  height: 100vh;
+  overflow: hidden;
+}
 .add-btn-image {
   width: 22px;
   height: 22px;

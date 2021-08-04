@@ -14,6 +14,8 @@ export default function AddJob({ history }) {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [titleAM, setTitleAM] = useState("");
+  const [descriptionAM, setDescriptionAM] = useState("");
 
   const pageInfo = {
     pageHeader: "Job",
@@ -67,10 +69,10 @@ export default function AddJob({ history }) {
           </div>
           <div className="projects-layout-info">
             <div className="layout-info-content">
-              <AddButton text="Add" change = {addImage}/>
+              <AddButton text="Add" change={addImage} />
               <div className="added-job-info-img">
                 <img
-                  src={jobs.length > 0 ? image : ''}
+                  src={jobs.length > 0 ? image : ""}
                   className="job-info-img"
                   alt="job"
                 />
@@ -94,7 +96,23 @@ export default function AddJob({ history }) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
-                <button onClick={sendJob}>Confirm</button>
+                <input
+                  type="text"
+                  placeholder="Վերնագիր"
+                  value={titleAM}
+                  onChange={(e) => setTitleAM(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Նկարագրություն"
+                  value={descriptionAM}
+                  onChange={(e) => setDescriptionAM(e.target.value)}
+                />
+                <div className="confirm">
+                  <button className="confirm-btn" onClick={sendJob}>
+                    Confirm
+                  </button>
+                </div>
               </div>
             </div>
           </div>
