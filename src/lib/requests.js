@@ -26,19 +26,22 @@ import {
   DEL_PROJECT,
 } from "./constants";
 
-export function checkIsEmailPasswordCorrect(data, history, setEmailMessage) {
+export async function checkIsEmailPasswordCorrect(
+  data,
+  history,
+  setPasswordMessage
+) {
   const info = {
     url: SEND_LOG_IN,
     method: "POST",
     data,
   };
   try {
-    request(info).then((res) => {
-      document.cookie = `token=${JSON.stringify(res.data.data.token)}`;
-      history.push("/homepage");
-    });
+    let res = await request(info);
+    document.cookie = `token=${JSON.stringify(res.data.data.token)}`;
+    history.push("/homepage");
   } catch (err) {
-    setEmailMessage("The email or password is incorrect");
+    setPasswordMessage("The email or password is incorrect");
   }
 }
 export function resetPassword(data, history) {
@@ -59,24 +62,23 @@ export function resetPassword(data, history) {
     console.error(err);
   }
 }
-export function sendPassword(data, history) {
+export async function sendPassword(data, history) {
   const info = {
     url: RESET_PASSWORD_CODE,
     method: "POST",
     data,
   };
   try {
-    request(info).then((res) => {
-      history.push({
-        pathname: "/change-password",
-        state: data["reset-token"],
-      });
+    let res = await request(info);
+    history.push({
+      pathname: "/change-password",
+      state: data["reset-token"],
     });
   } catch (err) {
     console.error(err);
   }
 }
-export function changePassword(data, history) {
+export async function changePassword(data, history) {
   console.log(data);
   const info = {
     url: RESET_PASSWORD_SEND_PASSWORD,
@@ -84,10 +86,8 @@ export function changePassword(data, history) {
     data,
   };
   try {
-    request(info).then((res) => {
-      console.log(res);
-      history.push("/password-changed");
-    });
+    let res = await request(info);
+    history.push("/password-changed");
   } catch (err) {
     console.error(err);
   }
@@ -355,7 +355,7 @@ export async function setContact(data) {
     console.error(err);
   }
 }
-export async function getProjects(callBack,type,category) {
+export async function getProjects(callBack, type, category) {
   const info = {
     url: GET_PROJECTS(type, category),
     method: "GET",
@@ -370,9 +370,9 @@ export async function getProjects(callBack,type,category) {
     console.error(err);
   }
 }
-export async function addProject(data,type,category) {
+export async function addProject(data, type, category) {
   const info = {
-    url: ADD_PROJECT(type,category),
+    url: ADD_PROJECT(type, category),
     method: "POST",
     data: data,
     headers: {
@@ -381,7 +381,7 @@ export async function addProject(data,type,category) {
   };
   try {
     let res = await request(info);
-    return res.data.data
+    return res.data.data;
   } catch (err) {
     console.error(err);
   }
@@ -400,9 +400,9 @@ export async function delProject(id) {
     console.error(err);
   }
 }
-export async function addProjectPhoto(data,category) {
-  const formData = new FormData()
-  formData.append("photo",data)
+export async function addProjectPhoto(data, category) {
+  const formData = new FormData();
+  formData.append("photo", data);
   const info = {
     url: ADD_PROJECT_PHOTO(category),
     method: "POST",
