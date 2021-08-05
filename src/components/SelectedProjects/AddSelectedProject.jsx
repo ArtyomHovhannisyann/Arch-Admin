@@ -3,30 +3,41 @@ import AddButton from "../Layout/AddButton";
 import { useHistory } from "react-router-dom";
 import { dataURLtoFile } from "../../lib/a-lib.js";
 import { addProject, addProjectPhoto } from "../../lib/requests";
+import MuiAlert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default function AddSelectedProject({ pageInfo }) {
   let history = useHistory();
+  const useStyles = makeStyles(() => ({
+    root: {
+      "& > * + *": {
+        color: "#fff !important",
+      },
+    },
+  }));
 
   const [title, setTitle] = useState("");
   const [titleAM, setTitleAM] = useState("");
 
   const [projectImages, setProjectImages] = useState([]);
-  
+
   const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
-  
-  
+
   const [locationAM, setLocationAM] = useState("");
   const [location, setLocation] = useState("");
-  
+
   const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
-  
+
   const [description, setDescription] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
 
   const [designTeam, setDesignTeam] = useState("");
   const [designTeamAM, setDesignTeamAM] = useState("");
+
+  const [showErrToast, setShowErrToast] = useState(false);
 
   function addImage(e) {
     let reader = new FileReader();
@@ -35,7 +46,6 @@ export default function AddSelectedProject({ pageInfo }) {
       setProjectImages([...projectImages, e.target.result]);
     });
   }
-  
   function sendData() {
     const data = {
       title,
@@ -46,15 +56,22 @@ export default function AddSelectedProject({ pageInfo }) {
       "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
       "design-and-built_hy": designAndBuiltAM,
-      "design-team":designTeam,
-      "design-team_hy":designTeamAM,
+      "design-team": designTeam,
+      "design-team_hy": designTeamAM,
       description,
-      description_hy: descriptionAM
+      description_hy: descriptionAM,
     };
-    addProject(data, pageInfo.type, pageInfo.category).then((data) => {
-      projectImages.length > 0 && addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
-      history.goBack();
-    });
+    if (projectImages.length > 0) {
+      addProject(data, pageInfo.type, pageInfo.category).then((data) => {
+        addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+        history.goBack();
+      });
+    } else {
+      setShowErrToast(true);
+    }
+  }
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
   return (
     <div className="layout-content new-project-layout-content">
@@ -79,7 +96,7 @@ export default function AddSelectedProject({ pageInfo }) {
             ))}
           </div>
           <div className="new-project-inputs">
-          <input
+            <input
               type="text"
               placeholder="*title"
               value={title}
@@ -159,6 +176,16 @@ export default function AddSelectedProject({ pageInfo }) {
           </div>
         </div>
       </div>
+
+      <Snackbar
+        open={showErrToast}
+        autoHideDuration={3000}
+        onClose={() => setShowErrToast(false)}
+      >
+        <Alert severity="error">
+          Inputs must be must contain about project some information
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
