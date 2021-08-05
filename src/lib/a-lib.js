@@ -24,8 +24,10 @@ export function dataURLtoFile(dataurl, filename) {
     }
 
     return new File([u8arr], filename, { type: mime });
-  } else dataurl = dataurl.split("/");
-  return dataurl[dataurl.length - 1];
+  } else if (dataurl) {
+    dataurl = dataurl.split("/");
+    return dataurl[dataurl.length - 1];
+  }
 }
 
 function isBase64(str) {
