@@ -50,7 +50,7 @@ export default function AddInProgressProject({ pageInfo }) {
     };
 
     addProject(data, pageInfo.type, pageInfo.category).then((data) => {
-      addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+      projectImages.length > 0 && addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
       history.goBack();
     });
   }
