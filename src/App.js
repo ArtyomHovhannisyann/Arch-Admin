@@ -8,7 +8,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import { routes } from "./Router";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    if (localStorage.getItem("login") != "null" && localStorage.getItem("password") != "null") {
+      document.cookie = `token=${localStorage.getItem("token")}`
+    }
+  }, [])
   return (
     <div className="App">
       <Router>

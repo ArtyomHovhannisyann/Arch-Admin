@@ -29,7 +29,8 @@ import {
 export async function checkIsEmailPasswordCorrect(
   data,
   history,
-  setPasswordMessage
+  setPasswordMessage,
+  savePassword
 ) {
   const info = {
     url: SEND_LOG_IN,
@@ -39,6 +40,11 @@ export async function checkIsEmailPasswordCorrect(
   try {
     let res = await request(info);
     document.cookie = `token=${JSON.stringify(res.data.data.token)}`;
+    if (savePassword) {
+      localStorage.setItem("login", data.email);
+      localStorage.setItem("password", data.password);
+      localStorage.setItem("token",res.data.data.token)
+    }
     history.push("/homepage");
   } catch (err) {
     setPasswordMessage("The email or password is incorrect");

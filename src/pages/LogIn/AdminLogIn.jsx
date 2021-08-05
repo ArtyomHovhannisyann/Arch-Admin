@@ -6,10 +6,13 @@ import { loginValidation } from "../../lib/validate";
 export default function AdminLogIn({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [savePassword, setSavePassword] = useState(false);
   const [emailMessage, setEmailMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
 
   useEffect(() => {
+    localStorage.setItem("login", null);
+    localStorage.setItem("password", null);
     document.cookie = "token=";
   }, []);
 
@@ -34,9 +37,15 @@ export default function AdminLogIn({ history }) {
         setPasswordMessage("The password is incorrect");
       }
     } else {
-      checkIsEmailPasswordCorrect(formData, history,setPasswordMessage);
+      checkIsEmailPasswordCorrect(
+        formData,
+        history,
+        setPasswordMessage,
+        savePassword
+      );
     }
   }
+
   return (
     <div className="admin-logIn">
       <div className="admin-container">
@@ -80,6 +89,7 @@ export default function AdminLogIn({ history }) {
               <input
                 type="checkbox"
                 name="remember"
+                onChange={() => setSavePassword(true)}
                 id="remember"
                 className="remember-input"
               />

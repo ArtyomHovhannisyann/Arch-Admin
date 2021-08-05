@@ -4,7 +4,7 @@ import MainLayout from "../../components/Layout/MainLayout";
 
 export default function HomePage({ history }) {
   useEffect(() => {
-    const token = document.cookie.split("=")
+    const token = document.cookie.split("=");
     if (!token[1]) {
       history.push("/log-in");
     }
