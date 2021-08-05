@@ -89,6 +89,7 @@
   line-height: 19px;
   letter-spacing: 0.2em;
   color: #ffffff;
+  cursor: pointer;
   padding: 8px 19px;
   cursor: pointer;
 }

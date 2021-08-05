@@ -75,6 +75,7 @@
   border: none;
   outline: none;
   padding: 8px 19px;
+  cursor: pointer;
 }
 .projects .layout-info-content {
   display: unset !important;

@@ -3,30 +3,42 @@ import AddButton from "../../components/Layout/AddButton";
 import { useHistory } from "react-router-dom";
 import { addProject, addProjectPhoto } from "../../lib/requests";
 import { dataURLtoFile } from "../../lib/a-lib";
+import MuiAlert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default function AddInProgressProject({ pageInfo }) {
+  const history = useHistory();
+
+  const useStyles = makeStyles(() => ({
+    root: {
+      "& > * + *": {
+        color: "#fff !important",
+      },
+    },
+  }));
   const [title, setTitle] = useState("");
   const [titleAM, setTitleAM] = useState("");
 
   const [projectImages, setProjectImages] = useState([]);
-  
+
   const [totalFloorArea, setTotalFloorArea] = useState("");
   const [totalFloorAreaAM, setTotalFloorAreaAM] = useState("");
-  
-  
+
   const [locationAM, setLocationAM] = useState("");
   const [location, setLocation] = useState("");
-  
+
   const [designAndBuilt, setDesignAndBuilt] = useState("");
   const [designAndBuiltAM, setDesignAndBuiltAM] = useState("");
-  
+
   const [description, setDescription] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
 
   const [designTeam, setDesignTeam] = useState("");
   const [designTeamAM, setDesignTeamAM] = useState("");
 
-  let history = useHistory();
+  const [showErrToast, setShowErrToast] = useState(false);
+
   function addImage(e) {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
@@ -44,15 +56,21 @@ export default function AddInProgressProject({ pageInfo }) {
       "total-floor-area_hy": totalFloorAreaAM,
       "design-and-built": designAndBuilt,
       "design-and-built_hy": designAndBuiltAM,
-      "design-team":designTeamAM,
+      "design-team": designTeamAM,
       description,
-      description_hy: descriptionAM
+      description_hy: descriptionAM,
     };
-
-    addProject(data, pageInfo.type, pageInfo.category).then((data) => {
-      projectImages.length > 0 && addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
-      history.goBack();
-    });
+    addProject(data, pageInfo.type, pageInfo.category, setShowErrToast).then(
+      (data) => {
+        if (projectImages.length > 0) {
+          addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+          history.goBack();
+        }
+      }
+    );
+  }
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
   return (
     <div className="layout-content new-project-layout-content">
@@ -77,7 +95,7 @@ export default function AddInProgressProject({ pageInfo }) {
             ))}
           </div>
           <div className="new-project-inputs">
-          <input
+            <input
               type="text"
               placeholder="*title"
               value={title}
@@ -157,6 +175,15 @@ export default function AddInProgressProject({ pageInfo }) {
           </div>
         </div>
       </div>
+      <Snackbar
+        open={showErrToast}
+        autoHideDuration={3000}
+        onClose={() => setShowErrToast(false)}
+      >
+        <Alert severity="error">
+          Inputs must be must contain about project some information
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

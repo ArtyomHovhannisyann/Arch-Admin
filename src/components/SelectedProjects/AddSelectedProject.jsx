@@ -61,14 +61,12 @@ export default function AddSelectedProject({ pageInfo }) {
       description,
       description_hy: descriptionAM,
     };
-    if (projectImages.length > 0) {
-      addProject(data, pageInfo.type, pageInfo.category).then((data) => {
+    addProject(data, pageInfo.type, pageInfo.category,setShowErrToast).then((data) => {
+      if (projectImages.length > 0) {
         addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
         history.goBack();
-      });
-    } else {
-      setShowErrToast(true);
-    }
+      }
+    });
   }
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;

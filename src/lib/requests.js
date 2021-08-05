@@ -376,7 +376,7 @@ export async function getProjects(callBack, type, category) {
     console.error(err);
   }
 }
-export async function addProject(data, type, category) {
+export async function addProject(data, type, category,setErr) {
   const info = {
     url: ADD_PROJECT(type, category),
     method: "POST",
@@ -389,6 +389,7 @@ export async function addProject(data, type, category) {
     let res = await request(info);
     return res.data.data;
   } catch (err) {
+    setErr(true)
     console.error(err);
   }
 }
