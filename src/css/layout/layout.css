@@ -26,6 +26,7 @@
   padding-right: 4vw;
   height: 100vh;
   overflow: auto;
+  padding-bottom: 100px;
 }
 .layout-header {
   margin-bottom: 5vh;
