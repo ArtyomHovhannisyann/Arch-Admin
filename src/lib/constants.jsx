@@ -74,7 +74,7 @@ export const pages = [
     path: "/landscape-architecture/in-progress-projects",
   },
 ];
-export const generalUrl = "http://192.168.0.207:3008";
+export const generalUrl = "http://api.profalbyanarch.com";
 export const SEND_LOG_IN = `${generalUrl}/api/auth/login`;
 export const RESET_PASSWORD = `${generalUrl}/api/auth/start-reset-password`;
 export const RESET_PASSWORD_CODE = `${generalUrl}/api/auth/reset-password-send-code`;
