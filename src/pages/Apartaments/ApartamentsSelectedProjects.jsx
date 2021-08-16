@@ -6,7 +6,7 @@ import { getProjects } from "../../lib/requests";
 export default function ApartamentsSelectedProjects({ history }) {
   const [projects, setProjects] = useState([]);
   const pageInfo = {
-    pageHeader: "Appartaments Projects",
+    pageHeader: "Apartment Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info menu-left-bar",
     type:1,
@@ -15,7 +15,7 @@ export default function ApartamentsSelectedProjects({ history }) {
   };
   function addProject(e) {
     e.preventDefault();
-    history.push("/apartaments/add-selected-project");
+    history.push("/apartment/add-selected-project");
   }
   useEffect(() => {
     const token = document.cookie.split("=");

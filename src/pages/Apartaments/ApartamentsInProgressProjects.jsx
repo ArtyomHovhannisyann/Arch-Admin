@@ -6,7 +6,7 @@ import { getProjects } from "../../lib/requests";
 export default function ApartamentsInProgressProjects({ history }) {
   const [projects, setProjects] = useState([]);
   const pageInfo = {
-    pageHeader: "Appartaments Projects",
+    pageHeader: "Apartment Projects",
     pageName: "In progress",
     className: "studio-layout-info menu-left-bar",
     type:2,
@@ -15,7 +15,7 @@ export default function ApartamentsInProgressProjects({ history }) {
   };
   function addProject(e) {
     e.preventDefault();
-    history.push("/apartaments/add-in-progress-project");
+    history.push("/apartment/add-in-progress-project");
   }
   useEffect(() => {
     const token = document.cookie.split("=");

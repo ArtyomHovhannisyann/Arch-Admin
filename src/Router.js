@@ -96,22 +96,22 @@ export const routes = [
   },
   //Apartaments
   {
-    path: "/apartaments/selected-projects",
+    path: "/apartment/selected-projects",
     isExact: true,
     component: ApartamentsSelectedProjects,
   },
   {
-    path: "/apartaments/add-selected-project",
+    path: "/apartment/add-selected-project",
     isExact: true,
     component: AddApartamentsSelectedProjects,
   },
   {
-    path: "/apartaments/in-progress-projects",
+    path: "/apartment/in-progress-projects",
     isExact: true,
     component: ApartamentsInProgressProjects,
   },
   {
-    path: "/apartaments/add-in-progress-project",
+    path: "/apartment/add-in-progress-project",
     isExact: true,
     component: AddApartamentsInProgressProject,
   },
