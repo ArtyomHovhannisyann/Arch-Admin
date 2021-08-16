@@ -30,11 +30,11 @@ export const pages = [
   },
   {
     pageName: "Selected Projects",
-    path: "/apartaments/selected-projects",
+    path: "/apartment/selected-projects",
   },
   {
     pageName: "In progress",
-    path: "/apartaments/in-progress-projects",
+    path: "/apartment/in-progress-projects",
   },
   //Housing
   {
