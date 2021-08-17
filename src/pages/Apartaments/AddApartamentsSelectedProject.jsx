@@ -6,7 +6,7 @@ import AddSelectedProject from "../../components/SelectedProjects/AddSelectedPro
 export default function AddApartamentsProject({history}) {
   const [projectImages, setProjectImages] = useState([]);
   const pageInfo = {
-    pageHeader: "Apartment",
+    pageHeader: "Apartments",
     pageName: "Selected Projects",
     className: "new-project-layout-left-bar",
     type:1,

@@ -4,6 +4,7 @@ import { generalUrl } from "../../lib/constants";
 import Modal from "../Modal/Modal";
 
 export default function SelectedProjectItem({ data, delItem }) {
+  console.log(data);
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="selected-project-item">

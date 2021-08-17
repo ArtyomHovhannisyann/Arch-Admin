@@ -6,7 +6,7 @@ import { getProjects } from "../../lib/requests";
 export default function ApartamentsInProgressProjects({ history }) {
   const [projects, setProjects] = useState([]);
   const pageInfo = {
-    pageHeader: "Apartment Projects",
+    pageHeader: "Apartments Projects",
     pageName: "In progress",
     className: "studio-layout-info menu-left-bar",
     type:2,

@@ -6,7 +6,7 @@ import { getProjects } from "../../lib/requests";
 export default function ApartamentsSelectedProjects({ history }) {
   const [projects, setProjects] = useState([]);
   const pageInfo = {
-    pageHeader: "Apartment Projects",
+    pageHeader: "Apartments Projects",
     pageName: "Selected Projects",
     className: "studio-layout-info menu-left-bar",
     type:1,

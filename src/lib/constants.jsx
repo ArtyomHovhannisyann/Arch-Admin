@@ -26,7 +26,7 @@ export const pages = [
   },
   //Apartamets
   {
-    pageHeader: "Apartamets",
+    pageHeader: "Apartments",
   },
   {
     pageName: "Selected Projects",

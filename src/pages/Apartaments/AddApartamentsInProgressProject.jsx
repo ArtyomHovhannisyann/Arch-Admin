@@ -5,7 +5,7 @@ import AddInProgressProject from "../../components/InProgress/AddInProgressProje
 export default function AddApartamentsInProgressProject({ history }) {
   const [projectImages, setProjectImages] = useState([]);
   const pageInfo = {
-    pageHeader: "Apartment",
+    pageHeader: "Apartments",
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
     type: 2,
