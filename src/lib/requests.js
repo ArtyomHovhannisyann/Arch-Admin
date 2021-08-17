@@ -419,7 +419,7 @@ export async function addProjectPhoto(data, category) {
     },
   };
   try {
-    let res = await request(info);
+    await request(info);
   } catch (err) {
     console.error(err);
   }

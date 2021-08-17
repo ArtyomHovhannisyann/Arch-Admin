@@ -61,9 +61,13 @@ export default function AddSelectedProject({ pageInfo }) {
       description,
       description_hy: descriptionAM,
     };
-    addProject(data, pageInfo.type, pageInfo.category,setShowErrToast).then((data) => {
+    addProject(data, pageInfo.type, pageInfo.category,setShowErrToast)
+      .then( async (data) => {
       if (projectImages.length > 0) {
-        addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+        try {
+          await addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+        }
+        catch( err ) {}
         history.goBack();
       }
     });
