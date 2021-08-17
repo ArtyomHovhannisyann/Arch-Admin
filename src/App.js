@@ -10,16 +10,19 @@ import {
 import { routes } from "./Router";
 import { useEffect } from "react";
 function App() {
+  let isSaved = false
   useEffect(() => {
     if (localStorage.getItem("login") != "null" && localStorage.getItem("password") != "null") {
+      isSaved = true
       document.cookie = `token=${localStorage.getItem("token")}`
     }
   }, [])
+  console.log(isSaved);
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Redirect exact from="/" to="log-in" />
+          <Redirect exact from="/" to={isSaved ? "/homepage" : "/log-in"} />
           {routes.map((el, i) => {
             return (
               <Route
