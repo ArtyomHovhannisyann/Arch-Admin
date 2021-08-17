@@ -39,7 +39,7 @@ export default function TeamItem({
         <Portal node={document.body}>
           <Modal
             setOpenModal={setOpenModal}
-            type={"home page image"}
+            type={"team member"}
             delItem={delMember}
             currentId={currentId}
           />

@@ -22,7 +22,7 @@ export default function Modal({ type, setOpenModal, delItem,currentId}) {
           />
         </div>
         <div className="modal-content">
-          <p>Do you want to delete the {type}?</p>
+          <p>Do you want to delete {type}?</p>
           <button className="yes-btn" onClick={del}>
             Yes
           </button>
