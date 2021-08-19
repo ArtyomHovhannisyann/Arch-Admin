@@ -58,7 +58,6 @@ export function resetPassword(data, history) {
   };
   try {
     request(info).then((res) => {
-      console.log(res.data.data.reset_token);
       history.push({
         pathname: "/reset-password-code",
         state: res.data.data.reset_token,
@@ -85,7 +84,6 @@ export async function sendPassword(data, history) {
   }
 }
 export async function changePassword(data, history) {
-  console.log(data);
   const info = {
     url: RESET_PASSWORD_SEND_PASSWORD,
     method: "POST",
@@ -167,7 +165,6 @@ export async function setHomePageVideo(data) {
     },
   };
   try {
-    console.log(22);
     const res = await request(info);
   } catch (err) {
     console.error(err);
@@ -407,7 +404,7 @@ export async function delProject(id) {
     console.error(err);
   }
 }
-export async function addProjectPhoto(data, category) {
+export async function addProjectPhotos(data, category) {
   const formData = new FormData();
   formData.append("photo", data);
   const info = {

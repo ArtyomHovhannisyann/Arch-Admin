@@ -17,7 +17,6 @@ function App() {
       document.cookie = `token=${localStorage.getItem("token")}`
     }
   }, [])
-  console.log(isSaved);
   return (
     <div className="App">
       <Router>

@@ -11,23 +11,26 @@ export function request(axiosInfo) {
   });
 }
 
-export function dataURLtoFile(dataurl, filename) {
-  if (isBase64(dataurl)) {
-    let arr = dataurl.split(","),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
+export function dataURLtoFile(dataurl, filename = "file") {
+  let images = [];
+  for (let i = 0; i < dataurl.length; i++) {
+    if (isBase64(dataurl[i])) {
+      let arr = dataurl[i].split(","),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
 
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      images.push(new File([u8arr], filename, { type: mime }));
+    } else if (dataurl) {
+      dataurl = dataurl.split("/");
+      images.push(dataurl[i][dataurl.length - 1]);
     }
-
-    return new File([u8arr], filename, { type: mime });
-  } else if (dataurl) {
-    dataurl = dataurl.split("/");
-    return dataurl[dataurl.length - 1];
   }
+  return images;
 }
 
 function isBase64(str) {

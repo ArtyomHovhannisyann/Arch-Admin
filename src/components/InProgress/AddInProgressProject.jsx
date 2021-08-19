@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddButton from "../../components/Layout/AddButton";
 import { useHistory } from "react-router-dom";
-import { addProject, addProjectPhoto } from "../../lib/requests";
+import { addProject, addProjectPhotos } from "../../lib/requests";
 import { dataURLtoFile } from "../../lib/a-lib";
 import MuiAlert from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -61,9 +61,14 @@ export default function AddInProgressProject({ pageInfo }) {
       description_hy: descriptionAM,
     };
     addProject(data, pageInfo.type, pageInfo.category, setShowErrToast).then(
-      (data) => {
+      async (data) => {
         if (projectImages.length > 0) {
-          addProjectPhoto(dataURLtoFile(projectImages[0]), data.insertId);
+          try {
+            const images = dataURLtoFile(projectImages);
+            await Promise.all(
+              images.map((image) => addProjectPhotos(image, data.insertId))
+            );
+          } catch (err) {}
           history.goBack();
         }
       }
