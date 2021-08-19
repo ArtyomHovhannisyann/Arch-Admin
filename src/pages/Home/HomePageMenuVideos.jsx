@@ -28,7 +28,6 @@ export default function HomePageMenuVideos({ history }) {
     history.push(key);
   }
   function addVideo(e) {
-    console.log(e);
     const formData = new FormData();
     formData.append("path", e.target.files[0]);
     setHomePageVideo(formData).then(() => {
