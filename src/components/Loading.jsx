@@ -6,7 +6,7 @@ export default function Loading() {
   const [showModal, setShowModal] = useState(true);
   return (
     <div>
-      <Modal open={showModal} onClose={() => setShowModal(false)} style = {{display:"flex",justifyContent:"center",alignItems:"center"}}>
+      <Modal open={showModal} style = {{display:"flex",justifyContent:"center",alignItems:"center"}}>
         <CircularProgress style = {{width:"100px",height:"100px"}}/>
       </Modal>
     </div>

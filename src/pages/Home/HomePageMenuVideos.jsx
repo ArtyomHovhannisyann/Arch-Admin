@@ -7,6 +7,7 @@ import {
   getHomePageVideos,
   setHomePageVideo,
 } from "../../lib/requests";
+import Loading from "../../components/Loading";
 
 export default function HomePageMenuVideos({ history }) {
   const pageInfo = {
@@ -17,12 +18,14 @@ export default function HomePageMenuVideos({ history }) {
     active: 1,
   };
   const [contentItems, setContentItems] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   useEffect(() => {
     const token = document.cookie.split("=");
     if (!token[1]) {
       history.push("/log-in");
     }
-    getHomePageVideos(setContentItems);
+    setShowLoading(true);
+    getHomePageVideos(setContentItems).then(() => setShowLoading(false));
   }, []);
   function changePage(key) {
     history.push(key);
@@ -30,13 +33,15 @@ export default function HomePageMenuVideos({ history }) {
   function addVideo(e) {
     const formData = new FormData();
     formData.append("path", e.target.files[0]);
+    setShowLoading(true);
     setHomePageVideo(formData).then(() => {
-      getHomePageVideos(setContentItems);
+      getHomePageVideos(setContentItems).then(() => setShowLoading(false));
     });
   }
   function delVideo(id) {
+    setShowLoading(true);
     delHomePageVideo(id).then(() => {
-      getHomePageVideos(setContentItems);
+      getHomePageVideos(setContentItems).then(() => setShowLoading(false));
     });
   }
   return (
@@ -87,6 +92,7 @@ export default function HomePageMenuVideos({ history }) {
           </div>
         </div>
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

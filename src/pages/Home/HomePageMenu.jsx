@@ -8,6 +8,7 @@ import {
   getHomePagePictures,
   setHomePagePicture,
 } from "../../lib/requests";
+import Loading from "../../components/Loading";
 export default function HomePageMenu({ history }) {
   const pageInfo = {
     pageHeader: "Homepage",
@@ -17,12 +18,14 @@ export default function HomePageMenu({ history }) {
     active: 0,
   };
   const [contentItems, setContentItems] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   useEffect(() => {
     const token = document.cookie.split("=");
     if (!token[1]) {
       history.push("/log-in");
     }
-    getHomePagePictures(setContentItems);
+    setShowLoading(true);
+    getHomePagePictures(setContentItems).then(() => setShowLoading(false));
   }, []);
   function changePage(key) {
     history.push(key);
@@ -31,14 +34,16 @@ export default function HomePageMenu({ history }) {
     const formData = new FormData();
     formData.append("path", e.target.files[0]);
     if (e.target.files.length > 0) {
+      setShowLoading(true);
       setHomePagePicture(formData).then(() => {
-        getHomePagePictures(setContentItems);
+        getHomePagePictures(setContentItems).then(() => setShowLoading(false));
       });
     }
   }
   function delImage(id) {
     delHomePagePicture(id).then(() => {
-      getHomePagePictures(setContentItems);
+      setShowLoading(true);
+      getHomePagePictures(setContentItems).then(() => setShowLoading(false));
     });
   }
   return (
@@ -85,6 +90,7 @@ export default function HomePageMenu({ history }) {
           </div>
         </div>
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

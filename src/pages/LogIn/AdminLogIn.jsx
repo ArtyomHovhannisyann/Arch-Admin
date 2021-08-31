@@ -11,8 +11,6 @@ export default function AdminLogIn({ history }) {
   const [passwordMessage, setPasswordMessage] = useState("");
 
   useEffect(() => {
-    // localStorage.setItem("login", null);
-    // localStorage.setItem("password", null);
     if (!localStorage.getItem("login") && !localStorage.getItem("password")) {
       document.cookie = "token=";
     }else{
