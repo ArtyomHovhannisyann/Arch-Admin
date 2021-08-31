@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InProgressProjects from "../../components/InProgress/InProgressProjects";
 import MainLayout from "../../components/Layout/MainLayout";
+import Loading from "../../components/Loading";
 import {
   getLandscapeInProgressProjects,
   getProjects,
@@ -8,6 +9,7 @@ import {
 
 export default function LandscapeInProgressProjects({ history }) {
   const [projects, setProjects] = useState([]);
+  const [showLoading, setShowLoading] = useState([]);
   const pageInfo = {
     pageHeader: "Landscape Architecture",
     pageName: "In Progress Projects",
@@ -25,9 +27,11 @@ export default function LandscapeInProgressProjects({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
+    setShowLoading(true);
     getProjects(
       (data) => {
         setProjects(data);
+        setShowLoading(false);
       },
       2,
       4
@@ -42,6 +46,7 @@ export default function LandscapeInProgressProjects({ history }) {
           setProjects={setProjects}
         />
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

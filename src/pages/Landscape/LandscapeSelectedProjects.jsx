@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/Layout/MainLayout";
+import Loading from "../../components/Loading";
 import SelectedProjects from "../../components/SelectedProjects/SelectedProjects";
 import { getProjects } from "../../lib/requests";
 
 export default function LandscapeSelectedProjects({ history }) {
   const [projects, setProjects] = useState([]);
+  const [showLoading, setShowLoading] = useState([]);
   const pageInfo = {
     pageHeader: "Landscape Architecture",
     pageName: "Selected Projects",
@@ -22,9 +24,11 @@ export default function LandscapeSelectedProjects({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
+    setShowLoading(true)
     getProjects(
       (data) => {
         setProjects(data);
+        setShowLoading(false)
       },
       1,
       4
@@ -35,6 +39,7 @@ export default function LandscapeSelectedProjects({ history }) {
       <MainLayout pageInfo={pageInfo}>
         <SelectedProjects pageInfo={pageInfo} addProject={addProject} setProjects = {setProjects} />
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

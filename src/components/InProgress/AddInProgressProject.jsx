@@ -6,6 +6,7 @@ import { dataURLtoFile } from "../../lib/a-lib";
 import MuiAlert from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { makeStyles } from "@material-ui/core/styles";
+import Loading from "../Loading";
 
 export default function AddInProgressProject({ pageInfo }) {
   const history = useHistory();
@@ -38,15 +39,19 @@ export default function AddInProgressProject({ pageInfo }) {
   const [designTeamAM, setDesignTeamAM] = useState("");
 
   const [showErrToast, setShowErrToast] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   function addImage(e) {
+    setShowLoading(true)
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", (e) => {
       setProjectImages([...projectImages, e.target.result]);
     });
+    setShowLoading(false)
   }
   function sendData() {
+    setShowLoading(true)
     const data = {
       title,
       title_hy: titleAM,
@@ -69,6 +74,7 @@ export default function AddInProgressProject({ pageInfo }) {
             await Promise.all(
               images.map((image) => addProjectPhotos(image, data.insertId))
             );
+            setShowLoading(false)
           } catch (err) {}
           history.goBack();
         }
@@ -190,6 +196,7 @@ export default function AddInProgressProject({ pageInfo }) {
           Inputs must be must contain about project some information
         </Alert>
       </Snackbar>
+      {showLoading && <Loading />}
     </div>
   );
 }
