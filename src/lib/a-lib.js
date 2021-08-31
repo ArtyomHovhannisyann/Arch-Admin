@@ -26,7 +26,10 @@ export function dataURLtoFile(dataurl, filename = "file") {
       }
       images.push(new File([u8arr], filename, { type: mime }));
     } else if (dataurl) {
-      dataurl = dataurl.split("/");
+      //TODO
+      // if (typeof dataurl == String) {
+        dataurl = dataurl.split("/");
+      // }
       images.push(dataurl[i][dataurl.length - 1]);
     }
   }
