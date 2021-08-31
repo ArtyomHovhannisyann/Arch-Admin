@@ -6,20 +6,24 @@ import "../../css/layout/layout.css";
 import TeamItem from "../../components/Studio/TeamItem";
 import { delStudioTeamMember, getStudioMembers } from "../../lib/requests";
 import { generalUrl } from "../../lib/constants";
+import Loading from "../../components/Loading";
 
 export default function StudioMembers({ history }) {
   const [teamItems, setTeamItems] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   useEffect(() => {
     const token = document.cookie.split("=");
     if (!token[1]) {
       history.push("/log-in");
     }
+    setShowLoading(true)
     getStudioMembers((data) => {
       let dataWithGoodImageUrls = data.map((el) => {
         el.image = generalUrl + "/" + el.image;
         return el;
       });
       setTeamItems(dataWithGoodImageUrls);
+      setShowLoading(false)
     });
   }, []);
 
@@ -30,13 +34,12 @@ export default function StudioMembers({ history }) {
     active: 1,
   };
 
-
-
   function changePage(key) {
     history.push(key);
   }
 
   function addItem(e) {
+    setShowLoading(true)
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", (e) => {
@@ -49,10 +52,12 @@ export default function StudioMembers({ history }) {
           isExested: false,
         },
       ]);
+      setShowLoading(false)
     });
   }
 
   function delMember(id) {
+    setShowLoading(true)
     delStudioTeamMember(id).then(() => {
       getStudioMembers((data) => {
         let dataWithGoodImageUrls = data.map((el) => {
@@ -61,6 +66,7 @@ export default function StudioMembers({ history }) {
         });
         setTeamItems(dataWithGoodImageUrls);
       });
+      setShowLoading(false)
     });
   }
 
@@ -113,6 +119,7 @@ export default function StudioMembers({ history }) {
           </div>
         </div>
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

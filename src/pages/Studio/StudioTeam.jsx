@@ -8,6 +8,7 @@ import Modal from "../../components/Modal/Modal";
 import { getStudioTeam, setStudioTeam } from "../../lib/requests";
 import { generalUrl } from "../../lib/constants";
 import { dataURLtoFile } from "../../lib/a-lib";
+import Loading from "../../components/Loading";
 
 export default function StudioTeam({ history }) {
   const [openModal, setOpenModal] = useState(false);
@@ -17,15 +18,18 @@ export default function StudioTeam({ history }) {
   const [descriptionValue, setDescriptionValue] = useState("");
   const [descriptionAMValue, setDescriptionAMValue] = useState("");
   const [image, setImage] = useState("");
+  const [showLoading, setShowLoading] = useState(false);
 
 
   useEffect(() => {
+    setShowLoading(true)
     getStudioTeam((data) => {
       let dataWithGoodImageUrls = data.map((el) => {
         el.image = generalUrl + "/" + el.image;
         return el;
       });
       setTeamData(dataWithGoodImageUrls);
+      setShowLoading(false)
     });
   }, []);
 
@@ -55,6 +59,7 @@ export default function StudioTeam({ history }) {
   }
 
   function sendData() {
+    setShowLoading(true)
     const data = {
       image: dataURLtoFile(image, "image.jpg"),
       info: infoValue,
@@ -69,19 +74,23 @@ export default function StudioTeam({ history }) {
           return el;
         });
         setTeamData(dataWithGoodImageUrls);
+        setShowLoading(false)
       });
     });
   }
 
   function changeImage(e) {
+    setShowLoading(true)
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", (e) => {
       setImage(e.target.result);
     });
+    setShowLoading(false)
   }
 
   function delImage() {
+    setShowLoading(true)
     setImage("");
     const data = {
       image: image,
@@ -95,6 +104,7 @@ export default function StudioTeam({ history }) {
           return el;
         });
         setTeamData(dataWithGoodImageUrls);
+        setShowLoading(false)
       });
     });
   }
@@ -175,6 +185,7 @@ export default function StudioTeam({ history }) {
           </div>
         </div>
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }

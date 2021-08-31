@@ -7,6 +7,7 @@ import Modal from "../../components/Modal/Modal";
 import { getJobs, setJob } from "../../lib/requests";
 import { generalUrl } from "../../lib/constants";
 import { dataURLtoFile } from "../../lib/a-lib";
+import Loading from "../../components/Loading";
 
 export default function AddJob({ history }) {
   const [jobs, setJobs] = useState([]);
@@ -16,6 +17,7 @@ export default function AddJob({ history }) {
   const [description, setDescription] = useState("");
   const [titleAM, setTitleAM] = useState("");
   const [descriptionAM, setDescriptionAM] = useState("");
+  const [showLoading, setShowLoading] = useState(false);
 
   const pageInfo = {
     pageHeader: "Job",
@@ -26,13 +28,15 @@ export default function AddJob({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
+    setShowLoading(true);
     getJobs((data) => {
       setJobs(data);
+      setShowLoading(false);
     });
   }, []);
 
   useEffect(() => {
-    if ( jobs.length > 0 ) {
+    if (jobs.length > 0) {
       setTitle(jobs[0].title);
       setTitleAM(jobs[0].title_hy);
       setDescription(jobs[0].description);
@@ -42,6 +46,7 @@ export default function AddJob({ history }) {
   }, [jobs]);
 
   function sendJob() {
+    setShowLoading(true);
     const data = {
       title: title,
       title_hy: titleAM,
@@ -49,23 +54,31 @@ export default function AddJob({ history }) {
       description_hy: descriptionAM,
       image: dataURLtoFile(image),
     };
-    setJob(data);
+    setJob(data).then(() => setShowLoading(false));
   }
   function addImage(e) {
+    setShowLoading(true);
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", (e) => {
       setImage(e.target.result);
     });
+    setShowLoading(false);
   }
   function delImage() {
-    setImage("")
+    setShowLoading(true);
+    setImage("");
+    setShowLoading(false);
   }
   return (
     <div className="add-job">
       {openModal && (
         <Portal node={document.body}>
-          <Modal setOpenModal={setOpenModal} type={"job image"} delItem = {delImage}/>
+          <Modal
+            setOpenModal={setOpenModal}
+            type={"job image"}
+            delItem={delImage}
+          />
         </Portal>
       )}
       <MainLayout pageInfo={pageInfo}>
@@ -129,6 +142,7 @@ export default function AddJob({ history }) {
           </div>
         </div>
       </MainLayout>
+      {showLoading && <Loading />}
     </div>
   );
 }
