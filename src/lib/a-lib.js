@@ -11,29 +11,35 @@ export function request(axiosInfo) {
   });
 }
 
-export function dataURLtoFile(dataurl, filename = "file") {
-  let images = [];
-  for (let i = 0; i < dataurl.length; i++) {
-    if (isBase64(dataurl[i])) {
-      let arr = dataurl[i].split(","),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]),
-        n = bstr.length,
-        u8arr = new Uint8Array(n);
+function fileFromBase64(base64, filename = "file") {
+  if (!isBase64(base64)) throw new Error(`first param must be base 64`);
+  let arr = base64.split(","),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
 
-      while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
-      }
-      images.push(new File([u8arr], filename, { type: mime }));
-    } else if (dataurl) {
-      //TODO
-      // if (typeof dataurl == String) {
-        dataurl = dataurl.split("/");
-      // }
-      images.push(dataurl[i][dataurl.length - 1]);
-    }
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
   }
-  return images;
+
+  return new File([u8arr], filename, { type: mime });
+}
+
+export function dataURLtoFile(dataurl, filename = "file") {
+  if (dataurl instanceof Array) {
+    let images = [];
+    for (let i = 0; i < dataurl.length; i++) {
+      if (isBase64(dataurl[i])) {
+        images.push(fileFromBase64(dataurl[i], filename));
+      }
+    }
+    return images;
+  } else if (typeof dataurl === "string") {
+    return fileFromBase64(dataurl, filename);
+  } else {
+    return undefined;
+  }
 }
 
 function isBase64(str) {
