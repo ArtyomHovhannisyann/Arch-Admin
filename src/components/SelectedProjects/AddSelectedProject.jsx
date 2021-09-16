@@ -72,9 +72,10 @@ export default function AddSelectedProject({ pageInfo }) {
         if (projectImages.length > 0) {
           try {
             const images = dataURLtoFile(projectImages);
-            await Promise.all(
-              images.map((image) => addProjectPhotos(image, data.insertId))
-            );
+            for ( let i = 0; i < images.length; i++ ) {
+              const image = images[i];
+              await addProjectPhotos(image, data.insertId);
+            }
             setShowLoading(false)
           } catch (err) {}
           history.goBack();

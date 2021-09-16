@@ -42,16 +42,16 @@ export default function AddInProgressProject({ pageInfo }) {
   const [showLoading, setShowLoading] = useState(false);
 
   function addImage(e) {
-    setShowLoading(true)
+    setShowLoading(true);
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", (e) => {
       setProjectImages([...projectImages, e.target.result]);
     });
-    setShowLoading(false)
+    setShowLoading(false);
   }
   function sendData() {
-    setShowLoading(true)
+    setShowLoading(true);
     const data = {
       title,
       title_hy: titleAM,
@@ -71,10 +71,11 @@ export default function AddInProgressProject({ pageInfo }) {
         if (projectImages.length > 0) {
           try {
             const images = dataURLtoFile(projectImages);
-            await Promise.all(
-              images.map((image) => addProjectPhotos(image, data.insertId))
-            );
-            setShowLoading(false)
+            for (let i = 0; i < images.length; i++) {
+              const image = images[i];
+              await addProjectPhotos(image, data.insertId);
+            }
+            setShowLoading(false);
           } catch (err) {}
           history.goBack();
         }
