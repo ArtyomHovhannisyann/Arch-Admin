@@ -11,8 +11,8 @@ export default function ApartamentsInProgressProjects({ history }) {
     pageHeader: "Apartments Projects",
     pageName: "In progress",
     className: "studio-layout-info menu-left-bar",
-    type:2,
-    category:1,
+    type:1,
+    category:2,
     data: projects,
   };
   function addProject(e) {

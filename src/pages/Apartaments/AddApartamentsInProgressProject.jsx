@@ -8,8 +8,8 @@ export default function AddApartamentsInProgressProject({ history }) {
     pageHeader: "Apartments",
     pageName: "In Progress",
     className: "new-project-layout-left-bar",
-    type: 2,
-    category: 1,
+    type: 1,
+    category: 2,
   };
   useEffect(() => {
     const token = document.cookie.split("=");
