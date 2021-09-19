@@ -11,8 +11,8 @@ export default function ApartamentsInProgressProjects({ history }) {
     pageHeader: "Apartments Projects",
     pageName: "In progress",
     className: "studio-layout-info menu-left-bar",
-    type:1,
-    category:2,
+    type: 1,
+    category: 2,
     data: projects,
   };
   function addProject(e) {
@@ -24,20 +24,24 @@ export default function ApartamentsInProgressProjects({ history }) {
     if (!token[1]) {
       history.push("/log-in");
     }
-    setShowLoading(true)
+    setShowLoading(true);
     getProjects(
       (data) => {
         setProjects(data);
-        setShowLoading(false)
+        setShowLoading(false);
       },
-      2,
-      1
+      1,
+      2
     );
   }, []);
   return (
     <div className="residential-in-progress-projects projects">
       <MainLayout pageInfo={pageInfo}>
-        <InProgressProjects pageInfo={pageInfo} addProject={addProject} setProjects = {setProjects}/>
+        <InProgressProjects
+          pageInfo={pageInfo}
+          addProject={addProject}
+          setProjects={setProjects}
+        />
       </MainLayout>
       {showLoading && <Loading />}
     </div>
