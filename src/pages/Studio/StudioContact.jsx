@@ -42,12 +42,13 @@ export default function StudioContact({ history }) {
   }, [contacts]);
   function sendContact() {
     setShowLoading(true)
+    const isImageFromApi = image.includes(generalUrl)
     const data = {
       address: address,
       "phone-number": phoneNumber,
       email: emailAddress,
-      image: dataURLtoFile(image),
     };
+    if(!isImageFromApi)data.image = dataURLtoFile(image)
     setContact(data).then(()=>setShowLoading(false));
   }
   function addImage(e) {
