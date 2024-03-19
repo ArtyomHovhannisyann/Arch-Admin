@@ -47,13 +47,14 @@ export default function AddJob({ history }) {
 
   function sendJob() {
     setShowLoading(true);
+    const isImageFromApi = image.includes(generalUrl)
     const data = {
       title: title,
       title_hy: titleAM,
       description: description,
       description_hy: descriptionAM,
-      image: dataURLtoFile(image),
     };
+    if(!isImageFromApi)data.image = dataURLtoFile(image)
     setJob(data).then(() => setShowLoading(false));
   }
   function addImage(e) {
